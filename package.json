@@ -1,23 +1,23 @@
 {
-  "name": "eslint-plugin-cypress",
+  "name": "eslint-config-cypress",
   "version": "1.1.0",
-  "description": "An ESLint plugin for projects that use Cypress",
+  "description": "An ESLint config for projects that use Cypress",
   "main": "index.js",
   "author": "Chris Breiding (chris@cypress.io)",
   "license": "MIT",
   "keywords": [
     "eslint",
-    "eslintplugin",
+    "eslintconfig",
     "cypress"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cypress-io/eslint-plugin-cypress.git"
+    "url": "git+https://github.com/cypress-io/eslint-config-cypress.git"
   },
   "bugs": {
-    "url": "https://github.com/cypress-io/eslint-plugin-cypress/issues"
+    "url": "https://github.com/cypress-io/eslint-config-cypress/issues"
   },
-  "homepage": "https://github.com/cypress-io/eslint-plugin-cypress#readme",
+  "homepage": "https://github.com/cypress-io/eslint-config-cypress#readme",
   "peerDependencies": {
     "eslint": ">= 3.2.1"
   }
