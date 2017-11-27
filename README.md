@@ -1,8 +1,8 @@
 # Cypress ESLint Plugin
 
-An ESLint plugin for projects using [Cypress](https://cypress.io) for tests.
+An ESLint plugin for your [Cypress](https://cypress.io) tests.
 
-Specifies globals for Cypress (`cy` & `Cypress`) as well as browser and mocha globals.
+Specifies globals for Cypress `cy`, `Cypress`, browser and mocha globals.
 
 ## Installation
 
