@@ -20,5 +20,8 @@
   "homepage": "https://github.com/cypress-io/eslint-plugin-cypress#readme",
   "peerDependencies": {
     "eslint": ">= 3.2.1"
+  },
+  "dependencies": {
+    "globals": "^11.0.1"
   }
 }

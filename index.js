@@ -1,22 +1,17 @@
-module.exports = {
-  env: {
-    browser: true,
-  },
-  parserOptions: {
-    ecmaVersion: 6,
-  },
-  globals: {
-    cy: true,
-    Cypress: true,
+const globals = require('globals')
 
-    describe: true,
-    context: true,
-    it: true,
-    before: true,
-    beforeEach: true,
-    after: true,
-    afterEach: true,
-    expect: true,
-    assert: true,
-  }
+module.exports = {
+  environments: {
+    globals: {
+      globals: Object.assign(globals.browser, globals.mocha, {
+        cy: false,
+        Cypress: false,
+        expect: false,
+        assert: false,
+      }),
+      parserOptions: {
+        ecmaVersion: 2017,
+      },
+    },
+  },
 }

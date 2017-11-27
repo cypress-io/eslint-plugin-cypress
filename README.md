@@ -1,8 +1,8 @@
 # Cypress ESLint Plugin
 
-An ESLint plugin for projects that use Cypress.
+An ESLint plugin for projects using [Cypress](https://cypress.io) for tests.
 
-Specifies the environment and globals (`cy`, `Cypress`, etc) for use when writing tests using [Cypress](https://cypress.io).
+Specifies globals for Cypress (`cy` & `Cypress`) as well as browser and mocha globals.
 
 ## Installation
 
@@ -12,12 +12,17 @@ npm install eslint-plugin-cypress --save-dev
 
 ## Usage
 
-Add `cypress` as a plugin in your `.eslintrc`:
+Add an `.eslintrc` file to your `cypress` directory with the following:
 
 ```json
+// my-project/cypress/.eslintrc
+
 {
   "plugins": [
     "cypress"
-  ]
+  ],
+  "env": {
+    "cypress/globals": true
+  }
 }
 ```
