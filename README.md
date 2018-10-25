@@ -21,11 +21,31 @@ Add an `.eslintrc.json` file to your `cypress` directory with the following:
   "plugins": [
     "cypress"
   ],
+  "extends": [
+    "plugin:cypress/recommended"
+  ],
   "env": {
     "cypress/globals": true
   }
 }
 ```
+
+## Rules
+
+Rules are grouped by category to help you understand their purpose.
+
+Rules with a check mark (✅) are enabled by default while using
+the `plugin:cypress/recommended` config.
+
+The --fix option on the command line automatically fixes problems reported by
+rules which have a wrench (🔧) below.
+
+
+### Possible Errors
+
+|    | Rule ID | Description |
+|:---|:--------|:------------|
+| ✅ | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md) | Prevent assigning return values of cy calls |
 
 ## Chai and `no-unused-expressions`
 
@@ -49,3 +69,15 @@ In your `.eslintrc.json`:
   }
 }
 ```
+
+## Contribution Guide
+
+To add a new rule:
+  * Fork and clone this repository
+  * Generate a new rule (a [yeoman generator](https://github.com/eslint/generator-eslint) is available)
+  * Run `yarn start` or `npm start`
+  * Write test scenarios then implement logic
+  * Describe the rule in the generated `docs` file
+  * Make sure all tests are passing
+  * Add the rule to this README
+  * Create a PR
