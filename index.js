@@ -3,10 +3,10 @@ const globals = require('globals')
 module.exports = {
   rules: {
     'no-assigning-return-values': require('./lib/rules/no-assigning-return-values'),
-    'no-unnecessary-waiting': require('./lib/rules/no-unnecessary-waiting')
+    'no-unnecessary-waiting': require('./lib/rules/no-unnecessary-waiting'),
   },
   configs: {
-    recommended: require('./lib/config/recommended')
+    recommended: require('./lib/config/recommended'),
   },
   environments: {
     globals: {
