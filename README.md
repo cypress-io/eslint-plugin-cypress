@@ -46,6 +46,7 @@ rules which have a wrench (🔧) below.
 |    | Rule ID | Description |
 |:---|:--------|:------------|
 | ✅ | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md) | Prevent assigning return values of cy calls |
+| ✅ | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md) | Prevent waiting for arbitrary time periods |
 
 ## Chai and `no-unused-expressions`
 
