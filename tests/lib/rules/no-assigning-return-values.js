@@ -14,6 +14,7 @@ ruleTester.run('no-assigning-return-values', rule, {
     { code: 'let foo = true;', parserOptions },
     { code: 'const foo = true;', parserOptions },
     { code: 'const foo = bar();', parserOptions },
+    { code: 'const foo = bar().baz();', parserOptions },
     { code: 'cy.get("foo");', parserOptions },
     { code: 'cy.contains("foo").click();', parserOptions }
   ],
