@@ -1,12 +1,12 @@
-"use strict";
+'use strict'
 
-const rule = require('../../../lib/rules/no-assigning-return-values');
-const RuleTester = require('eslint').RuleTester;
+const rule = require('../../../lib/rules/no-assigning-return-values')
+const RuleTester = require('eslint').RuleTester
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester()
 
-const errors = [{ messageId: 'unexpected' }];
-const parserOptions = { ecmaVersion: 6 };
+const errors = [{ messageId: 'unexpected' }]
+const parserOptions = { ecmaVersion: 6 }
 
 ruleTester.run('no-assigning-return-values', rule, {
   valid: [
@@ -16,7 +16,7 @@ ruleTester.run('no-assigning-return-values', rule, {
     { code: 'const foo = bar();', parserOptions },
     { code: 'const foo = bar().baz();', parserOptions },
     { code: 'cy.get("foo");', parserOptions },
-    { code: 'cy.contains("foo").click();', parserOptions }
+    { code: 'cy.contains("foo").click();', parserOptions },
   ],
 
   invalid: [
@@ -28,6 +28,6 @@ ruleTester.run('no-assigning-return-values', rule, {
     { code: 'let a = cy.window()', parserOptions, errors },
     { code: 'let a = cy.wait("@something")', parserOptions, errors },
 
-    { code: 'let a = cy.contains("foo").click()', parserOptions, errors }
-  ]
-});
+    { code: 'let a = cy.contains("foo").click()', parserOptions, errors },
+  ],
+})
