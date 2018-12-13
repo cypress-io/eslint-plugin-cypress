@@ -35,7 +35,6 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 // my-project/cypress/.eslintrc.json
 
 {
-  // ... other config ...
   "extends": [
     "plugin:cypress/recommended"
   ]
