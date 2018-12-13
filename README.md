@@ -21,9 +21,6 @@ Add an `.eslintrc.json` file to your `cypress` directory with the following:
   "plugins": [
     "cypress"
   ],
-  "extends": [
-    "plugin:cypress/recommended"
-  ],
   "env": {
     "cypress/globals": true
   }
@@ -32,16 +29,22 @@ Add an `.eslintrc.json` file to your `cypress` directory with the following:
 
 ## Rules
 
-Rules are grouped by category to help you understand their purpose.
+These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices). Use them by adding the following to your eslint config:
 
-Rules with a check mark (✅) are enabled by default while using
-the `plugin:cypress/recommended` config.
+```json
+// my-project/cypress/.eslintrc.json
 
-The --fix option on the command line automatically fixes problems reported by
-rules which have a wrench (🔧) below.
+{
+  // ... other config ...
+  "extends": [
+    "plugin:cypress/recommended"
+  ]
+}
+```
 
+Rules with a check mark (✅) are enabled by default while using the `plugin:cypress/recommended` config.
 
-### Possible Errors
+**NOTE**: These rules currently require eslint 5.0 or greater. If you would like support added for eslint 4.x, please 👍  [this issue](https://github.com/cypress-io/eslint-plugin-cypress/issues/14).
 
 |    | Rule ID | Description |
 |:---|:--------|:------------|

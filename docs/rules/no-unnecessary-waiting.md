@@ -1,3 +1,3 @@
 ## No Assigning Return Values
 
-See [the Cypress Best Practices guide](https://docs.cypress.io/guides/references/best-practices.html#Unnecessary-Waiting).
+See [the Cypress Best Practices guide](https://on.cypress.io/best-practices#Unnecessary-Waiting).
