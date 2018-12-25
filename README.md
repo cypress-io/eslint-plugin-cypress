@@ -49,6 +49,7 @@ Rules with a check mark (✅) are enabled by default while using the `plugin:cyp
 |:---|:--------|:------------|
 | ✅ | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md) | Prevent assigning return values of cy calls |
 | ✅ | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md) | Prevent waiting for arbitrary time periods |
+| | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion |
 
 ## Chai and `no-unused-expressions`
 

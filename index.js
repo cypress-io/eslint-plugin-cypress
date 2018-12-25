@@ -4,6 +4,7 @@ module.exports = {
   rules: {
     'no-assigning-return-values': require('./lib/rules/no-assigning-return-values'),
     'no-unnecessary-waiting': require('./lib/rules/no-unnecessary-waiting'),
+    'assertion-before-screenshot': require('./lib/rules/assertion-before-screenshot'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
