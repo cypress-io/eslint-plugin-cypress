@@ -16,6 +16,7 @@ module.exports = {
         Cypress: false,
         expect: false,
         assert: false,
+        chai: false,
       }),
       parserOptions: {
         ecmaVersion: 2017,
