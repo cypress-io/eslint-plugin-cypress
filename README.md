@@ -104,3 +104,5 @@ To add a new rule:
   * Make sure all tests are passing
   * Add the rule to this README
   * Create a PR
+
+Use the following commit message conventions: https://github.com/semantic-release/semantic-release#commit-message-format
