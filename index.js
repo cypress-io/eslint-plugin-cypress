@@ -19,7 +19,7 @@ module.exports = {
         chai: false,
       }),
       parserOptions: {
-        ecmaVersion: 2017,
+        ecmaVersion: 2019,
         sourceType: 'module',
       },
     },
