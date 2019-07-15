@@ -2,7 +2,7 @@
 
 An ESLint plugin for your [Cypress](https://cypress.io) tests.
 
-Specifies globals for Cypress `cy`, `Cypress`, browser and mocha globals.
+Note: If you installed ESLint globally then you must also install `eslint-plugin-cypress` globally.
 
 ## Installation
 
@@ -15,31 +15,50 @@ npm install eslint-plugin-cypress --save-dev
 Add an `.eslintrc.json` file to your `cypress` directory with the following:
 
 ```json
-// my-project/cypress/.eslintrc.json
-
 {
   "plugins": [
     "cypress"
-  ],
+  ]
+}
+```
+
+You can add rules:
+
+```json
+{
+  "rules": {
+    "no-assigning-return-values": "error",
+    "no-unnecessary-waiting": "error",
+    "assertion-before-screenshot": "warn",
+  }
+}
+```
+
+You can whitelist globals provided by Cypress:
+
+```json
+{
   "env": {
     "cypress/globals": true
   }
 }
 ```
 
-## Rules
+## Recommended configuration
 
-These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices). Use them by adding the following to your eslint config:
+Use the recommended configuration and you can forego configuring _plugins_, _rules_, and _env_ individually. See below for which rules are included.
 
 ```json
-// my-project/cypress/.eslintrc.json
-
 {
   "extends": [
     "plugin:cypress/recommended"
   ]
 }
 ```
+
+## Rules
+
+These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices).
 
 Rules with a check mark (✅) are enabled by default while using the `plugin:cypress/recommended` config.
 
