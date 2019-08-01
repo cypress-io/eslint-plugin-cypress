@@ -11,13 +11,13 @@ module.exports = {
   },
   environments: {
     globals: {
-      globals: Object.assign(globals.browser, globals.mocha, {
+      globals: Object.assign({
         cy: false,
         Cypress: false,
         expect: false,
         assert: false,
         chai: false,
-      }),
+      }, globals.browser, globals.mocha),
       parserOptions: {
         ecmaVersion: 2019,
         sourceType: 'module',
