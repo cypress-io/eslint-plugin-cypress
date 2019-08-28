@@ -27,9 +27,9 @@ You can add rules:
 ```json
 {
   "rules": {
-    "no-assigning-return-values": "error",
-    "no-unnecessary-waiting": "error",
-    "assertion-before-screenshot": "warn",
+    "cypress/no-assigning-return-values": "error",
+    "cypress/no-unnecessary-waiting": "error",
+    "cypress/assertion-before-screenshot": "warn",
   }
 }
 ```
