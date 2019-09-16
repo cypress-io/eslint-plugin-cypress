@@ -5,6 +5,7 @@ module.exports = {
     'no-assigning-return-values': require('./lib/rules/no-assigning-return-values'),
     'no-unnecessary-waiting': require('./lib/rules/no-unnecessary-waiting'),
     'assertion-before-screenshot': require('./lib/rules/assertion-before-screenshot'),
+    'no-dynamic-id-classes': require('./lib/rules/no-dynamic-id-classes'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
