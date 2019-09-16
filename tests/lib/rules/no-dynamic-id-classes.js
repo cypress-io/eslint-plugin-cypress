@@ -10,15 +10,16 @@ const parserOptions = { ecmaVersion: 6 }
 
 ruleTester.run('no-dynamic-id-classes', rule, {
   valid: [
-    { code: 'cy.get(["data-qa"])', parserOptions },
+    { code: 'cy.get("data-qa")', parserOptions },
+    { code: 'cy.get("button").click()', parserOptions },
     { code: 'cy.clock(5000)', parserOptions },
     { code: 'cy.scrollTo(0, 10)', parserOptions },
     { code: 'cy.tick(500)', parserOptions },
   ],
 
   invalid: [
-    { code: 'cy.get("data-qa")', parserOptions, errors },
-    { code: 'cy.get("button").click()', parserOptions, errors },
-    { code: 'cy.get(".btn.btn-large").click()', parserOptions, errors },
+    { code: 'cy.get(".btn-large").click()', parserOptions, errors },
+    { code: 'cy.get(".btn-.large").click()', parserOptions, errors },
+    { code: 'cy.get(".a").click()', parserOptions, errors },
   ],
 })
