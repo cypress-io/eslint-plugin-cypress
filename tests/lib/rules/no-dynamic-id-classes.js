@@ -20,6 +20,6 @@ ruleTester.run('no-dynamic-id-classes', rule, {
   invalid: [
     { code: 'cy.get(".btn-large").click()', parserOptions, errors },
     { code: 'cy.get(".btn-.large").click()', parserOptions, errors },
-    { code: 'cy.get(".a").click()', parserOptions, errors },
+    { code: 'cy.get(".a")', parserOptions, errors },
   ],
 })
