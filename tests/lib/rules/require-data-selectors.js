@@ -1,6 +1,6 @@
 'use strict'
 
-const rule = require('../../../lib/rules/no-dynamic-id-classes')
+const rule = require('../../../lib/rules/require-data-selectors')
 const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester()
