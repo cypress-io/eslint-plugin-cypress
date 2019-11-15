@@ -8,7 +8,7 @@ const ruleTester = new RuleTester()
 const errors = [{ messageId: 'unexpected' }]
 const parserOptions = { ecmaVersion: 6 }
 
-ruleTester.run('no-dynamic-id-classes', rule, {
+ruleTester.run('require-data-selectors', rule, {
   valid: [
     { code: 'cy.get(\'[data-cy=submit]\').click()', parserOptions },
     { code: 'cy.get(\'[data-QA=submit]\')', parserOptions },
