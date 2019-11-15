@@ -3,6 +3,7 @@ const globals = require('globals')
 module.exports = {
   rules: {
     'no-assigning-return-values': require('./lib/rules/no-assigning-return-values'),
+    'no-arrow-functions-for-hooks': require('./lib/rules/no-arrow-functions-for-hooks'),
     'no-unnecessary-waiting': require('./lib/rules/no-unnecessary-waiting'),
     'assertion-before-screenshot': require('./lib/rules/assertion-before-screenshot'),
     'require-data-selectors': require('./lib/rules/require-data-selectors'),
