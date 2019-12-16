@@ -20,6 +20,10 @@ ruleTester.run('no-unnecessary-waiting', rule, {
     { code: 'cy.tick(500)', parserOptions },
 
     { code: 'const someRequest="@someRequest"; cy.wait(someRequest)', parserOptions, errors },
+    { code: 'function customWait (alias = "@someRequest") { cy.wait(alias) }', parserOptions, errors },
+    { code: 'const customWait = (alias = "@someRequest") => { cy.wait(alias) }', parserOptions, errors },
+    { code: 'function customWait (ms) { cy.wait(ms) }', parserOptions, errors },
+    { code: 'const customWait = (ms) => { cy.wait(ms) }', parserOptions, errors },
   ],
 
   invalid: [
@@ -27,5 +31,7 @@ ruleTester.run('no-unnecessary-waiting', rule, {
     { code: 'cy.wait(100)', parserOptions, errors },
     { code: 'cy.wait(5000)', parserOptions, errors },
     { code: 'const someNumber=500; cy.wait(someNumber)', parserOptions, errors },
+    { code: 'function customWait (ms = 1) { cy.wait(ms) }', parserOptions, errors },
+    { code: 'const customWait = (ms = 1) => { cy.wait(ms) }', parserOptions, errors },
   ],
 })
