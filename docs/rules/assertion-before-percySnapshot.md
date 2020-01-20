@@ -1,10 +1,10 @@
 ## Assertion Before percySnapshot
 
-If you take percySnapshots without assertions then you may get different percySnapshots depending on timing.
+If you capture [Percy Snapshots](https://docs.percy.io/docs/cypress) without assertions then you may get different snapshots depending on timing.
 
-For example, if clicking a button makes some network calls and upon success, renders something, then the percySnapshot may sometimes have the new render and sometimes not.
+For example, if clicking a button makes some network calls and upon success, renders something, then the snapshot may sometimes have the new render and sometimes not.
 
-This rule checks there is an assertion making sure your application state is correct before doing a percySnapshot. This makes sure the result of the percySnapshot will be consistent.
+This rule checks there is an assertion making sure your application state is correct before taking a snapshot. This makes sure the result of the snapshot will be consistent.
 
 Invalid:
 
