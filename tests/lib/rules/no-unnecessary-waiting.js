@@ -10,6 +10,8 @@ const parserOptions = { ecmaVersion: 6 }
 
 ruleTester.run('no-unnecessary-waiting', rule, {
   valid: [
+    { code: 'foo.wait(10)', parserOptions },
+
     { code: 'cy.wait("@someRequest")', parserOptions },
     { code: 'cy.wait("@someRequest", { log: false })', parserOptions },
     { code: 'cy.wait("@someRequest").then((xhr) => xhr)', parserOptions },
@@ -33,5 +35,9 @@ ruleTester.run('no-unnecessary-waiting', rule, {
     { code: 'const someNumber=500; cy.wait(someNumber)', parserOptions, errors },
     { code: 'function customWait (ms = 1) { cy.wait(ms) }', parserOptions, errors },
     { code: 'const customWait = (ms = 1) => { cy.wait(ms) }', parserOptions, errors },
+
+    { code: 'cy.get(".some-element").wait(10)', parserOptions, errors },
+    { code: 'cy.get(".some-element").contains("foo").wait(10)', parserOptions, errors },
+    { code: 'const customWait = (ms = 1) => { cy.get(".some-element").wait(ms) }', parserOptions, errors },
   ],
 })
