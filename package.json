@@ -37,7 +37,7 @@
     "precommit": "npm run lint",
     "lint": "eslint *.js",
     "semantic-release": "semantic-release",
-    "start": "yarn run test:watch",
+    "start": "yarn run test-watch",
     "test": "jest",
     "test-watch": "jest --watchAll"
   },
