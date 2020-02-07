@@ -64,11 +64,12 @@ Rules with a check mark (✅) are enabled by default while using the `plugin:cyp
 
 **NOTE**: These rules currently require eslint 5.0 or greater. If you would like support added for eslint 4.x, please 👍  [this issue](https://github.com/cypress-io/eslint-plugin-cypress/issues/14).
 
-|    | Rule ID | Description |
-|:---|:--------|:------------|
-| ✅ | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md) | Prevent assigning return values of cy calls |
-| ✅ | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md) | Prevent waiting for arbitrary time periods |
-| | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion |
+|     | Rule ID                                                                    | Description                                                     |
+| :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |
+| ✅  | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)   | Prevent assigning return values of cy calls                     |
+| ✅  | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)           | Prevent waiting for arbitrary time periods                      |
+|     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
+|     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
 
 ## Chai and `no-unused-expressions`
 
