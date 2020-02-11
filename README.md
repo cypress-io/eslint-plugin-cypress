@@ -29,7 +29,7 @@ You can add rules:
   "rules": {
     "cypress/no-assigning-return-values": "error",
     "cypress/no-unnecessary-waiting": "error",
-    "cypress/assertion-before-screenshot": "warn",
+    "cypress/assertion-before-screenshot": "warn"
   }
 }
 ```
