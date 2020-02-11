@@ -1,6 +1,6 @@
 # Cypress ESLint Plugin [![CircleCI](https://circleci.com/gh/cypress-io/eslint-plugin-cypress/tree/master.svg?style=svg)](https://circleci.com/gh/cypress-io/eslint-plugin-cypress/tree/master)
 
-An ESLint plugin for your [Cypress](https://cypress.io) tests.
+An [ESLint](https://eslint.org) plugin for your [Cypress](https://cypress.io) tests.
 
 Note: If you installed ESLint globally then you must also install `eslint-plugin-cypress` globally.
 
