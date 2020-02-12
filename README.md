@@ -29,7 +29,8 @@ You can add rules:
   "rules": {
     "cypress/no-assigning-return-values": "error",
     "cypress/no-unnecessary-waiting": "error",
-    "cypress/assertion-before-screenshot": "warn"
+    "cypress/assertion-before-screenshot": "warn",
+    "cypress/no-force-true": "warn"
   }
 }
 ```
@@ -70,6 +71,7 @@ Rules with a check mark (✅) are enabled by default while using the `plugin:cyp
 | ✅  | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)           | Prevent waiting for arbitrary time periods                      |
 |     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
 |     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
+|     | [no-force-true](./docs/rules/no-force-true.md)                             | Disallow using of &#39;force: true&#39; option                  |
 
 ## Chai and `no-unused-expressions`
 
