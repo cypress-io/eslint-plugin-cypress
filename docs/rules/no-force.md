@@ -1,13 +1,14 @@
-# disallow using of &#39;force: true&#39; option (no-force-true)
+# disallow using of 'force: true' option (no-force)
 
-Using force:true on inputs appears to be confusing rather than helpful.
+Using `force: true` on inputs appears to be confusing rather than helpful.
 It usually silences the actual problem instead of providing a way to overcome it.
 See [Cypress Core Concepts](https://docs.cypress.io/guides/core-concepts/interacting-with-elements.html#Forcing).
 
+If enabling this rule, it's recommended to set the severity to `warn`.
 
 ## Rule Details
 
-This rule aims to disallow using of the `force` option on [`.click()`](https://on.cypress.io/click),
+This rule aims to disallow using of the `force` option on:[`.click()`](https://on.cypress.io/click),
 [`.dblclick()`](https://on.cypress.io/dblclick), [`.type()`](https://on.cypress.io/type),
 [`.rightclick()`](https://on.cypress.io/rightclick), [`.select()`](https://on.cypress.io/select),
 [`.focus()`](https://on.cypress.io/focus), [`.check()`](https://on.cypress.io/check),
@@ -47,4 +48,4 @@ cy.get('input').focus()
 
 ## When Not To Use It
 
-If you really need to use.
+If you don't mind using `{ force: true }` with action commands, then turn this rule off.

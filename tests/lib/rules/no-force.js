@@ -4,7 +4,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require('../../../lib/rules/no-force-true')
+const rule = require('../../../lib/rules/no-force')
 
 const RuleTester = require('eslint').RuleTester
 
@@ -17,7 +17,7 @@ const parserOptions = { ecmaVersion: 6 }
 
 let ruleTester = new RuleTester()
 
-ruleTester.run('no-force-true', rule, {
+ruleTester.run('no-force', rule, {
 
   valid: [
     { code: `cy.get('button').click()`, parserOptions },
