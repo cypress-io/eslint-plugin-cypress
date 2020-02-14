@@ -6,6 +6,7 @@ module.exports = {
     'no-unnecessary-waiting': require('./lib/rules/no-unnecessary-waiting'),
     'assertion-before-screenshot': require('./lib/rules/assertion-before-screenshot'),
     'require-data-selectors': require('./lib/rules/require-data-selectors'),
+    'no-force': require('./lib/rules/no-force'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
