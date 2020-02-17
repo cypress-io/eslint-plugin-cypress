@@ -8,14 +8,14 @@ This rule checks there is an assertion making sure your application state is cor
 
 Invalid:
 
-```
+```js
 cy.visit('myUrl');
 cy.screenshot();
 ```
 
 Valid:
 
-```
+```js
 cy.visit('myUrl');
 cy.get('[data-test-id="my-element"]').should('be.visible');
 cy.screenshot();
