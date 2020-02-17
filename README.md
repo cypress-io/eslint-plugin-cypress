@@ -96,6 +96,14 @@ In your `.eslintrc.json`:
 }
 ```
 
+Or you can simply add its `recommended` config:
+
+```json
+{
+  "extends": ["plugin:chai-friendly/recommended"]
+}
+```
+
 ## Contribution Guide
 
 To add a new rule:
