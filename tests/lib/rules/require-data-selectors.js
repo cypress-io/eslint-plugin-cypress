@@ -15,6 +15,7 @@ ruleTester.run('require-data-selectors', rule, {
     { code: 'cy.clock(5000)', parserOptions },
     { code: 'cy.scrollTo(0, 10)', parserOptions },
     { code: 'cy.tick(500)', parserOptions },
+    { code: 'cy.get(\`[data-cy=${1}]\`)', parserOptions },
   ],
 
   invalid: [
@@ -23,5 +24,6 @@ ruleTester.run('require-data-selectors', rule, {
     { code: 'cy.get(".btn-large").click()', parserOptions, errors },
     { code: 'cy.get(".btn-.large").click()', parserOptions, errors },
     { code: 'cy.get(".a")', parserOptions, errors },
+    { code: 'cy.get(\`[daedta-cy=${1}]\`)', parserOptions, errors },
   ],
 })
