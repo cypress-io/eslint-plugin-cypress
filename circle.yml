@@ -13,7 +13,7 @@ workflows:
 jobs:
   install:
     docker:
-      - imageL circleci/node:8
+      - image: circleci/node:8
 
     steps:
       - checkout
