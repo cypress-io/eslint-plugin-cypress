@@ -39,6 +39,8 @@
     "semantic-release": "semantic-release",
     "start": "yarn run test-watch",
     "test": "jest",
+    "test:v4": "npm i eslint@4.x && npm run test",
+    "test:v6": "npm i eslint@6.x && npm run test",
     "test-watch": "jest --watchAll"
   },
   "jest": {
