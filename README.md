@@ -9,6 +9,10 @@ Note: If you installed ESLint globally then you must also install `eslint-plugin
 ```sh
 npm install eslint-plugin-cypress --save-dev
 ```
+or
+```sh
+yarn add eslint-plugin-cypress --save-dev
+```
 
 ## Usage
 
