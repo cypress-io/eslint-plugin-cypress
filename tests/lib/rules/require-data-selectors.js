@@ -16,6 +16,8 @@ ruleTester.run('require-data-selectors', rule, {
     { code: 'cy.scrollTo(0, 10)', parserOptions },
     { code: 'cy.tick(500)', parserOptions },
     { code: 'cy.get(\`[data-cy=${1}]\`)', parserOptions },
+    { code: 'cy.get("@my-alias")', parserOptions, errors },
+    { code: 'cy.get(`@my-alias`)', parserOptions, errors },
   ],
 
   invalid: [
