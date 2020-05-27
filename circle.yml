@@ -14,9 +14,10 @@ workflows:
             - test-v4
             - test-v5
             - test-v6
-          branches:
-            only:
-              - master
+          filters:
+            branches:
+              only:
+                - master
 
 jobs:
   lint:
