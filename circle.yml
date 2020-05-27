@@ -1,17 +1,26 @@
 version: 2.1
 
 workflows:
+  version: 2.1
   main:
     jobs:
-      - Lint
-      - Test ESLint 4
-      - Test ESLint 5
-      - Test ESLint 6
-      - NPM Release
+      - lint
+      - test-v4
+      - test-v5
+      - test-v6
+      - release:
+          requires:
+            - lint
+            - test-v4
+            - test-v5
+            - test-v6
+          filters:
+            branches:
+              only:
+                - master
 
 jobs:
   lint:
-    name: Lint
     docker:
       - image: circleci/node:8
     steps:
@@ -24,7 +33,6 @@ jobs:
           command: npm run lint
 
   test-v4:
-    name: Test ESLint 4
     docker:
       - image: circleci/node:8
     steps:
@@ -37,7 +45,6 @@ jobs:
           command: npm run test:v4
 
   test-v5:
-    name: Test ESLint 5
     docker:
       - image: circleci/node:8
     steps:
@@ -50,7 +57,6 @@ jobs:
           command: npm run test
 
   test-v6:
-    name: Test ESLint 6
     docker:
       - image: circleci/node:8
     steps:
@@ -62,19 +68,11 @@ jobs:
           name: Test ESLint 6
           command: npm run test:v6
 
-  npm-release:
-    name: NPM Release
-    filters:
-      branches:
-        only:
-          - master
-    requires:
-      - lint
-      - test-v4
-      - test-v5
-      - test-v6
+  release:
+    docker:
+      - image: circleci/node:8
     steps:
       - checkout
       - run:
-        name: Run semantic release
-        command: npm run semantic-release
+          name: Run semantic release
+          command: npm run semantic-release
