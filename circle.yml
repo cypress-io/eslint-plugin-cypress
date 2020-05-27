@@ -1,6 +1,7 @@
 version: 2.1
 
 workflows:
+  version: 2.1
   main:
     jobs:
       - lint
@@ -8,6 +9,15 @@ workflows:
       - test-v5
       - test-v6
       - release
+        filters:
+          branches:
+            only:
+              - master
+        requires:
+          - lint
+          - test-v4
+          - test-v5
+          - test-v6
 
 jobs:
   lint:
@@ -59,15 +69,6 @@ jobs:
           command: npm run test:v6
 
   release:
-    filters:
-      branches:
-        only:
-          - master
-    requires:
-      - lint
-      - test-v4
-      - test-v5
-      - test-v6
     steps:
       - checkout
       - run:
