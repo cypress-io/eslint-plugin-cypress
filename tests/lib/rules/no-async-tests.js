@@ -13,6 +13,8 @@ ruleTester.run('no-async-tests', rule, {
   valid: [
     { code: 'it(\'a test case\', () => { cy.get(\'.someClass\'); })', parserOptions },
     { code: 'it(\'a test case\', async () => { await somethingAsync(); })', parserOptions },
+    { code: 'async function nonTestFn () { return await somethingAsync(); }', parserOptions },
+    { code: 'const nonTestArrowFn = async () => { await somethingAsync(); }', parserOptions },
   ],
   invalid: [
     { code: 'it(\'a test case\', async () => { cy.get(\'.someClass\'); })', parserOptions, errors },
