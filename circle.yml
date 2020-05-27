@@ -8,12 +8,12 @@ workflows:
       - test-v4
       - test-v5
       - test-v6
-      - release
-        requires:
-          - lint
-          - test-v4
-          - test-v5
-          - test-v6
+      - release:
+          requires:
+            - lint
+            - test-v4
+            - test-v5
+            - test-v6
 
 jobs:
   lint:
