@@ -9,10 +9,6 @@ workflows:
       - test-v5
       - test-v6
       - release
-        filters:
-          branches:
-            only:
-              - master
         requires:
           - lint
           - test-v4
@@ -74,3 +70,6 @@ jobs:
       - run:
           name: Run semantic release
           command: npm run semantic-release
+    branches:
+      only:
+        - master
