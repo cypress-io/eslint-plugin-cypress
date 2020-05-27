@@ -16,6 +16,7 @@ ruleTester.run('no-assigning-return-values', rule, {
     { code: 'const foo = bar();', parserOptions },
     { code: 'const foo = bar().baz();', parserOptions },
     { code: 'const spy = cy.spy();', parserOptions },
+    { code: 'const spy = cy.spy().as();', parserOptions },
     { code: 'const stub = cy.stub();', parserOptions },
     { code: 'const result = cy.now();', parserOptions },
     { code: 'const state = cy.state();', parserOptions },
