@@ -11,7 +11,7 @@ npm install eslint-plugin-cypress --save-dev
 ```
 or
 ```sh
-yarn add eslint-plugin-cypress --save-dev
+yarn add eslint-plugin-cypress --dev
 ```
 
 ## Usage
