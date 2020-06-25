@@ -40,7 +40,7 @@ You can add rules:
 }
 ```
 
-You can whitelist globals provided by Cypress:
+You can allow certain globals provided by Cypress:
 
 ```json
 {
