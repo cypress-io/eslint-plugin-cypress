@@ -62,6 +62,51 @@ Use the recommended configuration and you can forego configuring _plugins_, _rul
 }
 ```
 
+## Disable rules
+
+You can disable a specific rule(s) per file, for a portion of a file, or for a single line. For example:
+
+Disable the `cypress/no-unnecessary-waiting` rule for the entire file by placing at the start:
+
+```js
+/* eslint-disable cypress/no-unnecessary-waiting */
+```
+
+Disable the `cypress/no-unnecessary-waiting` rule for a portion of the file:
+
+```js
+it('waits for a second', () => {
+  ...
+  /* eslint-disable cypress/no-unnecessary-waiting */
+  cy.wait(1000)
+  /* eslint-enable cypress/no-unnecessary-waiting */
+  ...
+})
+```
+
+Disable the `cypress/no-unnecessary-waiting` rule for the specific line:
+
+```js
+it('waits for a second', () => {
+  ...
+  cy.wait(1000) // eslint-disable-line cypress/no-unnecessary-waiting
+  ...
+})
+```
+
+You can also disable the rule for the next line:
+
+```js
+it('waits for a second', () => {
+  ...
+  // eslint-disable-next-line cypress/no-unnecessary-waiting
+  cy.wait(1000)
+  ...
+})
+```
+
+For more, see the [ESLint rules](https://eslint.org/docs/user-guide/configuring/rules) documentation.
+
 ## Rules
 
 These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices).
