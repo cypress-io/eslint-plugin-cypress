@@ -64,9 +64,9 @@ Use the recommended configuration and you can forego configuring _plugins_, _rul
 
 ## Disable rules
 
-You can disable a specific rule(s) per file, for a portion of a file, or for a single line. For example:
+You can disable specific rules per file, for a portion of a file, or for a single line.
 
-Disable the `cypress/no-unnecessary-waiting` rule for the entire file by placing at the start:
+Disable the `cypress/no-unnecessary-waiting` rule for the entire file by placing this at the start of the file:
 
 ```js
 /* eslint-disable cypress/no-unnecessary-waiting */
@@ -84,7 +84,7 @@ it('waits for a second', () => {
 })
 ```
 
-Disable the `cypress/no-unnecessary-waiting` rule for the specific line:
+Disable the `cypress/no-unnecessary-waiting` rule for a specific line:
 
 ```js
 it('waits for a second', () => {
@@ -94,7 +94,7 @@ it('waits for a second', () => {
 })
 ```
 
-You can also disable the rule for the next line:
+You can also disable a rule for the next line:
 
 ```js
 it('waits for a second', () => {
