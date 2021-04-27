@@ -26,6 +26,29 @@ ruleTester.run('no-unnecessary-waiting', rule, {
     { code: 'const customWait = (alias = "@someRequest") => { cy.wait(alias) }', parserOptions, errors },
     { code: 'function customWait (ms) { cy.wait(ms) }', parserOptions, errors },
     { code: 'const customWait = (ms) => { cy.wait(ms) }', parserOptions, errors },
+
+    // disable the eslint rule
+    {
+      code: `
+        cy.wait(100); // eslint-disable-line no-unnecessary-waiting
+      `,
+      parserOptions,
+    },
+    {
+      code: `
+        /* eslint-disable-next-line no-unnecessary-waiting */
+        cy.wait(100)
+      `,
+      parserOptions,
+    },
+    {
+      code: `
+        /* eslint-disable no-unnecessary-waiting */
+        cy.wait(100)
+        /* eslint-enable no-unnecessary-waiting */
+      `,
+      parserOptions,
+    },
   ],
 
   invalid: [
