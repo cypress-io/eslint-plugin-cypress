@@ -9,7 +9,7 @@ const rule = require('../../../lib/rules/no-force')
 const RuleTester = require('eslint').RuleTester
 
 const errors = [{ messageId: 'unexpected' }]
-const parserOptions = { ecmaVersion: 6 }
+const parserOptions = { ecmaVersion: 2018 }
 
 //------------------------------------------------------------------------------
 // Tests
@@ -24,12 +24,13 @@ ruleTester.run('no-force', rule, {
     { code: `cy.get('button').click({multiple: true})`, parserOptions },
     { code: `cy.get('button').dblclick()`, parserOptions },
     { code: `cy.get('input').type('somth')`, parserOptions },
-    { code: `cy.get('input').type('somth', {anyoption: true})`, parserOptions, errors },
-    { code: `cy.get('input').trigger('click', {anyoption: true})`, parserOptions, errors },
-    { code: `cy.get('input').rightclick({anyoption: true})`, parserOptions, errors },
-    { code: `cy.get('input').check()`, parserOptions, errors },
-    { code: `cy.get('input').select()`, parserOptions, errors },
-    { code: `cy.get('input').focus()`, parserOptions, errors },
+    { code: `cy.get('input').type('somth', {anyoption: true})`, parserOptions },
+    { code: `cy.get('input').trigger('click', {anyoption: true})`, parserOptions },
+    { code: `cy.get('input').rightclick({anyoption: true})`, parserOptions },
+    { code: `cy.get('input').check()`, parserOptions },
+    { code: `cy.get('input').select()`, parserOptions },
+    { code: `cy.get('input').focus()`, parserOptions },
+    { code: `cy.document().trigger("keydown", { ...event })`, parserOptions },
   ],
 
   invalid: [
