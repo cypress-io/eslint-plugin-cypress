@@ -20,7 +20,7 @@ module.exports = {
         expect: false,
         assert: false,
         chai: false,
-      }, globals.browser, globals.mocha),
+      }, globals.mocha),
       parserOptions: {
         ecmaVersion: 2019,
         sourceType: 'module',
