@@ -35,7 +35,8 @@ You can add rules:
     "cypress/no-unnecessary-waiting": "error",
     "cypress/assertion-before-screenshot": "warn",
     "cypress/no-force": "warn",
-    "cypress/no-async-tests": "error"
+    "cypress/no-async-tests": "error",
+    "cypress/no-pause": "error"
   }
 }
 ```
@@ -123,6 +124,7 @@ Rules with a check mark (✅) are enabled by default while using the `plugin:cyp
 |     | [no-force](./docs/rules/no-force.md)                                       | Disallow using `force: true` with action commands               |
 |     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
 |     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
+|     | [no-pause](./docs/rules/no-pause.md)           | Disallow `cy.pause()` parent command |
 
 ## Chai and `no-unused-expressions`
 
