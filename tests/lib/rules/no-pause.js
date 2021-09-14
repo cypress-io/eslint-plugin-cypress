@@ -15,7 +15,7 @@ const parserOptions = { ecmaVersion: 2018 }
 // Tests
 //------------------------------------------------------------------------------
 
-let ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 
 ruleTester.run('no-pause', rule, {
 
