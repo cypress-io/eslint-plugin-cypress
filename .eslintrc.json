@@ -9,8 +9,8 @@
   ],
   "rules": {
     "eslint-plugin/prefer-message-ids": "off",
-    "eslint-plugin/require-meta-type": "off",
     "eslint-plugin/require-meta-docs-description": "off",
-    "eslint-plugin/require-meta-docs-url": "error"
+    "eslint-plugin/require-meta-docs-url": "error",
+    "eslint-plugin/require-meta-type": "off"
   }
 }
