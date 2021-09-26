@@ -29,6 +29,7 @@
     "@cypress/eslint-plugin-json": "3.2.1",
     "condition-circle": "2.0.2",
     "eslint": "^5.7.0",
+    "eslint-plugin-eslint-plugin": "^3.6.1",
     "husky": "^3.0.0",
     "jest": "^24.8.0",
     "semantic-release": "15.13.18"
