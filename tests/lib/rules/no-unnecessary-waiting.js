@@ -62,5 +62,7 @@ ruleTester.run('no-unnecessary-waiting', rule, {
     { code: 'cy.get(".some-element").wait(10)', parserOptions, errors },
     { code: 'cy.get(".some-element").contains("foo").wait(10)', parserOptions, errors },
     { code: 'const customWait = (ms = 1) => { cy.get(".some-element").wait(ms) }', parserOptions, errors },
+    { code: 'const getNumber = () => 3000; const myValue = getNumber(); cy.wait(myValue)', parserOptions, errors },
+    { code: 'const { someNumber } = require("./my-constant"); cy.wait(someNumber)', parserOptions, errors },
   ],
 })
