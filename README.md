@@ -125,6 +125,7 @@ Rules with a check mark (✅) are enabled by default while using the `plugin:cyp
 |     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
 |     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
 |     | [no-pause](./docs/rules/no-pause.md)           | Disallow `cy.pause()` parent command |
+|     | [no-duplicate-commands](./docs/rules/no-duplicate-commands.md)             | Disallow registration of custom commands with duplicate names   |
 
 ## Chai and `no-unused-expressions`
 
@@ -167,6 +168,7 @@ To add a new rule:
   * Describe the rule in the generated `docs` file
   * Make sure all tests are passing
   * Add the rule to this README
+  * Add your rule to the exports in `index.js`
   * Create a PR
 
 Use the following commit message conventions: https://github.com/semantic-release/semantic-release#commit-message-format

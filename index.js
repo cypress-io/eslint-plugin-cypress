@@ -9,6 +9,7 @@ module.exports = {
     'require-data-selectors': require('./lib/rules/require-data-selectors'),
     'no-force': require('./lib/rules/no-force'),
     'no-pause': require('./lib/rules/no-pause'),
+    'no-duplicate-commands': require('./lib/rules/no-duplicate-commands'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
