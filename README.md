@@ -36,7 +36,8 @@ You can add rules:
     "cypress/assertion-before-screenshot": "warn",
     "cypress/no-force": "warn",
     "cypress/no-async-tests": "error",
-    "cypress/no-pause": "error"
+    "cypress/no-pause": "error",
+    "cypress/no-empty-tests": "error"
   }
 }
 ```
@@ -121,6 +122,7 @@ Rules with a check mark (✅) are enabled by default while using the `plugin:cyp
 | ✅  | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)   | Prevent assigning return values of cy calls                     |
 | ✅  | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)           | Prevent waiting for arbitrary time periods                      |
 | ✅  | [no-async-tests](./docs/rules/no-async-tests.md)                           | Prevent using async/await in Cypress test case                  |
+| ✅  | [no-empty-tests](./docs/rules/no-empty-tests.md)                           | Prevent the execution of empty tests                            |
 |     | [no-force](./docs/rules/no-force.md)                                       | Disallow using `force: true` with action commands               |
 |     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
 |     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
