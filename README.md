@@ -1,4 +1,4 @@
-# Cypress ESLint Plugin [![CircleCI](https://circleci.com/gh/cypress-io/eslint-plugin-cypress/tree/master.svg?style=svg)](https://circleci.com/gh/cypress-io/eslint-plugin-cypress/tree/master)
+# Cypress ESLint Plugin [![Test](https://github.com/foretagsplatsen/eslint-plugin-cypress/actions/workflows/test.yml/badge.svg)](https://github.com/foretagsplatsen/eslint-plugin-cypress/actions/workflows/test.yml)
 
 An [ESLint](https://eslint.org) plugin for your [Cypress](https://cypress.io) tests.
 
