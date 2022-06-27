@@ -12,12 +12,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cypress-io/eslint-plugin-cypress.git"
+    "url": "git+https://github.com/foretagsplatsen/eslint-plugin-cypress.git"
   },
   "bugs": {
-    "url": "https://github.com/cypress-io/eslint-plugin-cypress/issues"
+    "url": "https://github.com/foretagsplatsen/eslint-plugin-cypress/issues"
   },
-  "homepage": "https://github.com/cypress-io/eslint-plugin-cypress#readme",
+  "homepage": "https://github.com/foretagsplatsen/eslint-plugin-cypress#readme",
   "peerDependencies": {
     "eslint": ">= 3.2.1"
   },
