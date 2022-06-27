@@ -29,7 +29,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "generator-eslint": "^3.0.1",
     "jest": "^24.8.0",
-    "semantic-release": "15.13.18"
+    "semantic-release": "19.0.3"
   },
   "scripts": {
     "make-rule": "npx yo eslint:rule",
