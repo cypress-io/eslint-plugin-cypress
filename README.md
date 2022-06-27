@@ -114,8 +114,6 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 
 Rules with a check mark (✅) are enabled by default while using the `plugin:cypress/recommended` config.
 
-**NOTE**: These rules currently require eslint 5.0 or greater. If you would like support added for eslint 4.x, please 👍  [this issue](https://github.com/cypress-io/eslint-plugin-cypress/issues/14).
-
 |     | Rule ID                                                                    | Description                                                     |
 | :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |
 | ✅  | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)   | Prevent assigning return values of cy calls                     |
