@@ -1,4 +1,4 @@
-# Cypress ESLint Plugin [![CircleCI](https://circleci.com/gh/cypress-io/eslint-plugin-cypress/tree/master.svg?style=svg)](https://circleci.com/gh/cypress-io/eslint-plugin-cypress/tree/master)
+# Cypress ESLint Plugin [![Test](https://github.com/foretagsplatsen/eslint-plugin-cypress/actions/workflows/test.yml/badge.svg)](https://github.com/foretagsplatsen/eslint-plugin-cypress/actions/workflows/test.yml)
 
 An [ESLint](https://eslint.org) plugin for your [Cypress](https://cypress.io) tests.
 
@@ -113,8 +113,6 @@ For more, see the [ESLint rules](https://eslint.org/docs/user-guide/configuring/
 These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices).
 
 Rules with a check mark (✅) are enabled by default while using the `plugin:cypress/recommended` config.
-
-**NOTE**: These rules currently require eslint 5.0 or greater. If you would like support added for eslint 4.x, please 👍  [this issue](https://github.com/cypress-io/eslint-plugin-cypress/issues/14).
 
 |     | Rule ID                                                                    | Description                                                     |
 | :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |
