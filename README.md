@@ -159,7 +159,8 @@ Or you can simply add its `recommended` config:
 
 To add a new rule:
   * Fork and clone this repository
-  * Generate a new rule (a [yeoman generator](https://github.com/eslint/generator-eslint) is available)
+  * Install dependencies with `npm install`
+  * Generate a new rule with `npm run make-rule`
   * Run `yarn start` or `npm start`
   * Write test scenarios then implement logic
   * Describe the rule in the generated `docs` file

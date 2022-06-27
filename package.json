@@ -27,10 +27,12 @@
   "devDependencies": {
     "eslint": "^8.18.0",
     "eslint-plugin-promise": "^6.0.0",
+    "generator-eslint": "^3.0.1",
     "jest": "^24.8.0",
     "semantic-release": "15.13.18"
   },
   "scripts": {
+    "make-rule": "npx yo eslint:rule",
     "lint": "eslint '*.js' '**/**/*.js'",
     "lint-fix": "npm run lint -- --fix",
     "semantic-release": "semantic-release",
