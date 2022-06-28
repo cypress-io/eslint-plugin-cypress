@@ -7,6 +7,7 @@ module.exports = {
     'no-async-tests': require('./lib/rules/no-async-tests'),
     'assertion-before-screenshot': require('./lib/rules/assertion-before-screenshot'),
     'no-single-expect-in-then-or-should': require('./lib/rules/no-single-expect-in-then-or-should'),
+    'no-expect-for-stub': require('./lib/rules/no-expect-for-stub'),
     'require-data-selectors': require('./lib/rules/require-data-selectors'),
     'no-force': require('./lib/rules/no-force'),
     'no-pause': require('./lib/rules/no-pause'),
