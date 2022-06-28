@@ -1,6 +1,6 @@
 {
-  "name": "eslint-plugin-cypress",
-  "version": "0.0.0-development",
+  "name": "@finsit/eslint-plugin-cypress",
+  "version": "3.0.1",
   "description": "An ESLint plugin for projects using Cypress",
   "main": "index.js",
   "author": "Chris Breiding (chris@cypress.io)",
@@ -32,6 +32,7 @@
     "semantic-release": "19.0.3"
   },
   "scripts": {
+    "publish": "npm publish --access public",
     "make-rule": "npx yo eslint:rule",
     "lint": "eslint '*.js' '**/**/*.js'",
     "lint-fix": "npm run lint -- --fix",
