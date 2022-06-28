@@ -1,6 +1,6 @@
 {
   "name": "@finsit/eslint-plugin-cypress",
-  "version": "0.0.0-development",
+  "version": "3.0.1",
   "description": "An ESLint plugin for projects using Cypress",
   "main": "index.js",
   "author": "Chris Breiding (chris@cypress.io)",
