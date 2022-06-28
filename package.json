@@ -26,6 +26,8 @@
   },
   "devDependencies": {
     "eslint": "^8.18.0",
+    "eslint-plugin-eslint-plugin": "^4.3.0",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
     "generator-eslint": "^3.0.1",
     "jest": "^28.1.1",

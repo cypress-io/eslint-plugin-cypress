@@ -11,6 +11,9 @@ module.exports = {
     'promise',
   ],
   extends: [
+    'eslint:recommended',
+    'plugin:eslint-plugin/recommended',
+    'plugin:node/recommended',
     'plugin:promise/recommended',
   ],
   ignorePatterns: ['!.eslintrc.cjs'],
