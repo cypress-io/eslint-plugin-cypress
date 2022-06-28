@@ -130,7 +130,11 @@ module.exports = {
     'no-unneeded-ternary': 'error',
     'no-unreachable': 'error',
     'no-unused-labels': 'error',
-    'no-unused-vars': ['error', { args: 'none', ignoreRestSiblings: true }],
+    'no-unused-vars': ['error', {
+      argsIgnorePattern: '^_',
+      ignoreRestSiblings: true,
+      varsIgnorePattern: '^_',
+    }],
     'no-useless-concat': 'error',
     'no-useless-constructor': 'error',
     'no-var': 'error',
