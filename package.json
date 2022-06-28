@@ -32,6 +32,7 @@
     "semantic-release": "19.0.3"
   },
   "scripts": {
+    "publish": "npm publish --access public",
     "make-rule": "npx yo eslint:rule",
     "lint": "eslint '*.js' '**/**/*.js'",
     "lint-fix": "npm run lint -- --fix",
