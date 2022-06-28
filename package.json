@@ -34,7 +34,7 @@
   "scripts": {
     "publish": "npm publish --access public",
     "make-rule": "npx yo eslint:rule",
-    "lint": "eslint '*.js' '**/**/*.js'",
+    "lint": "eslint --ext js,cjs --report-unused-disable-directives .",
     "lint-fix": "npm run lint -- --fix",
     "semantic-release": "semantic-release",
     "start": "npm run test-watch",

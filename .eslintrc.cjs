@@ -13,6 +13,7 @@ module.exports = {
     extends: [
         "plugin:promise/recommended",
     ],
+    ignorePatterns: ['!.eslintrc.cjs'],
     rules: {
         'array-bracket-newline': [
             'error',
