@@ -18,6 +18,9 @@
     "url": "https://github.com/foretagsplatsen/eslint-plugin-cypress/issues"
   },
   "homepage": "https://github.com/foretagsplatsen/eslint-plugin-cypress#readme",
+  "engines": {
+    "node": ">=8.10.0"
+  },
   "peerDependencies": {
     "eslint": ">= 7.0.0"
   },
