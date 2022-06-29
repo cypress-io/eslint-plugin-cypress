@@ -114,15 +114,17 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 
 Rules with a check mark (✅) are enabled by default while using the `plugin:cypress/recommended` config.
 
-|     | Rule ID                                                                    | Description                                                     |
-| :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |
-| ✅  | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)   | Prevent assigning return values of cy calls                     |
-| ✅  | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)           | Prevent waiting for arbitrary time periods                      |
-| ✅  | [no-async-tests](./docs/rules/no-async-tests.md)                           | Prevent using async/await in Cypress test case                  |
-|     | [no-force](./docs/rules/no-force.md)                                       | Disallow using `force: true` with action commands               |
-|     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
-|     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
-|     | [no-pause](./docs/rules/no-pause.md)           | Disallow `cy.pause()` parent command |
+|    | Rule ID                                                                                  | Description                                                     |
+|:---|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------|
+| ✅ | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)                 | Prevent assigning return values of cy calls                     |
+| ✅ | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)                         | Prevent waiting for arbitrary time periods                      |
+| ✅ | [no-async-tests](./docs/rules/no-async-tests.md)                                         | Prevent using async/await in Cypress test case                  |
+|    | [no-force](./docs/rules/no-force.md)                                                     | Disallow using `force: true` with action commands               |
+|    | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md)               | Ensure screenshots are preceded by an assertion                 |
+|    | [require-data-selectors](./docs/rules/require-data-selectors.md)                         | Only allow data-\* attribute selectors (require-data-selectors) |
+|    | [no-pause](./docs/rules/no-pause.md)                                                     | Disallow `cy.pause()` parent command                            |
+|    | [no-single-expect-in-then-or-should](./docs/rules/no-single-expect-in-then-or-should.md) | Simplify tests by avoiding lonely expect()                      |
+|    | [no-expect-for-stub](./docs/rules/no-expect-for-stub.md)                                 | Avoid expect(stub)…                                             |
 
 ## Chai and `no-unused-expressions`
 
