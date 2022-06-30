@@ -125,6 +125,7 @@ Rules with a check mark (✅) are enabled by default while using the `plugin:cyp
 |    | [no-pause](./docs/rules/no-pause.md)                                                     | Disallow `cy.pause()` parent command                            |
 |    | [no-single-expect-in-then-or-should](./docs/rules/no-single-expect-in-then-or-should.md) | Simplify tests by avoiding lonely expect()                      |
 |    | [no-expect-for-stub](./docs/rules/no-expect-for-stub.md)                                 | Avoid expect(stub)…                                             |
+|    | [no-useless-then-or-should](./docs/rules/no-useless-then-or-should.md)                   | Avoid `.should()` and `.then()` when only wrapping commands     |
 
 ## Chai and `no-unused-expressions`
 
