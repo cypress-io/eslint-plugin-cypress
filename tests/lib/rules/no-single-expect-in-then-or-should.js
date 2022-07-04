@@ -61,5 +61,10 @@ ruleTester.run('no-single-expect-in-then-or-should', rule, {
       errors: [thenError],
       output: 'cy.should("match", "checked")',
     },
+    {
+      code: 'cy.then(($a) => {expect($a) .to.have.attr("href")})',
+      errors: [thenError],
+      output: 'cy.should("have.attr", "href")',
+    },
   ],
 })
