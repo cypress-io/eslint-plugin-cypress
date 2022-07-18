@@ -32,7 +32,7 @@
     "eslint-plugin-eslint-plugin": "^4.3.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
-    "generator-eslint": "^3.0.1",
+    "generator-eslint": "^4.0.0",
     "jest": "^28.1.1",
     "semantic-release": "19.0.3"
   },
