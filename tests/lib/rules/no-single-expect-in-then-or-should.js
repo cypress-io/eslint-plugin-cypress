@@ -15,11 +15,8 @@ const RuleTester = require('eslint').RuleTester
 // Tests
 //------------------------------------------------------------------------------
 
-const MESSAGE_THEN = 'A single expect() in a then() can be rewritten with a should().'
-const MESSAGE_SHOULD = 'A single expect() in a should() can be rewritten with just a should().'
-
-const thenError = { message: MESSAGE_THEN, type: 'CallExpression' }
-const shouldError = { message: MESSAGE_SHOULD, type: 'CallExpression' }
+const thenError = { messageId: 'message_then', type: 'CallExpression' }
+const shouldError = { messageId: 'message_should', type: 'CallExpression' }
 
 const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 6 } })
 
