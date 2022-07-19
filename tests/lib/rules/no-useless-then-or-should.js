@@ -16,8 +16,7 @@ const RuleTester = require('eslint').RuleTester
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 6 } })
-const MESSAGE = '`.should()` and `.then()` can be removed when they only wrap commands'
-const errors = [{ message: MESSAGE, type: 'CallExpression' }]
+const errors = [{ messageId: 'message', type: 'CallExpression' }]
 
 ruleTester.run('no-useless-then-or-should', rule, {
   valid: [
