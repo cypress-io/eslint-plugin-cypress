@@ -5,14 +5,12 @@ workflows:
   main:
     jobs:
       - lint
-      - test-v4
       - test-v5
       - test-v6
       - test-v7
       - release:
           requires:
             - lint
-            - test-v4
             - test-v5
             - test-v6
             - test-v7
@@ -33,18 +31,6 @@ jobs:
       - run:
           name: Lint code
           command: npm run lint
-
-  test-v4:
-    docker:
-      - image: circleci/node:14
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Test ESLint 4
-          command: npm run test:v4
 
   test-v5:
     docker:
