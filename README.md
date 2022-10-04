@@ -1,4 +1,4 @@
-# Cypress ESLint Plugin [![Test](https://github.com/foretagsplatsen/eslint-plugin-cypress/actions/workflows/test.yml/badge.svg)](https://github.com/foretagsplatsen/eslint-plugin-cypress/actions/workflows/test.yml)
+# Cypress ESLint Plugin [![CircleCI](https://circleci.com/gh/cypress-io/eslint-plugin-cypress/tree/master.svg?style=svg)](https://circleci.com/gh/cypress-io/eslint-plugin-cypress/tree/master)
 
 An [ESLint](https://eslint.org) plugin for your [Cypress](https://cypress.io) tests.
 
@@ -127,6 +127,11 @@ Rules with a check mark (✅) are enabled by default while using the `plugin:cyp
 |    | [no-expect-for-stub](./docs/rules/no-expect-for-stub.md)                                 | Avoid expect(stub)…                                             |
 |    | [no-useless-then-or-should](./docs/rules/no-useless-then-or-should.md)                   | Avoid `.should()` and `.then()` when only wrapping commands     |
 
+## Creating a rule
+Use the `make-rule` script for an interactive guide to scaffold out the rule with associated spec and documentation files.
+```sh
+npm run make-rule
+```
 ## Chai and `no-unused-expressions`
 
 Using an assertion such as `expect(value).to.be.true` can fail the ESLint rule `no-unused-expressions` even though it's not an error in this case. To fix this, you can install and use [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly).
@@ -172,3 +177,7 @@ To add a new rule:
   * Create a PR
 
 Use the following commit message conventions: https://github.com/semantic-release/semantic-release#commit-message-format
+
+## Community Recognition
+
+This package was made with the help and contribution of [Damien Cassou](https://github.com/DamienCassou).
