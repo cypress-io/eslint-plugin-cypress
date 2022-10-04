@@ -1,6 +1,6 @@
 {
-  "name": "@finsit/eslint-plugin-cypress",
-  "version": "3.1.1",
+  "name": "eslint-plugin-cypress",
+  "version": "0.0.0-development",
   "description": "An ESLint plugin for projects using Cypress",
   "main": "index.js",
   "author": "Chris Breiding (chris@cypress.io)",
@@ -12,12 +12,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/foretagsplatsen/eslint-plugin-cypress.git"
+    "url": "git+https://github.com/cypress-io/eslint-plugin-cypress.git"
   },
   "bugs": {
-    "url": "https://github.com/foretagsplatsen/eslint-plugin-cypress/issues"
+    "url": "https://github.com/cypress-io/eslint-plugin-cypress/issues"
   },
-  "homepage": "https://github.com/foretagsplatsen/eslint-plugin-cypress#readme",
+  "homepage": "https://github.com/cypress-io/eslint-plugin-cypress#readme",
   "engines": {
     "node": ">=8.10.0"
   },
