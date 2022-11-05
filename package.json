@@ -29,20 +29,26 @@
     "@cypress/eslint-plugin-json": "3.2.1",
     "condition-circle": "2.0.2",
     "eslint": "^5.7.0",
+    "eslint-doc-generator": "^1.4.1",
+    "eslint-plugin-eslint-plugin": "^2.0.0",
     "husky": "^3.0.0",
     "jest": "^24.8.0",
+    "npm-run-all": "^4.1.5",
     "semantic-release": "15.13.18"
   },
   "scripts": {
     "precommit": "npm run lint",
-    "lint": "eslint '*.js' '**/**/*.js'",
-    "lint-fix": "npm run lint -- --fix",
+    "lint": "npm-run-all \"lint:*\"",
+    "lint:eslint-docs": "npm run update:eslint-docs -- --check",
+    "lint:js": "eslint \"*.js\" \"**/**/*.js\"",
+    "lint:js:fix": "npm run lint:js -- --fix",
     "semantic-release": "semantic-release",
-    "start": "yarn run test-watch",
+    "start": "npm run test-watch",
     "test": "jest",
     "test:v4": "npm i eslint@4.x && npm run test",
     "test:v6": "npm i eslint@6.x && npm run test",
-    "test-watch": "jest --watchAll"
+    "test-watch": "jest --watchAll",
+    "update:eslint-docs": "eslint-doc-generator"
   },
   "jest": {
     "testMatch": [

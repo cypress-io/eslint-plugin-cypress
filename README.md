@@ -9,7 +9,9 @@ Note: If you installed ESLint globally then you must also install `eslint-plugin
 ```sh
 npm install eslint-plugin-cypress --save-dev
 ```
+
 or
+
 ```sh
 yarn add eslint-plugin-cypress --dev
 ```
@@ -63,6 +65,8 @@ Use the recommended configuration and you can forego configuring _plugins_, _rul
 }
 ```
 
+These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices).
+
 ## Disable rules
 
 You can disable specific rules per file, for a portion of a file, or for a single line.
@@ -110,21 +114,24 @@ For more, see the [ESLint rules](https://eslint.org/docs/user-guide/configuring/
 
 ## Rules
 
-These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices).
+<!-- begin auto-generated rules list -->
 
-Rules with a check mark (✅) are enabled by default while using the `plugin:cypress/recommended` config.
+💼 Configurations enabled in.\
+✅ Set in the `recommended` configuration.
+
+| Name                                                                     | Description                                                                                     | 💼 |
+| :----------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- | :- |
+| [assertion-before-screenshot](docs/rules/assertion-before-screenshot.md) | Require asserting on the page state before taking a screenshot, so the screenshot is consistent |    |
+| [no-assigning-return-values](docs/rules/no-assigning-return-values.md)   | Disallow assigning return values of cy calls                                                    | ✅  |
+| [no-async-tests](docs/rules/no-async-tests.md)                           | Disallow using async/await in Cypress test cases                                                | ✅  |
+| [no-force](docs/rules/no-force.md)                                       | Disallow using of 'force: true' option for click and type calls                                 |    |
+| [no-pause](docs/rules/no-pause.md)                                       | Disallow using of `cy.pause` calls                                                              |    |
+| [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | Disallow waiting for arbitrary time periods                                                     | ✅  |
+| [require-data-selectors](docs/rules/require-data-selectors.md)           | Require `data-*` attribute selectors                                                            |    |
+
+<!-- end auto-generated rules list -->
 
 **NOTE**: These rules currently require eslint 5.0 or greater. If you would like support added for eslint 4.x, please 👍  [this issue](https://github.com/cypress-io/eslint-plugin-cypress/issues/14).
-
-|     | Rule ID                                                                    | Description                                                     |
-| :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |
-| ✅  | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)   | Prevent assigning return values of cy calls                     |
-| ✅  | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)           | Prevent waiting for arbitrary time periods                      |
-| ✅  | [no-async-tests](./docs/rules/no-async-tests.md)                           | Prevent using async/await in Cypress test case                  |
-|     | [no-force](./docs/rules/no-force.md)                                       | Disallow using `force: true` with action commands               |
-|     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
-|     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
-|     | [no-pause](./docs/rules/no-pause.md)           | Disallow `cy.pause()` parent command |
 
 ## Chai and `no-unused-expressions`
 
@@ -160,13 +167,14 @@ Or you can simply add its `recommended` config:
 ## Contribution Guide
 
 To add a new rule:
-  * Fork and clone this repository
-  * Generate a new rule (a [yeoman generator](https://github.com/eslint/generator-eslint) is available)
-  * Run `yarn start` or `npm start`
-  * Write test scenarios then implement logic
-  * Describe the rule in the generated `docs` file
-  * Make sure all tests are passing
-  * Add the rule to this README
-  * Create a PR
 
-Use the following commit message conventions: https://github.com/semantic-release/semantic-release#commit-message-format
+* Fork and clone this repository
+* Generate a new rule (a [yeoman generator](https://github.com/eslint/generator-eslint) is available)
+* Run `yarn start` or `npm start`
+* Write test scenarios then implement logic
+* Describe the rule in the generated `docs` file
+* Make sure all tests are passing
+* Run `npm run update:eslint-docs` to update the README rules list and rule doc header
+* Create a PR
+
+Use the following commit message conventions: <https://github.com/semantic-release/semantic-release#commit-message-format>
