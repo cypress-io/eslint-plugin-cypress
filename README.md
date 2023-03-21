@@ -73,7 +73,7 @@ Disable the `cypress/no-unnecessary-waiting` rule for the entire file by placing
 /* eslint-disable cypress/no-unnecessary-waiting */
 ```
 
-Disable the `cypress/no-unnecessary-waiting` rule for a portion of the file:
+Disable the `cypress/no-unnecessary-waiting` rule for only a portion of the file:
 
 ```js
 it('waits for a second', () => {
