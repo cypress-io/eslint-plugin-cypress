@@ -3,6 +3,7 @@ const globals = require('globals')
 module.exports = {
   rules: {
     'no-assigning-return-values': require('./lib/rules/no-assigning-return-values'),
+    'unsafe-to-chain-command': require('./lib/rules/unsafe-to-chain-command'),
     'no-unnecessary-waiting': require('./lib/rules/no-unnecessary-waiting'),
     'no-async-tests': require('./lib/rules/no-async-tests'),
     'assertion-before-screenshot': require('./lib/rules/assertion-before-screenshot'),
