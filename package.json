@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "description": "An ESLint plugin for projects using Cypress",
   "main": "index.js",
-  "author": "Chris Breiding (chris@cypress.io)",
+  "author": "Cypress-io",
   "license": "MIT",
   "keywords": [
     "eslint",

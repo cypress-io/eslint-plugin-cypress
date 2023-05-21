@@ -2,8 +2,6 @@
 
 <!-- end auto-generated rule header -->
 
-## Only allow `data-*` attribute selectors (require-data-selectors)
-
 only allow `cy.get` to allow selectors that target `data-*` attributes
 
 See [the Cypress Best Practices guide](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements).

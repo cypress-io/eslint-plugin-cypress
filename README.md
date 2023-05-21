@@ -77,7 +77,7 @@ Disable the `cypress/no-unnecessary-waiting` rule for the entire file by placing
 /* eslint-disable cypress/no-unnecessary-waiting */
 ```
 
-Disable the `cypress/no-unnecessary-waiting` rule for a portion of the file:
+Disable the `cypress/no-unnecessary-waiting` rule for only a portion of the file:
 
 ```js
 it('waits for a second', () => {
@@ -128,11 +128,37 @@ For more, see the [ESLint rules](https://eslint.org/docs/user-guide/configuring/
 | [no-pause](docs/rules/no-pause.md)                                       | Disallow using of `cy.pause` calls                                                              |    |
 | [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | Disallow waiting for arbitrary time periods                                                     | ✅  |
 | [require-data-selectors](docs/rules/require-data-selectors.md)           | Require `data-*` attribute selectors                                                            |    |
+| [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | Require actions to be in the end of chains, not in the middle                                   | ✅  |
 
 <!-- end auto-generated rules list -->
 
 **NOTE**: These rules currently require eslint 5.0 or greater. If you would like support added for eslint 4.x, please 👍  [this issue](https://github.com/cypress-io/eslint-plugin-cypress/issues/14).
 
+<<<<<<< HEAD
+||||||| 874c51f
+|     | Rule ID                                                                    | Description                                                     |
+| :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |
+| ✅  | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)   | Prevent assigning return values of cy calls                     |
+| ✅  | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)           | Prevent waiting for arbitrary time periods                      |
+| ✅  | [no-async-tests](./docs/rules/no-async-tests.md)                           | Prevent using async/await in Cypress test case                  |
+|     | [no-force](./docs/rules/no-force.md)                                       | Disallow using `force: true` with action commands               |
+|     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
+|     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
+|     | [no-pause](./docs/rules/no-pause.md)           | Disallow `cy.pause()` parent command |
+
+=======
+|     | Rule ID                                                                    | Description                                                     |
+| :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |
+| ✅  | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)   | Prevent assigning return values of cy calls                     |
+| ✅  | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)           | Prevent waiting for arbitrary time periods                      |
+| ✅  | [no-async-tests](./docs/rules/no-async-tests.md)                           | Prevent using async/await in Cypress test case                  |
+| ✅  | [unsafe-to-chain-command](./docs/rules/unsafe-to-chain-command.md)         | Prevent chaining from unsafe to chain commands                  |
+|     | [no-force](./docs/rules/no-force.md)                                       | Disallow using `force: true` with action commands               |
+|     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
+|     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
+|     | [no-pause](./docs/rules/no-pause.md)           | Disallow `cy.pause()` parent command |
+
+>>>>>>> master
 ## Chai and `no-unused-expressions`
 
 Using an assertion such as `expect(value).to.be.true` can fail the ESLint rule `no-unused-expressions` even though it's not an error in this case. To fix this, you can install and use [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly).
