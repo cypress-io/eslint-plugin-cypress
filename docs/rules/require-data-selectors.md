@@ -1,4 +1,4 @@
-# Require `data-*` attribute selectors (`cypress/require-data-selectors`)
+# Require using `data-*` attributes to provide context to your selectors and insulate them from CSS or JS changes (`cypress/require-data-selectors`)
 
 <!-- end auto-generated rule header -->
 

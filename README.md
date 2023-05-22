@@ -114,51 +114,28 @@ For more, see the [ESLint rules](https://eslint.org/docs/user-guide/configuring/
 
 ## Rules
 
+These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices).
+
+**NOTE**: These rules currently require eslint 5.0 or greater. If you would like support added for eslint 4.x, please 👍  [this issue](https://github.com/cypress-io/eslint-plugin-cypress/issues/14).
+
 <!-- begin auto-generated rules list -->
 
 💼 Configurations enabled in.\
 ✅ Set in the `recommended` configuration.
 
-| Name                                                                     | Description                                                                                     | 💼 |
-| :----------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- | :- |
-| [assertion-before-screenshot](docs/rules/assertion-before-screenshot.md) | Require asserting on the page state before taking a screenshot, so the screenshot is consistent |    |
-| [no-assigning-return-values](docs/rules/no-assigning-return-values.md)   | Disallow assigning return values of cy calls                                                    | ✅  |
-| [no-async-tests](docs/rules/no-async-tests.md)                           | Disallow using async/await in Cypress test cases                                                | ✅  |
-| [no-force](docs/rules/no-force.md)                                       | Disallow using of 'force: true' option for click and type calls                                 |    |
-| [no-pause](docs/rules/no-pause.md)                                       | Disallow using of `cy.pause` calls                                                              |    |
-| [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | Disallow waiting for arbitrary time periods                                                     | ✅  |
-| [require-data-selectors](docs/rules/require-data-selectors.md)           | Require `data-*` attribute selectors                                                            |    |
-| [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | Require actions to be in the end of chains, not in the middle                                   | ✅  |
+| Name                                                                     | Description                                                                                                     | 💼 |
+| :----------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- | :- |
+| [assertion-before-screenshot](docs/rules/assertion-before-screenshot.md) | Require asserting on the page state before taking a screenshot, so the screenshot is consistent                 |    |
+| [no-assigning-return-values](docs/rules/no-assigning-return-values.md)   | Disallow assigning return values of cy calls                                                                    | ✅  |
+| [no-async-tests](docs/rules/no-async-tests.md)                           | Disallow using async/await in Cypress test cases                                                                | ✅  |
+| [no-force](docs/rules/no-force.md)                                       | Disallow using of 'force: true' option for click and type calls                                                 |    |
+| [no-pause](docs/rules/no-pause.md)                                       | Disallow using of `cy.pause` calls                                                                              |    |
+| [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | Disallow waiting for arbitrary time periods                                                                     | ✅  |
+| [require-data-selectors](docs/rules/require-data-selectors.md)           | Require using `data-*` attributes to provide context to your selectors and insulate them from CSS or JS changes |    |
+| [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | Require actions to be in the end of chains, not in the middle                                                   | ✅  |
 
 <!-- end auto-generated rules list -->
 
-**NOTE**: These rules currently require eslint 5.0 or greater. If you would like support added for eslint 4.x, please 👍  [this issue](https://github.com/cypress-io/eslint-plugin-cypress/issues/14).
-
-<<<<<<< HEAD
-||||||| 874c51f
-|     | Rule ID                                                                    | Description                                                     |
-| :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |
-| ✅  | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)   | Prevent assigning return values of cy calls                     |
-| ✅  | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)           | Prevent waiting for arbitrary time periods                      |
-| ✅  | [no-async-tests](./docs/rules/no-async-tests.md)                           | Prevent using async/await in Cypress test case                  |
-|     | [no-force](./docs/rules/no-force.md)                                       | Disallow using `force: true` with action commands               |
-|     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
-|     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
-|     | [no-pause](./docs/rules/no-pause.md)           | Disallow `cy.pause()` parent command |
-
-=======
-|     | Rule ID                                                                    | Description                                                     |
-| :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |
-| ✅  | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)   | Prevent assigning return values of cy calls                     |
-| ✅  | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)           | Prevent waiting for arbitrary time periods                      |
-| ✅  | [no-async-tests](./docs/rules/no-async-tests.md)                           | Prevent using async/await in Cypress test case                  |
-| ✅  | [unsafe-to-chain-command](./docs/rules/unsafe-to-chain-command.md)         | Prevent chaining from unsafe to chain commands                  |
-|     | [no-force](./docs/rules/no-force.md)                                       | Disallow using `force: true` with action commands               |
-|     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
-|     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
-|     | [no-pause](./docs/rules/no-pause.md)           | Disallow `cy.pause()` parent command |
-
->>>>>>> master
 ## Chai and `no-unused-expressions`
 
 Using an assertion such as `expect(value).to.be.true` can fail the ESLint rule `no-unused-expressions` even though it's not an error in this case. To fix this, you can install and use [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly).
