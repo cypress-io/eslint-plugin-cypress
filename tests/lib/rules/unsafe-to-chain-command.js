@@ -8,7 +8,7 @@ const ruleTester = new RuleTester()
 const errors = [{ messageId: 'unexpected' }]
 const parserOptions = { ecmaVersion: 6 }
 
-ruleTester.run('action-ends-chain', rule, {
+ruleTester.run('unsafe-to-chain-command', rule, {
   valid: [
     { code: 'cy.get("new-todo").type("todo A{enter}"); cy.get("new-todo").type("todo B{enter}"); cy.get("new-todo").should("have.class", "active");', parserOptions },
   ],
