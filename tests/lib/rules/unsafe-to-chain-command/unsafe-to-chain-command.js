@@ -1,6 +1,6 @@
 'use strict'
 
-const rule = require('../../../lib/rules/unsafe-to-chain-command')
+const rule = require('../../../../lib/rules/unsafe-to-chain-command')
 const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester()
@@ -38,6 +38,12 @@ ruleTester.run('action-ends-chain', rule, {
       parserOptions,
       errors,
       options: [{ methods: [/customPress/, /customScroll/] }],
+    },
+    {
+      code: 'cy.get("new-todo").customMethod1("Enter").customMethod2();',
+      parserOptions,
+      errors,
+      options: [{ methods: ['customMethod'] }],
     },
   ],
 })

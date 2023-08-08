@@ -1,0 +1,12 @@
+{
+  "title": "unsafe-to-chain-command",
+  "description": "Actions should be in the end of chains, not in the middle",
+  "type": "object",
+  "properties": {
+    "methods": {
+      "type": "array",
+      "description": "An additional list of methods to check for unsafe chaining.",
+      "default": []
+    }
+  }
+}
