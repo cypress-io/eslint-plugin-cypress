@@ -3,26 +3,20 @@
   "version": "0.0.0-development",
   "description": "An ESLint plugin for projects using Cypress",
   "main": "index.js",
-  "author": "Cypress-io",
-  "license": "MIT",
-  "keywords": [
-    "eslint",
-    "eslintplugin",
-    "cypress"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cypress-io/eslint-plugin-cypress.git"
-  },
-  "bugs": {
-    "url": "https://github.com/cypress-io/eslint-plugin-cypress/issues"
-  },
-  "homepage": "https://github.com/cypress-io/eslint-plugin-cypress#readme",
-  "peerDependencies": {
-    "eslint": ">= 3.2.1"
+  "scripts": {
+    "lint": "eslint '*.js' '**/**/*.js'",
+    "lint-fix": "npm run lint -- --fix",
+    "precommit": "npm run lint",
+    "semantic-release": "semantic-release",
+    "start": "yarn run test-watch",
+    "test": "jest",
+    "test-watch": "jest --watchAll",
+    "test:v4": "npm i eslint@4.x && npm run test",
+    "test:v6": "npm i eslint@6.x && npm run test"
   },
   "dependencies": {
-    "globals": "^11.12.0"
+    "globals": "^11.12.0",
+    "micromatch": "^4.0.5"
   },
   "devDependencies": {
     "@cypress/eslint-plugin-dev": "3.2.0",
@@ -33,17 +27,24 @@
     "jest": "^24.8.0",
     "semantic-release": "15.13.18"
   },
-  "scripts": {
-    "precommit": "npm run lint",
-    "lint": "eslint '*.js' '**/**/*.js'",
-    "lint-fix": "npm run lint -- --fix",
-    "semantic-release": "semantic-release",
-    "start": "yarn run test-watch",
-    "test": "jest",
-    "test:v4": "npm i eslint@4.x && npm run test",
-    "test:v6": "npm i eslint@6.x && npm run test",
-    "test-watch": "jest --watchAll"
+  "peerDependencies": {
+    "eslint": ">= 3.2.1"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cypress-io/eslint-plugin-cypress.git"
+  },
+  "homepage": "https://github.com/cypress-io/eslint-plugin-cypress#readme",
+  "author": "Cypress-io",
+  "bugs": {
+    "url": "https://github.com/cypress-io/eslint-plugin-cypress/issues"
+  },
+  "keywords": [
+    "cypress",
+    "eslint",
+    "eslintplugin"
+  ],
   "jest": {
     "testMatch": [
       "**/tests/**/*.js"
