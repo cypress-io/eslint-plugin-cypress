@@ -15,7 +15,7 @@
     "test:v6": "npm i eslint@6.x && npm run test"
   },
   "dependencies": {
-    "globals": "^11.12.0",
+    "globals": "^13.20.0",
     "micromatch": "^4.0.5"
   },
   "devDependencies": {
