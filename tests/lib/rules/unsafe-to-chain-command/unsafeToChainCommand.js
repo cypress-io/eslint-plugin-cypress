@@ -22,15 +22,7 @@ ruleTester.run('action-ends-chain', rule, {
       // It should do an exact match.
       code: 'cy.get("new-todo").customHover1("Enter").customHover2();',
       parserOptions,
-      errors,
       options: [{ methods: ['customHover'] }],
-    },
-    {
-      // It should not allow negations for default Cypress commands.
-      code: 'cy.get("new-todo").dblclick("Enter").dblclick();',
-      parserOptions,
-      errors,
-      options: [{ methods: ['!dblclick'] }],
     },
   ],
   invalid: [
@@ -52,6 +44,12 @@ ruleTester.run('action-ends-chain', rule, {
     },
     // It should allow wildcard matching.
     {
+      code: 'cy.get("new-todo").customLongClick("Enter").customShortClick();',
+      parserOptions,
+      errors,
+      options: [{ methods: ['custom*Click'] }],
+    },
+    {
       code: 'cy.get("new-todo").customClick1("Enter").customClick2();',
       parserOptions,
       errors,
@@ -63,6 +61,13 @@ ruleTester.run('action-ends-chain', rule, {
       parserOptions,
       errors,
       options: [{ methods: ['custom{Long,Dbl}Click'] }],
+    },
+    {
+      // It should not allow negations for default Cypress commands.
+      code: 'cy.get("new-todo").dblclick("Enter");',
+      parserOptions,
+      errors,
+      options: [{ methods: ['!dblclick'] }],
     },
   ],
 })
