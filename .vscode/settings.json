@@ -1,0 +1,33 @@
+{
+  "prettier.requireConfig": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "i18n-ally.localesPaths": [
+    "apps/admin-tools/src/i18n",
+    "apps/nextgen-ui/src/i18n",
+    "libs/organization-management/src/i18n",
+    "libs/platform-settings/src/i18n",
+    "libs/shared-components/src/i18n",
+    "libs/user-management/src/i18n",
+    "coverage/libs/organization-management/lcov-report/organization-management/src/i18n",
+    "coverage/apps/admin-tools/lcov-report/admin-tools/src/i18n",
+    "coverage/apps/nextgen-ui/lcov-report/nextgen-ui/src/i18n",
+    "coverage/libs/shared-components/lcov-report/shared-components/src/i18n",
+    "coverage/libs/user-management/lcov-report/user-management/src/i18n"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "jsonc",
+    "json5",
+    "yaml",
+    "toml"
+  ]
+}
