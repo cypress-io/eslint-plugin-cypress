@@ -14,6 +14,10 @@ ruleTester.run('action-ends-chain', rule, {
       code: 'cy.get("new-todo").type("todo A{enter}"); cy.get("new-todo").type("todo B{enter}"); cy.get("new-todo").should("have.class", "active");',
       parserOptions,
     },
+    {
+      code: 'cy.submitBtn().click();',
+      parserOptions,
+    },
   ],
 
   invalid: [
