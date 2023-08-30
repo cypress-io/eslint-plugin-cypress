@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "description": "An ESLint plugin for projects using Cypress",
   "main": "index.js",
-  "author": "Chris Breiding (chris@cypress.io)",
+  "author": "Cypress-io",
   "license": "MIT",
   "keywords": [
     "eslint",
@@ -22,7 +22,7 @@
     "eslint": ">= 3.2.1"
   },
   "dependencies": {
-    "globals": "^11.12.0"
+    "globals": "^13.20.0"
   },
   "devDependencies": {
     "@cypress/eslint-plugin-dev": "3.2.0",
