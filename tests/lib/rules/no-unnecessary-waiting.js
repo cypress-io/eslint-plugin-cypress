@@ -6,7 +6,7 @@ const RuleTester = require('eslint').RuleTester
 const ruleTester = new RuleTester()
 
 const errors = [{ messageId: 'unexpected' }]
-const parserOptions = { ecmaVersion: 6 }
+const parserOptions = { ecmaVersion: 6, sourceType: 'module' }
 
 ruleTester.run('no-unnecessary-waiting', rule, {
   valid: [
@@ -26,6 +26,11 @@ ruleTester.run('no-unnecessary-waiting', rule, {
     { code: 'const customWait = (alias = "@someRequest") => { cy.wait(alias) }', parserOptions, errors },
     { code: 'function customWait (ms) { cy.wait(ms) }', parserOptions, errors },
     { code: 'const customWait = (ms) => { cy.wait(ms) }', parserOptions, errors },
+
+    { code: 'import BAR_BAZ from "bar-baz"; cy.wait(BAR_BAZ)', parserOptions },
+    { code: 'import { FOO_BAR } from "foo-bar"; cy.wait(FOO_BAR)', parserOptions },
+    { code: 'import * as wildcard from "wildcard"; cy.wait(wildcard.value)', parserOptions },
+    { code: 'import { NAME as OTHER_NAME } from "rename"; cy.wait(OTHER_NAME)', parserOptions },
 
     // disable the eslint rule
     {
