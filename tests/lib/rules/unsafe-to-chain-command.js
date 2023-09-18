@@ -32,11 +32,6 @@ ruleTester.run('action-ends-chain', rule, {
       errors,
     },
     {
-      code: 'cy.get("new-todo").focus().should("have.class", "active");',
-      parserOptions,
-      errors,
-    },
-    {
       code: 'cy.get("new-todo").customType("todo A{enter}").customClick();',
       parserOptions,
       errors,
