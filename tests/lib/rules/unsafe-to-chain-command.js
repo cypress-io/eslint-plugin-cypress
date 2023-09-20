@@ -15,7 +15,7 @@ ruleTester.run('action-ends-chain', rule, {
       parserOptions,
     },
     {
-      code: 'cy.submitBtn().click();',
+      code: 'cy.focused().should("be.visible");',
       parserOptions,
     },
   ],
@@ -28,6 +28,11 @@ ruleTester.run('action-ends-chain', rule, {
     },
     {
       code: 'cy.get("new-todo").type("todo A{enter}").type("todo B{enter}");',
+      parserOptions,
+      errors,
+    },
+    {
+      code: 'cy.get("new-todo").focus().should("have.class", "active");',
       parserOptions,
       errors,
     },
