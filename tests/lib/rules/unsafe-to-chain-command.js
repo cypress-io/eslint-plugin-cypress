@@ -14,6 +14,10 @@ ruleTester.run('action-ends-chain', rule, {
       code: 'cy.get("new-todo").type("todo A{enter}"); cy.get("new-todo").type("todo B{enter}"); cy.get("new-todo").should("have.class", "active");',
       parserOptions,
     },
+    {
+      code: 'cy.focused().should("be.visible");',
+      parserOptions,
+    },
   ],
 
   invalid: [
@@ -24,6 +28,11 @@ ruleTester.run('action-ends-chain', rule, {
     },
     {
       code: 'cy.get("new-todo").type("todo A{enter}").type("todo B{enter}");',
+      parserOptions,
+      errors,
+    },
+    {
+      code: 'cy.get("new-todo").focus().should("have.class", "active");',
       parserOptions,
       errors,
     },
