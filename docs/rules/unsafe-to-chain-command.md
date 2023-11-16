@@ -1,4 +1,4 @@
-# Actions should be in the end of chains, not in the middle (`cypress/unsafe-to-chain-command`)
+# Require actions to be in the end of chains, not in the middle (`cypress/unsafe-to-chain-command`)
 
 💼 This rule is enabled in the ✅ `recommended` config.
 

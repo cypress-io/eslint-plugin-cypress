@@ -142,7 +142,7 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 | [no-pause](docs/rules/no-pause.md)                                       | Disallow using of `cy.pause` calls                                                                              |    |
 | [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | Disallow waiting for arbitrary time periods                                                                     | ✅  |
 | [require-data-selectors](docs/rules/require-data-selectors.md)           | Require using `data-*` attributes to provide context to your selectors and insulate them from CSS or JS changes |    |
-| [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | Actions should be in the end of chains, not in the middle                                                       | ✅  |
+| [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | Require actions to be in the end of chains, not in the middle                                                   | ✅  |
 
 <!-- end auto-generated rules list -->
 
