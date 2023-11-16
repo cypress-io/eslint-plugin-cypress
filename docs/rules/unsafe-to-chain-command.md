@@ -12,6 +12,6 @@ See [retry-ability guide](https://docs.cypress.io/guides/core-concepts/retry-abi
 
 | Name      | Description                                                 | Type  | Default |
 | :-------- | :---------------------------------------------------------- | :---- | :------ |
-| `methods` | An additional list of methods to check for unsafe chaining. | Array | ``      |
+| `methods` | An additional list of methods to check for unsafe chaining. | Array | `[]`    |
 
 <!-- end auto-generated rule options list -->
