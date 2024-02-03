@@ -1,4 +1,6 @@
-## Do not use `cy.pause` command
+# Disallow using of `cy.pause` calls (`cypress/no-pause`)
+
+<!-- end auto-generated rule header -->
 
 It is recommended to remove [cy.pause](https://on.cypress.io/pause) command before committing the specs to avoid other developers getting unexpected results.
 

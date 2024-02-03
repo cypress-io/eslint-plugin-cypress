@@ -1,4 +1,7 @@
-## Only allow `data-*` attribute selectors (require-data-selectors)
+# Require using `data-*` attributes to provide context to your selectors and insulate them from CSS or JS changes (`cypress/require-data-selectors`)
+
+<!-- end auto-generated rule header -->
+
 only allow `cy.get` to allow selectors that target `data-*` attributes
 
 See [the Cypress Best Practices guide](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements).
@@ -8,6 +11,7 @@ See [the Cypress Best Practices guide](https://docs.cypress.io/guides/references
 ### Rule Details
 
 examples of **incorrect** code with `require-data-selectors`:
+
 ```js
 cy.get(".a")
 cy.get('[daedta-cy=submit]').click()
@@ -17,6 +21,7 @@ cy.get(".btn-.large").click()
 ```
 
 examples of **correct** code with `require-data-selectors`:
+
 ```js
 cy.get('[data-cy=submit]').click()
 cy.get('[data-QA=submit]')

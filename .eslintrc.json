@@ -1,8 +1,13 @@
 {
   "plugins": [
-    "@cypress/dev"
+    "@cypress/dev",
+    "eslint-plugin"
   ],
   "extends": [
-    "plugin:@cypress/dev/general"
-  ]
+    "plugin:@cypress/dev/general",
+    "plugin:eslint-plugin/recommended"
+  ],
+  "rules": {
+    "eslint-plugin/require-meta-docs-description": ["error", { "pattern": "^(Enforce|Require|Disallow)" }]
+  }
 }

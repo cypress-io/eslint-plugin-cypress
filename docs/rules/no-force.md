@@ -1,4 +1,6 @@
-# disallow using of 'force: true' option (no-force)
+# Disallow using of 'force: true' option for click and type calls (`cypress/no-force`)
+
+<!-- end auto-generated rule header -->
 
 Using `force: true` on inputs appears to be confusing rather than helpful.
 It usually silences the actual problem instead of providing a way to overcome it.

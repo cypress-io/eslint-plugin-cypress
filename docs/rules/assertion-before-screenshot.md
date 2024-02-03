@@ -1,4 +1,6 @@
-## Assertion Before Screenshot
+# Require asserting on the page state before taking a screenshot, so the screenshot is consistent (`cypress/assertion-before-screenshot`)
+
+<!-- end auto-generated rule header -->
 
 If you take screenshots without assertions then you may get different screenshots depending on timing.
 
