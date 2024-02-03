@@ -29,7 +29,7 @@
     "@cypress/eslint-plugin-json": "3.2.1",
     "condition-circle": "2.0.2",
     "eslint": "^5.7.0",
-    "eslint-doc-generator": "^1.6.1",
+    "eslint-doc-generator": "^1.6.2",
     "eslint-plugin-eslint-plugin": "^2.0.0",
     "husky": "^3.0.0",
     "jest": "^24.8.0",
