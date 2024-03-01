@@ -36,6 +36,7 @@ You can add rules:
     "cypress/assertion-before-screenshot": "warn",
     "cypress/no-force": "warn",
     "cypress/no-async-tests": "error",
+    "cypress/no-async-before": "error",
     "cypress/no-pause": "error"
   }
 }
