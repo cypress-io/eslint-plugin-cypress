@@ -9,7 +9,7 @@ const errors = [{ messageId: 'unexpected' }]
 // async functions are an ES2017 feature
 const parserOptions = { ecmaVersion: 8 }
 
-ruleTester.run('no-async-tests', rule, {
+ruleTester.run('no-async-before', rule, {
   valid: [
     { code: 'before(\'a before case\', () => { cy.get(\'.someClass\'); })', parserOptions },
     { code: 'before(\'a before case\', async () => { await somethingAsync(); })', parserOptions },
