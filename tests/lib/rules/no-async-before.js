@@ -1,6 +1,6 @@
 'use strict'
 
-const rule = require('../../../lib/rules/no-async-tests')
+const rule = require('../../../lib/rules/no-async-before')
 const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester()
