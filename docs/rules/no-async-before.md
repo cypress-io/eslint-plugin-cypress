@@ -4,7 +4,7 @@ Cypress before that return a promise will cause tests to prematurely start, can 
 
 ## Rule Details
 
-This rule disallows using `async` before and beforeEach functions.
+This rule disallows using `async` `before` and `beforeEach` functions.
 
 Examples of **incorrect** code for this rule:
 
