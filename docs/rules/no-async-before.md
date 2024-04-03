@@ -1,6 +1,6 @@
 # Prevent using async/await in Cypress test cases (no-async-tests)
 
-Cypress before that return a promise will cause tests to prematurely start, can cause unexpected behavior. An `async` function returns a promise under the hood, so a before using an `async` function might also error.
+Cypress commands that return a promise may cause side effects in before/beforeEach hooks, possibly causing unexpected behavior. 
 
 ## Rule Details
 
