@@ -29,12 +29,11 @@
     "@cypress/eslint-plugin-json": "3.2.1",
     "condition-circle": "2.0.2",
     "eslint": "^5.7.0",
-    "husky": "^3.0.0",
+    "husky": "^8.0.3",
     "jest": "^24.8.0",
     "semantic-release": "15.13.18"
   },
   "scripts": {
-    "precommit": "npm run lint",
     "lint": "eslint '*.js' '**/**/*.js'",
     "lint-fix": "npm run lint -- --fix",
     "semantic-release": "semantic-release",
@@ -42,7 +41,8 @@
     "test": "jest",
     "test:v4": "npm i eslint@4.x && npm run test",
     "test:v6": "npm i eslint@6.x && npm run test",
-    "test-watch": "jest --watchAll"
+    "test-watch": "jest --watchAll",
+    "prepare": "husky install"
   },
   "jest": {
     "testMatch": [
