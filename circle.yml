@@ -27,7 +27,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
       - run:
           name: Lint code
           command: npm run lint
@@ -39,10 +39,13 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
+      - run:
+          name: Install ESLint 4
+          command: npm install eslint@4
       - run:
           name: Test ESLint 4
-          command: npm run test:v4
+          command: npm test
 
   test-v5:
     docker:
@@ -51,10 +54,13 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
+      - run:
+          name: Install ESLint 5
+          command: npm install eslint@5
       - run:
           name: Test ESLint 5
-          command: npm run test
+          command: npm test
 
   test-v6:
     docker:
@@ -63,10 +69,13 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
+      - run:
+          name: Install ESLint 6
+          command: npm install eslint@6
       - run:
           name: Test ESLint 6
-          command: npm run test:v6
+          command: npm test
 
   release:
     docker:
@@ -75,7 +84,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
       - run:
           name: Run semantic release
           command: npm run semantic-release
