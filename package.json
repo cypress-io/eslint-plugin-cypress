@@ -35,7 +35,7 @@
   },
   "scripts": {
     "precommit": "npm run lint",
-    "lint": "eslint '*.js' '**/**/*.js'",
+    "lint": "eslint \"*.js\" \"**/**/*.js\"",
     "lint-fix": "npm run lint -- --fix",
     "semantic-release": "semantic-release",
     "start": "yarn run test-watch",
