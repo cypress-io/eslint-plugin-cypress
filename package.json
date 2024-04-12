@@ -30,7 +30,7 @@
     "eslint": "^5.7.0",
     "husky": "^8.0.3",
     "jest": "^24.8.0",
-    "semantic-release": "15.13.18"
+    "semantic-release": "19.0.3"
   },
   "scripts": {
     "lint": "eslint \"*.js\" \"**/**/*.js\"",
