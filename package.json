@@ -34,7 +34,7 @@
     "semantic-release": "15.13.18"
   },
   "scripts": {
-    "lint": "eslint '*.js' '**/**/*.js'",
+    "lint": "eslint \"*.js\" \"**/**/*.js\"",
     "lint-fix": "npm run lint -- --fix",
     "semantic-release": "semantic-release",
     "start": "yarn run test-watch",
