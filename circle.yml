@@ -5,13 +5,11 @@ workflows:
   main:
     jobs:
       - lint
-      - test-v4
       - test-v5
       - test-v6
       - release:
           requires:
             - lint
-            - test-v4
             - test-v5
             - test-v6
           filters:
@@ -31,21 +29,6 @@ jobs:
       - run:
           name: Lint code
           command: npm run lint
-
-  test-v4:
-    docker:
-      - image: cimg/node:20.12.2
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm ci
-      - run:
-          name: Install ESLint 4
-          command: npm install eslint@4
-      - run:
-          name: Test ESLint 4
-          command: npm test
 
   test-v5:
     docker:
