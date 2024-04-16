@@ -22,7 +22,7 @@ workflows:
 jobs:
   lint:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:20.12.2
     steps:
       - checkout
       - run:
@@ -34,7 +34,7 @@ jobs:
 
   test-v4:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:20.12.2
     steps:
       - checkout
       - run:
@@ -49,7 +49,7 @@ jobs:
 
   test-v5:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:20.12.2
     steps:
       - checkout
       - run:
@@ -64,7 +64,7 @@ jobs:
 
   test-v6:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:20.12.2
     steps:
       - checkout
       - run:
@@ -79,7 +79,7 @@ jobs:
 
   release:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:20.12.2
     steps:
       - checkout
       - run:
