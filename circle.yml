@@ -7,11 +7,13 @@ workflows:
       - lint
       - test-v5
       - test-v6
+      - test-v7
       - release:
           requires:
             - lint
             - test-v5
             - test-v6
+            - test-v7
           filters:
             branches:
               only:
@@ -58,6 +60,21 @@ jobs:
           command: npm install eslint@6
       - run:
           name: Test ESLint 6
+          command: npm test
+
+  test-v7:
+    docker:
+      - image: cimg/node:20.12.2
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Install ESLint 7
+          command: npm install eslint@7
+      - run:
+          name: Test ESLint 7
           command: npm test
 
   release:
