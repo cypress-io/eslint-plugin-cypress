@@ -6,6 +6,8 @@ Note: If you installed ESLint globally then you must also install `eslint-plugin
 
 ## Installation
 
+Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v7` or `v8`. ESLint `v9` is **not** supported yet.
+
 ```sh
 npm install eslint-plugin-cypress --save-dev
 ```
@@ -114,8 +116,6 @@ For more, see the [ESLint rules](https://eslint.org/docs/user-guide/configuring/
 These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices).
 
 Rules with a check mark (✅) are enabled by default while using the `plugin:cypress/recommended` config.
-
-**NOTE**: These rules currently require eslint 5.0 or greater. If you would like support added for eslint 4.x, please 👍  [this issue](https://github.com/cypress-io/eslint-plugin-cypress/issues/14).
 
 |     | Rule ID                                                                    | Description                                                     |
 | :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |

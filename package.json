@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/cypress-io/eslint-plugin-cypress#readme",
   "peerDependencies": {
-    "eslint": ">= 3.2.1"
+    "eslint": ">=7 <9"
   },
   "dependencies": {
     "globals": "^13.20.0"
@@ -44,7 +44,6 @@
     "semantic-release": "semantic-release",
     "start": "yarn run test-watch",
     "test": "jest",
-    "test:v6": "npm i eslint@6.x && npm run test",
     "test-watch": "jest --watchAll",
     "prepare": "husky install"
   }
