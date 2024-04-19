@@ -42,7 +42,7 @@
     "lint": "eslint \"*.js\" \"**/**/*.js\"",
     "lint-fix": "npm run lint -- --fix",
     "semantic-release": "semantic-release",
-    "start": "yarn run test-watch",
+    "start": "npm run test-watch",
     "test": "jest",
     "test-watch": "jest --watchAll",
     "prepare": "husky install"
