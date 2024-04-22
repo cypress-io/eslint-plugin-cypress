@@ -27,6 +27,9 @@ jobs:
           name: Install dependencies
           command: npm ci
       - run:
+          name: Show ESLint version
+          command: npx eslint --version
+      - run:
           name: Lint code
           command: npm run lint
 
@@ -42,6 +45,9 @@ jobs:
           name: Install ESLint 7
           command: npm install eslint@7
       - run:
+          name: Show ESLint version
+          command: npx eslint --version
+      - run:
           name: Test ESLint 7
           command: npm test
 
@@ -56,6 +62,9 @@ jobs:
       - run:
           name: Install ESLint 8
           command: npm install eslint@8
+      - run:
+          name: Show ESLint version
+          command: npx eslint --version
       - run:
           name: Test ESLint 8
           command: npm test
