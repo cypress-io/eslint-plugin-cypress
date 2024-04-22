@@ -128,6 +128,44 @@ Rules with a check mark (✅) are enabled by default while using the `plugin:cyp
 |     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
 |     | [no-pause](./docs/rules/no-pause.md)           | Disallow `cy.pause()` parent command |
 
+## Mocha and Chai
+
+Cypress is built on top of [Mocha](https://on.cypress.io/guides/references/bundled-libraries#Mocha) and [Chai](https://on.cypress.io/guides/references/bundled-libraries#Chai). See the following sections for information on using ESLint plugins [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) and [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly) together with `eslint-plugin-cypress`.
+
+## Mocha `.only` and `.skip`
+
+During test spec development, [Mocha exclusive tests](https://mochajs.org/#exclusive-tests) `.only` or [Mocha inclusive tests](https://mochajs.org/#inclusive-tests) `.skip` may be used to control which tests are executed, as described in the Cypress documentation [Excluding and Including Tests](https://on.cypress.io/guides/core-concepts/writing-and-organizing-tests#Excluding-and-Including-Tests). To apply corresponding rules, you can install and use [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha). The rule [mocha/no-exclusive-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-exclusive-tests.md) detects the use of `.only` and the [mocha/no-skipped-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-skipped-tests.md) rule detects the use of `.skip`:
+
+```sh
+npm install --save-dev eslint-plugin-mocha
+```
+
+In your `.eslintrc.json`:
+
+```json
+{
+  "plugins": [
+    "cypress",
+    "mocha"
+  ],
+  "rules": {
+    "mocha/no-exclusive-tests": "warn",
+    "mocha/no-skipped-tests": "warn"
+  }
+}
+```
+
+Or you can simply use the `cypress/recommended` and `mocha/recommended` configurations together, for example:
+
+```json
+{
+  "extends": [
+    "plugin:cypress/recommended",
+    "plugin:mocha/recommended"
+  ]
+}
+```
+
 ## Chai and `no-unused-expressions`
 
 Using an assertion such as `expect(value).to.be.true` can fail the ESLint rule `no-unused-expressions` even though it's not an error in this case. To fix this, you can install and use [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly).
