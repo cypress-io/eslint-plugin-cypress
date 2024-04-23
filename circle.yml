@@ -42,6 +42,9 @@ jobs:
           name: Install dependencies
           command: npm ci
       - run:
+          name: Remove unneeded plugins # minimum eslint@8.23.0 required
+          command: npm uninstall eslint-plugin-eslint-plugin eslint-plugin-n
+      - run:
           name: Install ESLint 7
           command: npm install eslint@7
       - run:
