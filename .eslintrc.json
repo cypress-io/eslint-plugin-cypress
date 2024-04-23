@@ -15,6 +15,12 @@
     "plugin:mocha/recommended"
   ],
   "rules": {
+    "eslint-plugin/require-meta-docs-url": [
+      "error",
+      {
+        "pattern": "https://github.com/cypress-io/eslint-plugin-cypress/blob/master/docs/rules/{{name}}.md"
+      }
+    ],
     "n/no-extraneous-require": [
       "error",
       {
