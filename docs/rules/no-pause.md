@@ -9,11 +9,11 @@ Examples of **incorrect** code for this rule:
 
 ```js
 cy.pause();
+cy.get('selector').pause();
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-// only the parent cy.pause command is detected
-cy.get('selector').pause();
+cy.get('selector')
 ```
