@@ -15,7 +15,6 @@
     "plugin:mocha/recommended"
   ],
   "rules": {
-    "eslint-plugin/require-meta-schema": "off",
     "n/no-extraneous-require": [
       "error",
       {
