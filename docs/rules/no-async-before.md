@@ -1,6 +1,6 @@
 # Prevent using async/await in Cypress test cases (no-async-tests)
 
-Cypress commands that return a promise may cause side effects in before/beforeEach hooks, possibly causing unexpected behavior. 
+Cypress commands that return a promise may cause side effects in before/beforeEach hooks, possibly causing unexpected behavior.
 
 ## Rule Details
 
@@ -47,6 +47,5 @@ If there are genuine use-cases for using `async/await` in your before then you m
 
 ## Further Reading
 
-- [Commands Are Asynchronous](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Commands-Are-Asynchronous)
-- [Commands Are Promises](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Commands-Are-Promises)
-- [Commands Are Not Promises](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Commands-Are-Not-Promises)
+- [Mixing Async and Sync code](https://on.cypress.io/guides/core-concepts/introduction-to-cypress#Mixing-Async-and-Sync-code)
+- [Commands Are Asynchronous](https://on.cypress.io/guides/core-concepts/introduction-to-cypress.html#Commands-Are-Asynchronous)
