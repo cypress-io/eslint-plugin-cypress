@@ -1,6 +1,7 @@
-# Prevent using async/await in Cypress test cases (no-async-tests)
+# Disallow using `async`/`await` in Cypress `before` methods (`cypress/no-async-before`)
 
-Cypress commands that return a promise may cause side effects in before/beforeEach hooks, possibly causing unexpected behavior.
+<!-- end auto-generated rule header -->
+Cypress commands that return a promise may cause side effects in `before`/`beforeEach` hooks, possibly causing unexpected behavior.
 
 ## Rule Details
 
@@ -38,12 +39,11 @@ describe('my feature', () => {
     // other operations
   })
 })
-
 ```
 
 ## When Not To Use It
 
-If there are genuine use-cases for using `async/await` in your before then you may not want to include this rule (or at least demote it to a warning).
+If there are genuine use-cases for using `async/await` in your `before` hooks then you may not want to include this rule (or at least demote it to a warning).
 
 ## Further Reading
 
