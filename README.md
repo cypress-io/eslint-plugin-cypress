@@ -115,18 +115,24 @@ For more, see the [ESLint rules](https://eslint.org/docs/user-guide/configuring/
 
 These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices).
 
-Rules with a check mark (✅) are enabled by default while using the `plugin:cypress/recommended` config.
+<!-- begin auto-generated rules list -->
 
-|     | Rule ID                                                                    | Description                                                     |
-| :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |
-| ✅  | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)   | Prevent assigning return values of cy calls                     |
-| ✅  | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)           | Prevent waiting for arbitrary time periods                      |
-| ✅  | [no-async-tests](./docs/rules/no-async-tests.md)                           | Prevent using async/await in Cypress test case                  |
-| ✅  | [unsafe-to-chain-command](./docs/rules/unsafe-to-chain-command.md)         | Prevent chaining from unsafe to chain commands                  |
-|     | [no-force](./docs/rules/no-force.md)                                       | Disallow using `force: true` with action commands               |
-|     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
-|     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
-|     | [no-pause](./docs/rules/no-pause.md)           | Disallow `cy.pause()` parent command |
+💼 Configurations enabled in.\
+✅ Set in the `recommended` configuration.
+
+| Name                                                                     | Description                                                | 💼 |
+| :----------------------------------------------------------------------- | :--------------------------------------------------------- | :- |
+| [assertion-before-screenshot](docs/rules/assertion-before-screenshot.md) | require screenshots to be preceded by an assertion         |    |
+| [no-assigning-return-values](docs/rules/no-assigning-return-values.md)   | disallow assigning return values of `cy` calls             | ✅  |
+| [no-async-before](docs/rules/no-async-before.md)                         | disallow using `async`/`await` in Cypress `before` methods |    |
+| [no-async-tests](docs/rules/no-async-tests.md)                           | disallow using `async`/`await` in Cypress test cases       | ✅  |
+| [no-force](docs/rules/no-force.md)                                       | disallow using `force: true` with action commands          |    |
+| [no-pause](docs/rules/no-pause.md)                                       | disallow using `cy.pause()` calls                          |    |
+| [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | disallow waiting for arbitrary time periods                | ✅  |
+| [require-data-selectors](docs/rules/require-data-selectors.md)           | require `data-*` attribute selectors                       |    |
+| [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | disallow actions within chains                             | ✅  |
+
+<!-- end auto-generated rules list -->
 
 ## Mocha and Chai
 
