@@ -1,4 +1,4 @@
-{
+module.exports = {
   "env": {
     "node": true,
     "es6": true
@@ -15,21 +15,11 @@
     "plugin:mocha/recommended"
   ],
   "rules": {
-    "eslint-plugin/require-meta-docs-url": [
-      "error",
-      {
-        "pattern": "https://github.com/cypress-io/eslint-plugin-cypress/blob/master/docs/rules/{{name}}.md"
-      }
-    ],
+    "eslint-plugin/require-meta-docs-url":
+      ["error", { "pattern": "https://github.com/cypress-io/eslint-plugin-cypress/blob/master/docs/rules/{{name}}.md" }],
     "eslint-plugin/require-meta-docs-description": "error",
-    "n/no-extraneous-require": [
-      "error",
-      {
-        "allowModules": [
-          "jest-config"
-        ]
-      }
-    ],
+    "n/no-extraneous-require":
+      ["error", { "allowModules": ["jest-config"] }],
     "no-redeclare": "off",
     "mocha/no-mocha-arrows": "off",
     "mocha/no-setup-in-describe": "off"
