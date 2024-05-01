@@ -1,6 +1,10 @@
-# Prevent using async/await in Cypress test cases (no-async-tests)
+# Disallow using `async`/`await` in Cypress test cases (`cypress/no-async-tests`)
 
-Cypress tests [that return a promise will error](https://docs.cypress.io/guides/references/error-messages.html#Cypress-detected-that-you-returned-a-promise-from-a-command-while-also-invoking-one-or-more-cy-commands-in-that-promise) and cannot run successfully. An `async` function returns a promise under the hood, so a test using an `async` function will also error.
+💼 This rule is enabled in the ✅ `recommended` config.
+
+<!-- end auto-generated rule header -->
+Cypress tests [that return a promise will error](https://docs.cypress.io/guides/references/error-messages.html#Cypress-detected-that-you-returned-a-promise-from-a-command-while-also-invoking-one-or-more-cy-commands-in-that-promise) and cannot run successfully.
+An `async` function returns a promise under the hood, so a test using an `async` function will also error.
 
 ## Rule Details
 
@@ -38,7 +42,6 @@ describe('my feature', () => {
     // other operations
   })
 })
-
 ```
 
 ## When Not To Use It
@@ -47,6 +50,5 @@ If there are genuine use-cases for using `async/await` in your test cases then y
 
 ## Further Reading
 
-- [Commands Are Asynchronous](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Commands-Are-Asynchronous)
-- [Commands Are Promises](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Commands-Are-Promises)
-- [Commands Are Not Promises](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Commands-Are-Not-Promises)
+- [Mixing Async and Sync code](https://on.cypress.io/guides/core-concepts/introduction-to-cypress#Mixing-Async-and-Sync-code)
+- [Commands Are Asynchronous](https://on.cypress.io/guides/core-concepts/introduction-to-cypress.html#Commands-Are-Asynchronous)

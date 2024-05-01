@@ -6,6 +6,8 @@ Note: If you installed ESLint globally then you must also install `eslint-plugin
 
 ## Installation
 
+Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v7` or `v8`. ESLint `v9` is **not** supported yet.
+
 ```sh
 npm install eslint-plugin-cypress --save-dev
 ```
@@ -36,6 +38,7 @@ You can add rules:
     "cypress/assertion-before-screenshot": "warn",
     "cypress/no-force": "warn",
     "cypress/no-async-tests": "error",
+    "cypress/no-async-before": "error",
     "cypress/no-pause": "error"
   }
 }
@@ -112,20 +115,62 @@ For more, see the [ESLint rules](https://eslint.org/docs/user-guide/configuring/
 
 These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices).
 
-Rules with a check mark (✅) are enabled by default while using the `plugin:cypress/recommended` config.
+<!-- begin auto-generated rules list -->
 
-**NOTE**: These rules currently require eslint 5.0 or greater. If you would like support added for eslint 4.x, please 👍  [this issue](https://github.com/cypress-io/eslint-plugin-cypress/issues/14).
+💼 Configurations enabled in.\
+✅ Set in the `recommended` configuration.
 
-|     | Rule ID                                                                    | Description                                                     |
-| :-- | :------------------------------------------------------------------------- | :-------------------------------------------------------------- |
-| ✅  | [no-assigning-return-values](./docs/rules/no-assigning-return-values.md)   | Prevent assigning return values of cy calls                     |
-| ✅  | [no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md)           | Prevent waiting for arbitrary time periods                      |
-| ✅  | [no-async-tests](./docs/rules/no-async-tests.md)                           | Prevent using async/await in Cypress test case                  |
-| ✅  | [unsafe-to-chain-command](./docs/rules/unsafe-to-chain-command.md)         | Prevent chaining from unsafe to chain commands                  |
-|     | [no-force](./docs/rules/no-force.md)                                       | Disallow using `force: true` with action commands               |
-|     | [assertion-before-screenshot](./docs/rules/assertion-before-screenshot.md) | Ensure screenshots are preceded by an assertion                 |
-|     | [require-data-selectors](./docs/rules/require-data-selectors.md)           | Only allow data-\* attribute selectors (require-data-selectors) |
-|     | [no-pause](./docs/rules/no-pause.md)           | Disallow `cy.pause()` parent command |
+| Name                                                                     | Description                                                | 💼 |
+| :----------------------------------------------------------------------- | :--------------------------------------------------------- | :- |
+| [assertion-before-screenshot](docs/rules/assertion-before-screenshot.md) | require screenshots to be preceded by an assertion         |    |
+| [no-assigning-return-values](docs/rules/no-assigning-return-values.md)   | disallow assigning return values of `cy` calls             | ✅  |
+| [no-async-before](docs/rules/no-async-before.md)                         | disallow using `async`/`await` in Cypress `before` methods |    |
+| [no-async-tests](docs/rules/no-async-tests.md)                           | disallow using `async`/`await` in Cypress test cases       | ✅  |
+| [no-force](docs/rules/no-force.md)                                       | disallow using `force: true` with action commands          |    |
+| [no-pause](docs/rules/no-pause.md)                                       | disallow using `cy.pause()` calls                          |    |
+| [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | disallow waiting for arbitrary time periods                | ✅  |
+| [require-data-selectors](docs/rules/require-data-selectors.md)           | require `data-*` attribute selectors                       |    |
+| [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | disallow actions within chains                             | ✅  |
+
+<!-- end auto-generated rules list -->
+
+## Mocha and Chai
+
+Cypress is built on top of [Mocha](https://on.cypress.io/guides/references/bundled-libraries#Mocha) and [Chai](https://on.cypress.io/guides/references/bundled-libraries#Chai). See the following sections for information on using ESLint plugins [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) and [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly) together with `eslint-plugin-cypress`.
+
+## Mocha `.only` and `.skip`
+
+During test spec development, [Mocha exclusive tests](https://mochajs.org/#exclusive-tests) `.only` or [Mocha inclusive tests](https://mochajs.org/#inclusive-tests) `.skip` may be used to control which tests are executed, as described in the Cypress documentation [Excluding and Including Tests](https://on.cypress.io/guides/core-concepts/writing-and-organizing-tests#Excluding-and-Including-Tests). To apply corresponding rules, you can install and use [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha). The rule [mocha/no-exclusive-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-exclusive-tests.md) detects the use of `.only` and the [mocha/no-skipped-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-skipped-tests.md) rule detects the use of `.skip`:
+
+```sh
+npm install --save-dev eslint-plugin-mocha
+```
+
+In your `.eslintrc.json`:
+
+```json
+{
+  "plugins": [
+    "cypress",
+    "mocha"
+  ],
+  "rules": {
+    "mocha/no-exclusive-tests": "warn",
+    "mocha/no-skipped-tests": "warn"
+  }
+}
+```
+
+Or you can simply use the `cypress/recommended` and `mocha/recommended` configurations together, for example:
+
+```json
+{
+  "extends": [
+    "plugin:cypress/recommended",
+    "plugin:mocha/recommended"
+  ]
+}
+```
 
 ## Chai and `no-unused-expressions`
 
@@ -158,16 +203,6 @@ Or you can simply add its `recommended` config:
 }
 ```
 
-## Contribution Guide
+## Contributing
 
-To add a new rule:
-  * Fork and clone this repository
-  * Generate a new rule (a [yeoman generator](https://github.com/eslint/generator-eslint) is available)
-  * Run `yarn start` or `npm start`
-  * Write test scenarios then implement logic
-  * Describe the rule in the generated `docs` file
-  * Make sure all tests are passing
-  * Add the rule to this README
-  * Create a PR
-
-Use the following commit message conventions: https://github.com/semantic-release/semantic-release#commit-message-format
+Please see our [Contributing Guideline](./CONTRIBUTING.md) which explains how to contribute rules or other fixes and features to the repo.

@@ -5,15 +5,13 @@ workflows:
   main:
     jobs:
       - lint
-      - test-v4
-      - test-v5
-      - test-v6
+      - test-v7
+      - test-v8
       - release:
           requires:
             - lint
-            - test-v4
-            - test-v5
-            - test-v6
+            - test-v7
+            - test-v8
           filters:
             branches:
               only:
@@ -22,60 +20,66 @@ workflows:
 jobs:
   lint:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:20.12.2
     steps:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
+      - run:
+          name: Show ESLint version
+          command: npx eslint --version
       - run:
           name: Lint code
           command: npm run lint
 
-  test-v4:
+  test-v7:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:20.12.2
     steps:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
       - run:
-          name: Test ESLint 4
-          command: npm run test:v4
+          name: Remove unneeded plugins # minimum eslint@8.23.0 required
+          command: npm uninstall eslint-plugin-eslint-plugin eslint-plugin-n
+      - run:
+          name: Install ESLint 7
+          command: npm install eslint@7
+      - run:
+          name: Show ESLint version
+          command: npx eslint --version
+      - run:
+          name: Test ESLint 7
+          command: npm test
 
-  test-v5:
+  test-v8:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:20.12.2
     steps:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
       - run:
-          name: Test ESLint 5
-          command: npm run test
-
-  test-v6:
-    docker:
-      - image: circleci/node:16
-    steps:
-      - checkout
+          name: Install ESLint 8
+          command: npm install eslint@8
       - run:
-          name: Install dependencies
-          command: npm install
+          name: Show ESLint version
+          command: npx eslint --version
       - run:
-          name: Test ESLint 6
-          command: npm run test:v6
+          name: Test ESLint 8
+          command: npm test
 
   release:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:20.12.2
     steps:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
       - run:
           name: Run semantic release
           command: npm run semantic-release
