@@ -18,6 +18,10 @@ ruleTester.run('action-ends-chain', rule, {
       code: 'cy.focused().should("be.visible");',
       parserOptions,
     },
+    {
+      code: 'cy.submitBtn().click();',
+      parserOptions,
+    },
   ],
 
   invalid: [
