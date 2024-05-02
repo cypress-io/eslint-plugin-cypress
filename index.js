@@ -5,6 +5,7 @@ module.exports = {
     'no-assigning-return-values': require('./lib/rules/no-assigning-return-values'),
     'unsafe-to-chain-command': require('./lib/rules/unsafe-to-chain-command'),
     'no-unnecessary-waiting': require('./lib/rules/no-unnecessary-waiting'),
+    'no-async-before': require('./lib/rules/no-async-before'),
     'no-async-tests': require('./lib/rules/no-async-tests'),
     'assertion-before-screenshot': require('./lib/rules/assertion-before-screenshot'),
     'require-data-selectors': require('./lib/rules/require-data-selectors'),
