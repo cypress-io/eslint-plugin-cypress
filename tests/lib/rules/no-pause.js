@@ -20,14 +20,18 @@ const ruleTester = new RuleTester()
 ruleTester.run('no-pause', rule, {
 
   valid: [
-    // for now, we do not detect .pause() child command
-    { code: `cy.get('button').pause()`, parserOptions },
     { code: `pause()`, parserOptions },
     { code: `cy.get('button').dblclick()`, parserOptions },
   ],
-
+  
   invalid: [
     { code: `cy.pause()`, parserOptions, errors },
     { code: `cy.pause({ log: false })`, parserOptions, errors },
+    { code: `cy.get('button').pause()`, parserOptions, errors },
+    { 
+      code: `cy.get('a').should('have.attr', 'href').and('match', /dashboard/).pause()`, 
+      parserOptions, 
+      errors 
+    }
   ],
 })
