@@ -2,7 +2,7 @@
 
 This document supplements the [README](README.md) document and describes how to use the Cypress ESLint Plugin (`eslint-plugin-cypress`) in an ESLint flat config environment.
 
-Usage with ESLint `8.57.0` is described. An update to this document is planned to cover ESLint `9.x` additionally.
+Usage with ESLint `8.57.0` and ESLint `9.x` is described.
 
 ## Introduction
 
@@ -12,20 +12,20 @@ Previously, ESLint had announced in their blog post [Flat config rollout plans](
 
 The Cypress ESLint Plugin (`eslint-plugin-cypress`) is currently based on ESLint `8.x` and has not yet been migrated to support Flat Config natively. [ESLint's new config system, Part 2: Introduction to flat config](https://eslint.org/blog/2022/08/new-config-system-part-2/) from August 2022 introduced the [Backwards compatibility utility](https://eslint.org/blog/2022/08/new-config-system-part-2/#backwards-compatibility-utility). This gives the capability to use `eslint-plugin-cypress` in an ESLint flat config environment.
 
-The following information details installation and usage examples for `eslint-plugin-cypress` together with related plugins in such an ESLint `8.57.0` flat config environment.
+The following information details installation and usage examples for `eslint-plugin-cypress` together with related plugins in an ESLint flat config environment.
 
 ## Installation
 
-It is recommended to use a minimum ESLint `v8.x` version [eslint@8.57.0](https://github.com/eslint/eslint/releases/tag/v8.57.0).
+It is recommended to use a minimum ESLint `8.x` version [eslint@8.57.0](https://github.com/eslint/eslint/releases/tag/v8.57.0) or ESLint `9.x`.
 
 ```shell
-npm install eslint@^8.57.0 @eslint/eslintrc eslint-plugin-cypress --save-dev
+npm install eslint @eslint/eslintrc eslint-plugin-cypress@^3.1.1 --save-dev
 ```
 
 or
 
 ```shell
-yarn add eslint@^8.57.0 @eslint/eslintrc eslint-plugin-cypress --dev
+yarn add eslint @eslint/eslintrc eslint-plugin-cypress@^3.1.1 --dev
 ```
 
 ## Usage examples
@@ -130,3 +130,5 @@ export default [
     })
 ]
 ```
+
+**Pending the resolution of issue https://github.com/ihordiachenko/eslint-plugin-chai-friendly/issues/32 [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly) cannot be used with ESLint `v9`.**

@@ -6,7 +6,8 @@ Note: If you installed ESLint globally then you must also install `eslint-plugin
 
 ## Installation
 
-Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v7` or `v8`. ESLint `v9` is **not** supported yet.
+Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v7`, `v8` or `v9`.
+This plugin supports the use of [Flat config files](https://eslint.org/docs/latest/use/configure/configuration-files) with ESLint `8.57.0` and above through [@eslint/eslintrc](https://www.npmjs.com/package/@eslint/eslintrc).
 
 ```sh
 npm install eslint-plugin-cypress --save-dev
@@ -18,9 +19,9 @@ yarn add eslint-plugin-cypress --dev
 
 ## Usage
 
-If you are using ESLint `v7` or `v8`, then add an `.eslintrc.json` file to the root directory of your Cypress project with the contents shown below.
+If you are using ESLint `v7` or `v8`, then add an `.eslintrc.json` file to the root directory of your Cypress project with the contents shown below. You can continue to use this format with ESLint `v9` if you set the `ESLINT_USE_FLAT_CONFIG` environment variable to `false` (see [ESLint v9 > Configuration Files (Deprecated)](https://eslint.org/docs/latest/use/configure/configuration-files-deprecated).
 
-Optionally, if you are using ESLint `v8` with a minimum version of `8.57.0`, you can use the [new configuration file](https://eslint.org/docs/v8.x/use/configure/configuration-files-new) format with filename `eslint.config.*js`. In this case, please refer to [additional Flat config installation and configuration details](FLAT-CONFIG.md).
+ESLint `v9` uses a [Flat config file](https://eslint.org/docs/latest/use/configure/configuration-files) format with filename `eslint.config.*js` by default. Please refer to [additional Flat config installation and configuration details](FLAT-CONFIG.md). (You may also use this with ESLint `8.57.0`.)
 
 ```json
 {
