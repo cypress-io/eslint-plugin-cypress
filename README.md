@@ -18,7 +18,9 @@ yarn add eslint-plugin-cypress --dev
 
 ## Usage
 
-Add an `.eslintrc.json` file to your `cypress` directory with the following:
+If you are using ESLint `v7` or `v8`, then add an `.eslintrc.json` file to the root directory of your Cypress project with the contents shown below.
+
+Optionally, if you are using ESLint `v8` with a minimum version of `8.57.0`, you can use the [new configuration file](https://eslint.org/docs/v8.x/use/configure/configuration-files-new) format with filename `eslint.config.*js`. In this case, please refer to [additional Flat config installation and configuration details](FLAT-CONFIG.md).
 
 ```json
 {
