@@ -6,32 +6,32 @@
 
 const rule = require('../../../lib/rules/no-pause')
 
-const RuleTester = require('eslint').RuleTester
+const { FlatRuleTester } = require('eslint/use-at-your-own-risk')
 
 const errors = [{ messageId: 'unexpected' }]
-const parserOptions = { ecmaVersion: 2018 }
+const languageOptions = { ecmaVersion: 2018 }
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester()
+const ruleTester = new FlatRuleTester()
 
 ruleTester.run('no-pause', rule, {
 
   valid: [
-    { code: `pause()`, parserOptions },
-    { code: `cy.get('button').dblclick()`, parserOptions },
+    { code: `pause()`, languageOptions },
+    { code: `cy.get('button').dblclick()`, languageOptions },
   ],
-  
+
   invalid: [
-    { code: `cy.pause()`, parserOptions, errors },
-    { code: `cy.pause({ log: false })`, parserOptions, errors },
-    { code: `cy.get('button').pause()`, parserOptions, errors },
-    { 
-      code: `cy.get('a').should('have.attr', 'href').and('match', /dashboard/).pause()`, 
-      parserOptions, 
-      errors 
+    { code: `cy.pause()`, languageOptions, errors },
+    { code: `cy.pause({ log: false })`, languageOptions, errors },
+    { code: `cy.get('button').pause()`, languageOptions, errors },
+    {
+      code: `cy.get('a').should('have.attr', 'href').and('match', /dashboard/).pause()`,
+      languageOptions,
+      errors
     }
   ],
 })

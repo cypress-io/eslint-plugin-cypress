@@ -1,56 +1,56 @@
 'use strict'
 
 const rule = require('../../../lib/rules/unsafe-to-chain-command')
-const RuleTester = require('eslint').RuleTester
+const { FlatRuleTester } = require('eslint/use-at-your-own-risk')
 
-const ruleTester = new RuleTester()
+const ruleTester = new FlatRuleTester()
 
 const errors = [{ messageId: 'unexpected' }]
-const parserOptions = { ecmaVersion: 6 }
+const languageOptions = { ecmaVersion: 6 }
 
 ruleTester.run('action-ends-chain', rule, {
   valid: [
     {
       code: 'cy.get("new-todo").type("todo A{enter}"); cy.get("new-todo").type("todo B{enter}"); cy.get("new-todo").should("have.class", "active");',
-      parserOptions,
+      languageOptions,
     },
     {
       code: 'cy.focused().should("be.visible");',
-      parserOptions,
+      languageOptions,
     },
     {
       code: 'cy.submitBtn().click();',
-      parserOptions,
+      languageOptions,
     },
   ],
 
   invalid: [
     {
       code: 'cy.get("new-todo").type("todo A{enter}").should("have.class", "active");',
-      parserOptions,
+      languageOptions,
       errors,
     },
     {
       code: 'cy.get("new-todo").type("todo A{enter}").type("todo B{enter}");',
-      parserOptions,
+      languageOptions,
       errors,
     },
     {
       code: 'cy.get("new-todo").focus().should("have.class", "active");',
-      parserOptions,
+      languageOptions,
       errors,
     },
     {
       code: 'cy.get("new-todo").customType("todo A{enter}").customClick();',
-      parserOptions,
+      languageOptions,
       errors,
       options: [{ methods: ['customType', 'customClick'] }],
     },
     {
       code: 'cy.get("new-todo").customPress("Enter").customScroll();',
-      parserOptions,
+      languageOptions,
       errors,
-      options: [{ methods: [/customPress/, /customScroll/] }],
+      options: [{ methods: ['customPress', 'customScroll'] }],
     },
   ],
 })
