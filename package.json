@@ -41,6 +41,7 @@
     "semantic-release": "semantic-release",
     "start": "npm run test-watch",
     "test": "jest",
+    "test:legacy": "jest --config jest.config-legacy.js",
     "test-watch": "jest --watchAll",
     "prepare": "husky"
   }
