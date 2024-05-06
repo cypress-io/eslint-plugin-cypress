@@ -7,11 +7,13 @@ workflows:
       - lint
       - test-v7
       - test-v8
+      - test-v9
       - release:
           requires:
             - lint
             - test-v7
             - test-v8
+            - test-v9
           filters:
             branches:
               only:
@@ -71,6 +73,24 @@ jobs:
       - run:
           name: Test ESLint 8
           command: npm run test:legacy
+
+  test-v9:
+    docker:
+      - image: cimg/node:20.12.2
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Install ESLint 9
+          command: npm install eslint@9
+      - run:
+          name: Show ESLint version
+          command: npx eslint --version
+      - run:
+          name: Test ESLint 9
+          command: npm test
 
   release:
     docker:
