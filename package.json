@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/cypress-io/eslint-plugin-cypress#readme",
   "peerDependencies": {
-    "eslint": ">=7 <9"
+    "eslint": ">=7"
   },
   "dependencies": {
     "globals": "^13.20.0"
