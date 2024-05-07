@@ -52,7 +52,7 @@ jobs:
           command: npx eslint --version
       - run:
           name: Test ESLint 7
-          command: npm test
+          command: npm run test:legacy
 
   test-v8:
     docker:
@@ -70,7 +70,7 @@ jobs:
           command: npx eslint --version
       - run:
           name: Test ESLint 8
-          command: npm test
+          command: npm run test:legacy
 
   release:
     docker:
