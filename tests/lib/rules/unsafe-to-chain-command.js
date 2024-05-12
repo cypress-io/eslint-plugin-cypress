@@ -22,13 +22,13 @@ ruleTester.run('action-ends-chain', rule, {
     { code: 'cy.get("new-todo").focus().should("have.class", "active");', errors },
     {
       code: 'cy.get("new-todo").customType("todo A{enter}").customClick();',
-      errors,
       options: [{ methods: ['customType', 'customClick'] }],
+      errors,
     },
     {
       code: 'cy.get("new-todo").customPress("Enter").customScroll();',
-      errors,
       options: [{ methods: ['customPress', 'customScroll'] }],
+      errors,
     },
   ],
 })

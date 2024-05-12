@@ -42,15 +42,15 @@ ruleTester.run('action-ends-chain', rule, {
     },
     {
       code: 'cy.get("new-todo").customType("todo A{enter}").customClick();',
+      options: [{ methods: ['customType', 'customClick'] }],
       parserOptions,
       errors,
-      options: [{ methods: ['customType', 'customClick'] }],
     },
     {
       code: 'cy.get("new-todo").customPress("Enter").customScroll();',
+      options: [{ methods: [/customPress/, /customScroll/] }],
       parserOptions,
       errors,
-      options: [{ methods: [/customPress/, /customScroll/] }],
     },
   ],
 })
