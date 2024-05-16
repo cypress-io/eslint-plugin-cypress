@@ -2,7 +2,11 @@
   "name": "eslint-plugin-cypress",
   "version": "0.0.0-development",
   "description": "An ESLint plugin for projects using Cypress",
-  "main": "index.js",
+  "main": "legacy.js",
+  "exports": {
+      ".": "./legacy.js",
+      "./flat": "./lib/flat.js"
+    },
   "author": "Cypress-io",
   "license": "MIT",
   "keywords": [

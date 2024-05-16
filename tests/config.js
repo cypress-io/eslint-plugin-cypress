@@ -2,10 +2,10 @@
 'use strict'
 
 const globals = require('globals')
-const config = require('../index.js')
+const config = require('../lib/flat.js')
 
-describe('environments globals', () => {
-  const env = config.environments.globals
+describe('globals languageOptions', () => {
+  const languageOptions = config.configs.globals.languageOptions
 
   it('should not mutate globals', () => {
     expect(globals.browser).not.toHaveProperty('cy')
@@ -13,12 +13,12 @@ describe('environments globals', () => {
   })
 
   it('should include other globals', () => {
-    expect(env.globals).toEqual(expect.objectContaining(globals.browser))
-    expect(env.globals).toEqual(expect.objectContaining(globals.mocha))
+    expect(languageOptions.globals).toEqual(expect.objectContaining(globals.browser))
+    expect(languageOptions.globals).toEqual(expect.objectContaining(globals.mocha))
   })
 
   it('should include cypress globals', () => {
-    expect(env.globals).toEqual(expect.objectContaining({
+    expect(languageOptions.globals).toEqual(expect.objectContaining({
       cy: false,
       Cypress: false,
     }))

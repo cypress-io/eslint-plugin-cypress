@@ -7,7 +7,7 @@ Note: If you installed ESLint globally then you must also install `eslint-plugin
 ## Installation
 
 Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v7`, `v8` or `v9`.
-This plugin supports the use of [Flat config files](https://eslint.org/docs/latest/use/configure/configuration-files) with ESLint `8.57.0` and above through [@eslint/eslintrc](https://www.npmjs.com/package/@eslint/eslintrc).
+This plugin supports the use of [Flat config files](https://eslint.org/docs/latest/use/configure/configuration-files) with ESLint `8.57.0` and above.
 
 ```sh
 npm install eslint-plugin-cypress --save-dev
