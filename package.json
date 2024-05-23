@@ -25,12 +25,12 @@
     "globals": "^13.20.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.0.2",
-    "@eslint/js": "^9.2.0",
-    "eslint": "^9.2.0",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.3.0",
+    "eslint": "^9.3.0",
     "eslint-plugin-eslint-plugin": "^6.1.0",
     "eslint-plugin-mocha": "^10.4.3",
-    "eslint-plugin-n": "^17.4.0",
+    "eslint-plugin-n": "^17.7.0",
     "husky": "^9.0.11",
     "jest": "^29.7.0",
     "semantic-release": "23.0.8"
