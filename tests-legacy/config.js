@@ -2,7 +2,7 @@
 'use strict'
 
 const globals = require('globals')
-const config = require('../index.js')
+const config = require('../legacy.js')
 
 describe('environments globals', () => {
   const env = config.environments.globals
