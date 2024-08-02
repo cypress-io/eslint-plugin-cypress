@@ -42,7 +42,8 @@ You can add rules:
     "cypress/no-force": "warn",
     "cypress/no-async-tests": "error",
     "cypress/no-async-before": "error",
-    "cypress/no-pause": "error"
+    "cypress/no-pause": "error",
+    "cypress/no-debug": "error"
   }
 }
 ```
@@ -131,6 +132,7 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 | [no-async-tests](docs/rules/no-async-tests.md)                           | disallow using `async`/`await` in Cypress test cases       | ✅  |
 | [no-force](docs/rules/no-force.md)                                       | disallow using `force: true` with action commands          |    |
 | [no-pause](docs/rules/no-pause.md)                                       | disallow using `cy.pause()` calls                          |    |
+| [no-debug](docs/rules/no-debug.md)                                       | disallow using `cy.debug()` calls                          |    |
 | [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | disallow waiting for arbitrary time periods                | ✅  |
 | [require-data-selectors](docs/rules/require-data-selectors.md)           | require `data-*` attribute selectors                       |    |
 | [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | disallow actions within chains                             | ✅  |
