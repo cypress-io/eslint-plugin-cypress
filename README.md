@@ -6,8 +6,8 @@ Note: If you installed ESLint globally then you must also install `eslint-plugin
 
 ## Installation
 
-Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v7`, `v8` or `v9`.
-This plugin supports the use of [Flat config files](https://eslint.org/docs/latest/use/configure/configuration-files) with ESLint `8.57.0` and above.
+Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v9`. Lower versions are no longer supported.
+This plugin supports the use of [Flat config files](https://eslint.org/docs/latest/use/configure/configuration-files) with ESLint `9.0.0` and above.
 
 ```sh
 npm install eslint-plugin-cypress --save-dev
@@ -17,15 +17,11 @@ or
 yarn add eslint-plugin-cypress --dev
 ```
 
-## Deprecations
-
-The use of ESLint `v7` and `v8` with `eslint-plugin-cypress` is deprecated and support will be removed in a future version of this plugin. ESLint `v7` reached end-of-life on Apr 9, 2022 and ESLint `v8` reached end-of-life on Oct 5, 2024. Users are encouraged to migrate to ESLint `v9`. See [ESLint Version Support](https://eslint.org/version-support/) for ESLint's current release lines.
-
 ## Usage
 
-If you are using ESLint `v7` or `v8`, then add an `.eslintrc.json` file to the root directory of your Cypress project with the contents shown below. You can continue to use this format with ESLint `v9` if you set the `ESLINT_USE_FLAT_CONFIG` environment variable to `false` (see [ESLint v9 > Configuration Files (Deprecated)](https://eslint.org/docs/latest/use/configure/configuration-files-deprecated)).
+ESLint `v9` uses a [Flat config file](https://eslint.org/docs/latest/use/configure/configuration-files) format with filename `eslint.config.*js` by default. Please refer to [Flat config installation and configuration details](FLAT-CONFIG.md).
 
-ESLint `v9` uses a [Flat config file](https://eslint.org/docs/latest/use/configure/configuration-files) format with filename `eslint.config.*js` by default. Please refer to [additional Flat config installation and configuration details](FLAT-CONFIG.md). (You may also use this with ESLint `8.57.0`.)
+You can continue to use a deprecated configuration `.eslintrc.json` with ESLint `v9` if you set the `ESLINT_USE_FLAT_CONFIG` environment variable to `false` (see [ESLint v9 > Configuration Files (Deprecated)](https://eslint.org/docs/latest/use/configure/configuration-files-deprecated)).
 
 ```json
 {

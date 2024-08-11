@@ -5,13 +5,11 @@ workflows:
   main:
     jobs:
       - lint
-      - test-v7
       - test-v8
       - test-v9
       - release:
           requires:
             - lint
-            - test-v7
             - test-v8
             - test-v9
           filters:
@@ -34,27 +32,6 @@ jobs:
       - run:
           name: Lint code
           command: npm run lint
-
-  test-v7:
-    docker:
-      - image: cimg/node:20.12.2
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm ci
-      - run:
-          name: Remove unneeded plugins # minimum eslint@8.23.0 required
-          command: npm uninstall eslint-plugin-eslint-plugin eslint-plugin-n
-      - run:
-          name: Install ESLint 7
-          command: npm install eslint@7
-      - run:
-          name: Show ESLint version
-          command: npx eslint --version
-      - run:
-          name: Test ESLint 7
-          command: npm run test:legacy
 
   test-v8:
     docker:
