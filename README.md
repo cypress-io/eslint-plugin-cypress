@@ -17,6 +17,10 @@ or
 yarn add eslint-plugin-cypress --dev
 ```
 
+## Deprecations
+
+The use of ESLint `v7` with `eslint-plugin-cypress` is deprecated and support will be removed in a future version of this plugin. ESLint `v7` reached end-of-life on Apr 9, 2022 and users are encouraged to migrate to ESLint `v9`. See [ESLint Version Support](https://eslint.org/version-support/) for ESLint's current release lines.
+
 ## Usage
 
 If you are using ESLint `v7` or `v8`, then add an `.eslintrc.json` file to the root directory of your Cypress project with the contents shown below. You can continue to use this format with ESLint `v9` if you set the `ESLINT_USE_FLAT_CONFIG` environment variable to `false` (see [ESLint v9 > Configuration Files (Deprecated)](https://eslint.org/docs/latest/use/configure/configuration-files-deprecated).
