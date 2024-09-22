@@ -4,9 +4,9 @@
   "description": "An ESLint plugin for projects using Cypress",
   "main": "legacy.js",
   "exports": {
-      ".": "./legacy.js",
-      "./flat": "./lib/flat.js"
-    },
+    ".": "./legacy.js",
+    "./flat": "./lib/flat.js"
+  },
   "author": "Cypress-io",
   "license": "MIT",
   "keywords": [
