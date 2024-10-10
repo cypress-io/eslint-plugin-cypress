@@ -37,7 +37,7 @@
     "eslint-plugin-n": "^17.10.3",
     "husky": "^9.1.6",
     "jest": "^29.7.0",
-    "semantic-release": "23.0.8"
+    "semantic-release": "24.1.2"
   },
   "scripts": {
     "lint": "eslint \"*.js\" \"**/**/*.js\"",
