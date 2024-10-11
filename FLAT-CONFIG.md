@@ -2,7 +2,7 @@
 
 This document supplements the [README](README.md) document and describes how to use the Cypress ESLint Plugin (`eslint-plugin-cypress`) in an ESLint flat config environment.
 
-Usage with ESLint `8.57.0` and ESLint `9.x` is described.
+Usage with ESLint `9.x` is described.
 
 ## Introduction
 
@@ -10,13 +10,11 @@ Usage with ESLint `8.57.0` and ESLint `9.x` is described.
 
 Previously, ESLint had announced in their blog post [Flat config rollout plans](https://eslint.org/blog/2023/10/flat-config-rollout-plans/) in October 2023 that flat config was planned to be the default in ESLint `v9.0.0` and that the eslintrc configuration system is planned to be removed in the future ESLint `v10.0.0`.
 
-Cypress ESLint Plugin (`eslint-plugin-cypress`) in release [3.2.0](https://github.com/cypress-io/eslint-plugin-cypress/releases/tag/v3.2.0) offered the first support of ESLint `9.x` flat config files using the [Backwards compatibility utility](https://eslint.org/blog/2022/08/new-config-system-part-2/#backwards-compatibility-utility). Current releases have removed the dependency on this utility and the examples in this document have been updated correspondingly.
-
 The following information details installation and usage examples for `eslint-plugin-cypress` together with related plugins in an ESLint flat config environment.
 
 ## Installation
 
-It is recommended to use a minimum ESLint `8.x` version [eslint@8.57.0](https://github.com/eslint/eslint/releases/tag/v8.57.0) or ESLint `9.x`.
+Use a minimum ESLint `9.x`.
 
 ```shell
 npm install eslint eslint-plugin-cypress --save-dev
@@ -38,10 +36,10 @@ import pluginCypress from 'eslint-plugin-cypress/flat'
 
 There are two specific flat configurations available:
 
-| Configuration         | Content                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `configs.globals`     | defines globals `cy`, `Cypress`, `expect`, `assert` and `chai` used in Cypress test specs as well as `globals.browser` and `globals.mocha` from [globals](https://www.npmjs.com/package/globals). Additionally, `languageOptions` of `ecmaVersion: 2019` and `sourceType: 'module'` for backwards compatibility with earlier versions of this plugin are defined. There are no default rules enabled in this configuration. |
-| `configs.recommended` | enables [recommended Rules](README.md#rules). It includes also `configs.global` (see above)                                                                                                                                                                                                                                                                                                                                 |
+| Configuration         | Content                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `configs.globals`     | defines globals `cy`, `Cypress`, `expect`, `assert` and `chai` used in Cypress test specs as well as `globals.browser` and `globals.mocha` from [globals](https://www.npmjs.com/package/globals). This version no longer specifies `languageOptions` for `ecmaVersion` and `sourceType` - see ESLint [JavaScript languageOptions](https://eslint.org/docs/latest/use/configure/language-options#specifying-javascript-options). There are no default rules enabled in this configuration. |
+| `configs.recommended` | enables [recommended Rules](README.md#rules). It includes also `configs.global` (see above)                                                                                                                                                                                                                                                                                                                                                                                               |
 
 In the following sections, different examples of possible configuration file contents are given, together with some brief explanations. Adapt these examples according to your needs.
 
