@@ -121,12 +121,12 @@ export default [
 
 ### Cypress and Chai recommended
 
-[eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly) (minimum version [eslint-plugin-chai-friendly@0.8.0](https://github.com/ihordiachenko/eslint-plugin-chai-friendly/releases/tag/v0.8.0) required for ESLint v9 support and flat config support) is combined with the Cypress plugin `eslint-plugin-cypress`.
+[eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly) is combined with the Cypress plugin `eslint-plugin-cypress`.
 
-The recommended rules for both plugins are used: `pluginCypress.configs.recommended` and `pluginChaiFriendly.configs.recommended`:
+The recommended rules for both plugins are used: `pluginCypress.configs.recommended` and `pluginChaiFriendly.configs.recommendedFlat`:
 
 ```shell
-npm install eslint-plugin-chai-friendly@^0.8.0 --save-dev
+npm install eslint-plugin-chai-friendly@^1.0.1 --save-dev
 ```
 
 ```js
@@ -134,7 +134,7 @@ import pluginCypress from 'eslint-plugin-cypress/flat'
 import pluginChaiFriendly from 'eslint-plugin-chai-friendly'
 export default [
   pluginCypress.configs.recommended,
-  pluginChaiFriendly.configs.recommended,
+  pluginChaiFriendly.configs.recommendedFlat,
   {
     rules: {
       'cypress/no-unnecessary-waiting': 'off',
