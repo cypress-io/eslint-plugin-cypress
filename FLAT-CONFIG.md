@@ -110,8 +110,8 @@ export default [
   pluginCypress.configs.recommended,
   {
     rules: {
-      'mocha/no-exclusive-tests': 'warn',
-      'mocha/no-skipped-tests': 'warn',
+      'mocha/no-exclusive-tests': 'error',
+      'mocha/no-skipped-tests': 'error',
       'mocha/no-mocha-arrows': 'off',
       'cypress/no-unnecessary-waiting': 'off'
     }
