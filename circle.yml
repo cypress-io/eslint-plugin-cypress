@@ -20,7 +20,7 @@ workflows:
 jobs:
   lint:
     docker:
-      - image: cimg/node:20.12.2
+      - image: cimg/node:22.11.0
     steps:
       - checkout
       - run:
@@ -35,7 +35,7 @@ jobs:
 
   test-v8:
     docker:
-      - image: cimg/node:20.12.2
+      - image: cimg/node:22.11.0
     steps:
       - checkout
       - run:
@@ -53,7 +53,7 @@ jobs:
 
   test-v9:
     docker:
-      - image: cimg/node:20.12.2
+      - image: cimg/node:22.11.0
     steps:
       - checkout
       - run:
@@ -71,7 +71,7 @@ jobs:
 
   release:
     docker:
-      - image: cimg/node:20.12.2
+      - image: cimg/node:22.11.0
     steps:
       - checkout
       - run:
