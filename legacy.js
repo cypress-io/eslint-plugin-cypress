@@ -12,6 +12,7 @@ module.exports = {
     'no-force': require('./lib/rules/no-force'),
     'no-pause': require('./lib/rules/no-pause'),
     'no-debug': require('./lib/rules/no-debug'),
+    'no-xpath': require('./lib/rules/no-xpath'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
