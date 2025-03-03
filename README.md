@@ -54,6 +54,7 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 | [no-force](docs/rules/no-force.md)                                       | disallow using `force: true` with action commands          |    |
 | [no-pause](docs/rules/no-pause.md)                                       | disallow using `cy.pause()` calls                          |    |
 | [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | disallow waiting for arbitrary time periods                | ✅  |
+| [no-xpath](docs/rules/no-xpath.md)                                       | disallow usage of xpath in selector                        |    |
 | [require-data-selectors](docs/rules/require-data-selectors.md)           | require `data-*` attribute selectors                       |    |
 | [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | disallow actions within chains                             | ✅  |
 

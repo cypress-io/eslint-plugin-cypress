@@ -1,4 +1,6 @@
-# Disallow usage of cypress xpath (`no-xpath`)
+# Disallow using `cy.xpath() calls (`cypress/no-xpath`)
+
+<!-- end auto-generated rule header -->
 
 This rule disallow the usage of cypress-xpath for selecting elements.
 
@@ -21,7 +23,7 @@ cy.get('[data-cy="container"]').click();
 
 ## Further Reading
 
-`cypress-xpath` package has been deprecated since Oct 13, 2022.
+Both `@cypress/xpath` and `cypress-xpath` packages have been deprecated since Oct 13, 2022.
 
 
 See [the Cypress Best Practices guide](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements).
