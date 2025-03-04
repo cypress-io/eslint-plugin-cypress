@@ -2,28 +2,24 @@
 
 <!-- end auto-generated rule header -->
 
-This rule disallow the usage of cypress-xpath for selecting elements.
+This rule disallows the usage of `cy.xpath()` for selecting elements.
 
+## Rule Details
 
 Examples of **incorrect** code for this rule:
 
 ```js
-
 cy.xpath('//div[@class=\"container\"]').click()
 ```
 
 Examples of **correct** code for this rule:
 
-
 ```js
-
 cy.get('[data-cy="container"]').click();
 ```
 
-
 ## Further Reading
 
-Both `@cypress/xpath` and `cypress-xpath` packages have been deprecated since Oct 13, 2022.
-
+Both `@cypress/xpath` and `cypress-xpath` are deprecated.
 
 See [the Cypress Best Practices guide](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements).
