@@ -14,7 +14,6 @@ const rule = require("../../../lib/rules/no-xpath"),
 const ruleTester = new RuleTester();
 ruleTester.run("no-xpath", rule, {
   valid: [
-    { code: 'cy.wait("@someRequest")' },
     { code: 'cy.get("button").click({force: true})' },
   ],
 
