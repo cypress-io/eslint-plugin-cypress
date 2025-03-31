@@ -1,5 +1,11 @@
 version: 2.1
 
+executors:
+  docker-executor:
+    docker:
+      - image: cimg/node:22.14.0
+    resource_class: medium
+
 workflows:
   version: 2.1
   main:
@@ -19,8 +25,7 @@ workflows:
 
 jobs:
   lint:
-    docker:
-      - image: cimg/node:22.11.0
+    executor: docker-executor
     steps:
       - checkout
       - run:
@@ -34,8 +39,7 @@ jobs:
           command: npm run lint
 
   test-v8:
-    docker:
-      - image: cimg/node:22.11.0
+    executor: docker-executor
     steps:
       - checkout
       - run:
@@ -52,8 +56,7 @@ jobs:
           command: npm run test:legacy
 
   test-v9:
-    docker:
-      - image: cimg/node:22.11.0
+    executor: docker-executor
     steps:
       - checkout
       - run:
@@ -70,8 +73,7 @@ jobs:
           command: npm test
 
   release:
-    docker:
-      - image: cimg/node:22.11.0
+    executor: docker-executor
     steps:
       - checkout
       - run:
