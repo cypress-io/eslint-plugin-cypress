@@ -7,17 +7,31 @@ executors:
     resource_class: medium
 
 workflows:
-  version: 2.1
   main:
     jobs:
       - lint
       - test-v8
       - test-v9
+
+      - build-test-project
+      - test-test-project:
+          matrix:
+            parameters:
+              eslint-version: ['9']
+              config-file: [
+                  # configurations correspond to examples in README
+                  'default',
+                  'recommended',
+                  'globals',
+                ]
+          requires:
+            - build-test-project
       - release:
           requires:
             - lint
             - test-v8
             - test-v9
+            - test-test-project
           filters:
             branches:
               only:
@@ -71,6 +85,63 @@ jobs:
       - run:
           name: Test ESLint 9
           command: npm test
+
+  build-test-project:
+    executor: docker-executor
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Build tarball
+          command: npm pack
+      - run:
+          name: Get version
+          command: |
+            echo "PLUGIN_VERSION=$(jq -r '.version' package.json)" >> $BASH_ENV
+            cp $BASH_ENV bash.env
+      - persist_to_workspace:
+          root: .
+          paths:
+            - eslint-plugin-cypress-*.tgz
+            - bash.env
+
+  test-test-project:
+    description: Run ESLint with different configurations
+    parameters:
+      eslint-version:
+        description: Version of ESLint to use
+        default: 'latest'
+        type: string
+      config-file:
+        description: Configuration file
+        default: 'default'
+        type: string
+    executor: docker-executor
+    working_directory: ./test-project
+    steps:
+      - checkout:
+          path: ../
+      - attach_workspace:
+          at: .
+      - run:
+          name: Get plugin version
+          command: |
+            cat bash.env >> $BASH_ENV
+      - run:
+          name: Install dependencies
+          command: |
+            npm install eslint@<< parameters.eslint-version>> ./eslint-plugin-cypress-$PLUGIN_VERSION.tgz -D
+      - run:
+          name: Display ESLint version
+          command: |
+            npx eslint --version
+      - run: echo Testing a << parameters.config-file >> configuration
+      - run:
+          name: Lint with example configuration
+          command: |
+            npx eslint --config ./eslint-configs/eslint.<< parameters.config-file >>.mjs .
 
   release:
     executor: docker-executor
