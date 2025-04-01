@@ -1,6 +1,6 @@
 # Test-project
 
-This test project was generated via the Cypress GUI.
+This test project was generated via the Cypress App.
 
 This project can be updated to the latest Cypress default scaffolded E2E test specs by carrying out the following steps in the directory `/test-project`:
 
