@@ -19,10 +19,14 @@ cy.get('parent')
 ```
 
 ```js
-cy.get('parent').within(() => {
-  cy.get('child')
-})
+cy.get('#comparison')
+  .get('div')
+  // finds the div.test-title outside the #comparison
+  // and the div.feature inside
+  .should('have.class', 'test-title')
+  .and('have.class', 'feature')
 ```
 
 ## Further Reading
 
+[cy.get()](https://on.cypress.io/api/get) 
