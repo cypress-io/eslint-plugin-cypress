@@ -1,0 +1,9 @@
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "Test project for eslint-plugin-cypress",
+  "scripts": {
+    "lint": "eslint",
+    "test": "cypress run"
+  }
+}
