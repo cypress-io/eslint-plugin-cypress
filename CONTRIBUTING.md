@@ -48,3 +48,29 @@ This plugin uses the ESLint [eslint-doc-generator](https://www.npmjs.com/package
 
 * The directory [tests-legacy](https://github.com/cypress-io/eslint-plugin-cypress/tree/master/tests-legacy) contains tests which are compatible with the legacy [ESLint v8 RuleTester](https://eslint.org/docs/v8.x/integrate/nodejs-api#ruletester) utility. It is not expected to add new rules to this set of tests.
 * The directory [tests](https://github.com/cypress-io/eslint-plugin-cypress/tree/master/tests) is for tests compatible with the current [ESLint RuleTester](https://eslint.org/docs/latest/integrate/nodejs-api#ruletester).
+
+## Merging pull requests
+
+This information is for Cypress.io Members or Collaborators who merge pull requests:
+
+1. When merging a pull request, use the [Squash and merge](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#squashing-your-merge-commits) option to squash all commits into one.
+1. Make sure the commit subject and body follow [semantic commit convention](https://semantic-release.gitbook.io/semantic-release/#commit-message-format), for instance:
+
+   ```text
+   feat: added new parameter
+   fix: fixed a bug
+   ```
+
+   If you need to bump the major version, mark it as breaking change in the body of the commit's message like:
+
+   ```text
+   fix: upgrade dependency X
+
+   BREAKING CHANGE: requires minimum Node.js 20 to run
+   ```
+
+1. New versions of this module will be released automatically by the CI pipeline when any PR with a triggering commit message is merged to the `master` branch: see the `release` job of [circle.yml](circle.yml).
+This will create a new [GitHub release](https://github.com/cypress-io/eslint-plugin-cypress/releases) and publish it to [eslint-plugin-cypress](https://www.npmjs.com/package/eslint-plugin-cypress) on the [npm registry](https://docs.npmjs.com/about-the-public-npm-registry).
+1. The module's CI is configured to use the [default Angular release rules](https://github.com/semantic-release/commit-analyzer/blob/master/lib/default-release-rules.js).
+This means that only `feat:`, `fix:` and `perf:` trigger a new release.
+Other Angular commit types listed in the [Angular commit message guidelines](https://github.com/angular/angular/blob/main/contributing-docs/commit-message-guidelines.md) can be used for documentation purposes, however they are ignored by the currently configured release process.
