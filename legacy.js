@@ -13,6 +13,7 @@ module.exports = {
     'no-pause': require('./lib/rules/no-pause'),
     'no-debug': require('./lib/rules/no-debug'),
     'no-xpath': require('./lib/rules/no-xpath'),
+    'no-chained-get': require('./lib/rules/no-chained-get'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
