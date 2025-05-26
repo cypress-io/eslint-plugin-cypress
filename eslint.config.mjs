@@ -6,7 +6,7 @@ import mochaPlugin from 'eslint-plugin-mocha'
 export default [
   pluginJs.configs.recommended,
   eslintPlugin.configs['flat/recommended'],
-  mochaPlugin.configs.flat.recommended,
+  mochaPlugin.configs.recommended,
   {ignores: ['test-project/']},
   {
     languageOptions: {
