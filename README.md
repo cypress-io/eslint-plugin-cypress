@@ -157,34 +157,34 @@ it('waits for a second', () => {
 
 ## Mocha and Chai
 
-Cypress is built on top of [Mocha](https://on.cypress.io/guides/references/bundled-libraries#Mocha) and [Chai](https://on.cypress.io/guides/references/bundled-libraries#Chai). See the following sections for information on using ESLint plugins [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) and [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly) together with `eslint-plugin-cypress`.
+Cypress is built on top of [Mocha](https://on.cypress.io/app/references/bundled-libraries#Mocha) and [Chai](https://on.cypress.io/app/references/bundled-libraries#Chai). See the following sections for information on using ESLint plugins [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) and [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly) together with `eslint-plugin-cypress`.
 
 ## Mocha `.only` and `.skip`
 
-During test spec development, [Mocha exclusive tests](https://mochajs.org/#exclusive-tests) `.only` or [Mocha inclusive tests](https://mochajs.org/#inclusive-tests) `.skip` may be used to control which tests are executed, as described in the Cypress documentation [Excluding and Including Tests](https://on.cypress.io/guides/core-concepts/writing-and-organizing-tests#Excluding-and-Including-Tests). To apply corresponding rules, you can install and use [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha). The rule [mocha/no-exclusive-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-exclusive-tests.md) detects the use of `.only` and the [mocha/no-skipped-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-skipped-tests.md) rule detects the use of `.skip`.
+During test spec development, [Mocha exclusive tests](https://mochajs.org/#exclusive-tests) `.only` or [Mocha inclusive tests](https://mochajs.org/#inclusive-tests) `.skip` may be used to control which tests are executed, as described in the Cypress documentation [Excluding and Including Tests](https://on.cypress.io/app/core-concepts/writing-and-organizing-tests#Excluding-and-Including-Tests). To apply corresponding rules, you can install and use [eslint-plugin-mocha@^11](https://www.npmjs.com/package/eslint-plugin-mocha) plugin version or above. The rule [mocha/no-exclusive-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-exclusive-tests.md) detects the use of `.only` and the [mocha/no-pending-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-pending-tests.md) rule detects the use of `.skip`.
 
 ### Cypress and Mocha recommended
 
-[eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) is added to the example [Cypress recommended](#cypress-recommended). This plugin offers a flat file recommended option `configs.flat.recommended`.
+[eslint-plugin-mocha@^11](https://www.npmjs.com/package/eslint-plugin-mocha) is added to the example [Cypress recommended](#cypress-recommended). This version of the plugin supports only flat file configurations with the option `configs.recommended`.
 
-The settings for individual `mocha` rules from the `configs.flat.recommended` option are changed.
-- [mocha/no-exclusive-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-exclusive-tests.md) and [mocha/no-skipped-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-skipped-tests.md) are set to `error` instead of `warn`
+The settings for individual `mocha` rules from the `configs.recommended` option are changed.
+- [mocha/no-exclusive-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-exclusive-tests.md) and [mocha/no-pending-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-pending-tests.md) are set to `error` instead of `warn`
 - [mocha/no-mocha-arrows](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-mocha-arrows.md) is set to `off` instead of `error`
 
 ```shell
-npm install eslint-plugin-mocha@^10.5.0 --save-dev
+npm install eslint-plugin-mocha@^11 --save-dev
 ```
 
 ```js
 import pluginMocha from 'eslint-plugin-mocha'
 import pluginCypress from 'eslint-plugin-cypress/flat'
 export default [
-  pluginMocha.configs.flat.recommended,
+  pluginMocha.configs.recommended,
   pluginCypress.configs.recommended,
   {
     rules: {
       'mocha/no-exclusive-tests': 'error',
-      'mocha/no-skipped-tests': 'error',
+      'mocha/no-pending-tests': 'error',
       'mocha/no-mocha-arrows': 'off',
       'cypress/no-unnecessary-waiting': 'off'
     }
