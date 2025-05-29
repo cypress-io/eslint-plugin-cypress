@@ -73,7 +73,7 @@ In the following sections, different examples of possible configuration file con
 
 ### Cypress
 
-All rules from `eslint-plugin-cypress` are available through `eslint-plugin-cypress` and can be individually activated.
+All rules are available by importing from `eslint-plugin-cypress` and can be individually activated.
 - [cypress/unsafe-to-chain-command](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/docs/rules/unsafe-to-chain-command.md) is activated and set to `error`
 
 ```js
