@@ -3,14 +3,13 @@ version: 2.1
 executors:
   docker-executor:
     docker:
-      - image: cimg/node:22.14.0
+      - image: cimg/node:22.16.0
     resource_class: medium
 
 workflows:
   main:
     jobs:
       - lint
-      - test-v8
       - test-v9
 
       - build-test-project
@@ -21,6 +20,7 @@ workflows:
               config-file: [
                   # configurations correspond to examples in README
                   'default',
+                  'default-deprecated', # using deprecated /flat
                   'recommended',
                   'globals',
                 ]
@@ -29,7 +29,6 @@ workflows:
       - release:
           requires:
             - lint
-            - test-v8
             - test-v9
             - test-test-project
           filters:
@@ -51,23 +50,6 @@ jobs:
       - run:
           name: Lint code
           command: npm run lint
-
-  test-v8:
-    executor: docker-executor
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm ci
-      - run:
-          name: Install ESLint 8
-          command: npm install eslint@8
-      - run:
-          name: Show ESLint version
-          command: npx eslint --version
-      - run:
-          name: Test ESLint 8
-          command: npm run test:legacy
 
   test-v9:
     executor: docker-executor

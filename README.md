@@ -18,21 +18,27 @@ yarn add eslint eslint-plugin-cypress --dev
 
 ## Usage
 
-ESLint `v9` uses a [Flat config file](https://eslint.org/docs/latest/use/configure/configuration-files) format with filename `eslint.config.*js` by default. For instructions on using a deprecated [eslintrc-type](https://eslint.org/docs/latest/use/configure/configuration-files-deprecated) config file from previous ESLint versions, please refer to the [ESLINTRC-CONFIG](./ESLINTRC-CONFIG.md) document.
+ESLint `v9` uses a [Flat config file](https://eslint.org/docs/latest/use/configure/configuration-files) format with filename `eslint.config.*js` by default. This plugin no longer supports the use of a deprecated [eslintrc-type](https://eslint.org/docs/latest/use/configure/configuration-files-deprecated) config file from previous ESLint versions.
 
-To set up a flat configuration, add a file `eslint.config.mjs` to the root directory of your Cypress project and include the following instructions to import the available flat configurations using:
+To set up a configuration, add a file `eslint.config.mjs` to the root directory of your Cypress project and include the following instructions to import the available configurations using:
 
 ```shell
-import pluginCypress from 'eslint-plugin-cypress/flat'
+import pluginCypress from 'eslint-plugin-cypress'
+```
+
+For backwards compatibility with previous plugin versions `3.3.0` - `4.3.0`, the following equivalent deprecated form is also supported. This is planned to be removed in a future major version:
+
+```shell
+import pluginCypress from 'eslint-plugin-cypress/flat' # deprecated
 ```
 
 ## Configurations
 
-There are two specific flat configurations available:
+There are two specific configurations available:
 
 | Configuration         | Content                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `configs.globals`     | defines globals `cy`, `Cypress`, `expect`, `assert` and `chai` used in Cypress test specs as well as `globals.browser` and `globals.mocha` from [globals](https://www.npmjs.com/package/globals). This version no longer specifies `languageOptions` for `ecmaVersion` and `sourceType` - see ESLint [JavaScript languageOptions](https://eslint.org/docs/latest/use/configure/language-options#specifying-javascript-options). There are no default rules enabled in this configuration. |
+| `configs.globals`     | defines globals `cy`, `Cypress`, `expect`, `assert` and `chai` used in Cypress test specs as well as `globals.browser` and `globals.mocha` from [globals](https://www.npmjs.com/package/globals). There are no default rules enabled in this configuration. |
 | `configs.recommended` | enables [recommended Rules](#rules). It includes also `configs.global` (see above).                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ## Rules
@@ -67,11 +73,11 @@ In the following sections, different examples of possible configuration file con
 
 ### Cypress
 
-All rules from `eslint-plugin-cypress` are available through `eslint-plugin-cypress/flat` and can be individually activated.
+All rules are available by importing from `eslint-plugin-cypress` and can be individually activated.
 - [cypress/unsafe-to-chain-command](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/docs/rules/unsafe-to-chain-command.md) is activated and set to `error`
 
 ```js
-import pluginCypress from 'eslint-plugin-cypress/flat'
+import pluginCypress from 'eslint-plugin-cypress'
 export default [
   {
     plugins: {
@@ -90,7 +96,7 @@ The `eslint-plugin-cypress` [recommended rules](#rules) `configs.recommended` ar
 - [cypress/no-unnecessary-waiting](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/docs/rules/no-unnecessary-waiting.md) which is set to `off`
 
 ```js
-import pluginCypress from 'eslint-plugin-cypress/flat'
+import pluginCypress from 'eslint-plugin-cypress'
 export default [
   pluginCypress.configs.recommended,
   {
@@ -106,7 +112,7 @@ export default [
 The `configs.globals` are activated.
 
 ```js
-import pluginCypress from 'eslint-plugin-cypress/flat'
+import pluginCypress from 'eslint-plugin-cypress'
 export default [
   pluginCypress.configs.globals
 ]
@@ -177,7 +183,7 @@ npm install eslint-plugin-mocha@^11 --save-dev
 
 ```js
 import pluginMocha from 'eslint-plugin-mocha'
-import pluginCypress from 'eslint-plugin-cypress/flat'
+import pluginCypress from 'eslint-plugin-cypress'
 export default [
   pluginMocha.configs.recommended,
   pluginCypress.configs.recommended,
@@ -205,7 +211,7 @@ npm install eslint-plugin-chai-friendly@^1.0.1 --save-dev
 ```
 
 ```js
-import pluginCypress from 'eslint-plugin-cypress/flat'
+import pluginCypress from 'eslint-plugin-cypress'
 import pluginChaiFriendly from 'eslint-plugin-chai-friendly'
 export default [
   pluginCypress.configs.recommended,

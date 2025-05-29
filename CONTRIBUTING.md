@@ -34,7 +34,7 @@ To add a new rule:
 * Run `npm run lint`
 * Run `npm test` to run [Jest](https://jestjs.io/) (or run `npm start` to run [Jest](https://jestjs.io/) in [watchAll](https://jestjs.io/docs/cli#--watchall) mode where it remains active and reruns when source changes are made)
 * Make sure all tests are passing
-* Add the rule to [legacy.js](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/legacy.js) and to [flat.js](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/lib/flat.js)
+* Add the rule to [flat.js](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/lib/flat.js)
 * Create a git commit with a commit message similar to: `feat: add rule <description>` (see [commit message conventions](https://github.com/semantic-release/semantic-release#commit-message-format))
 * Create a PR from your branch
 
@@ -43,11 +43,6 @@ To add a new rule:
 This plugin uses the ESLint [eslint-doc-generator](https://www.npmjs.com/package/eslint-doc-generator) to generate consistent documentation.
 * Install with `npm install eslint-doc-generator -g`
 * Run `eslint-doc-generator` in the root directory of the plugin
-
-## Legacy tests
-
-* The directory [tests-legacy](https://github.com/cypress-io/eslint-plugin-cypress/tree/master/tests-legacy) contains tests which are compatible with the legacy [ESLint v8 RuleTester](https://eslint.org/docs/v8.x/integrate/nodejs-api#ruletester) utility. It is not expected to add new rules to this set of tests.
-* The directory [tests](https://github.com/cypress-io/eslint-plugin-cypress/tree/master/tests) is for tests compatible with the current [ESLint RuleTester](https://eslint.org/docs/latest/integrate/nodejs-api#ruletester).
 
 ## Merging pull requests
 
