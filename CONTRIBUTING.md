@@ -32,7 +32,7 @@ To add a new rule:
 * Run `eslint-doc-generator` to generate automated documentation sections (see [Document generation](#document-generation) below)
 * Review documentation changes
 * Run `npm run lint`
-* Run `npm test` to run [Jest](https://jestjs.io/) (or run `npm start` to run [Jest](https://jestjs.io/) in [watchAll](https://jestjs.io/docs/cli#--watchall) mode where it remains active and reruns when source changes are made)
+* Run `npm test` to run [Vitest](https://vitest.dev/)
 * Make sure all tests are passing
 * Add the rule to [flat.js](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/lib/flat.js)
 * Create a git commit with a commit message similar to: `feat: add rule <description>` (see [commit message conventions](https://github.com/semantic-release/semantic-release#commit-message-format))
