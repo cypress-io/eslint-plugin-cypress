@@ -10,7 +10,7 @@ const errors = [{ messageId: 'unexpected' }]
 ruleTester.run('action-ends-chain', rule, {
   valid: [
     {
-      code: 'cy.get("new-todo").type("todo A{enter}"); cy.get("new-todo").type("todo B{enter}"); cy.get("new-todo").should("have.class", "active");'
+      code: 'cy.get("new-todo").type("todo A{enter}"); cy.get("new-todo").type("todo B{enter}"); cy.get("new-todo").should("have.class", "active");',
     },
     { code: 'cy.focused().should("be.visible");' },
     { code: 'cy.submitBtn().click();' },

@@ -29,6 +29,7 @@
     "globals": "^16.2.0"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "^4.4.0",
     "eslint": "^9.27.0",
     "eslint-plugin-eslint-plugin": "^6.4.0",
     "eslint-plugin-mocha": "^11.1.0",

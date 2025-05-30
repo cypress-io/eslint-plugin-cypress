@@ -10,14 +10,14 @@ const errors = [{ messageId: 'unexpected' }]
 ruleTester.run('no-debug', rule, {
 
   valid: [
-    { code: `debug()` },
-    { code: `cy.get('button').dblclick()` },
+    { code: 'debug()' },
+    { code: 'cy.get(\'button\').dblclick()' },
   ],
 
   invalid: [
-    { code: `cy.debug()`, errors },
-    { code: `cy.debug({ log: false })`, errors },
-    { code: `cy.get('button').debug()`, errors },
-    { code: `cy.get('a').should('have.attr', 'href').and('match', /dashboard/).debug()`, errors }
+    { code: 'cy.debug()', errors },
+    { code: 'cy.debug({ log: false })', errors },
+    { code: 'cy.get(\'button\').debug()', errors },
+    { code: 'cy.get(\'a\').should(\'have.attr\', \'href\').and(\'match\', /dashboard/).debug()', errors },
   ],
 })
