@@ -34,12 +34,15 @@
     "eslint-plugin-eslint-plugin": "^6.4.0",
     "eslint-plugin-mocha": "^11.1.0",
     "husky": "^9.1.7",
+    "prettier": "^3.5.3",
     "semantic-release": "24.2.5",
     "vitest": "^3.1.4"
   },
   "scripts": {
     "lint": "eslint",
     "lint-fix": "eslint --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "semantic-release": "semantic-release",
     "test": "vitest run",
     "prepare": "husky"

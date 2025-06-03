@@ -32,6 +32,7 @@ To add a new rule:
 * Run `eslint-doc-generator` to generate automated documentation sections (see [Document generation](#document-generation) below)
 * Review documentation changes
 * Run `npm run lint`
+* Run `npm run format`
 * Run `npm test` to run [Vitest](https://vitest.dev/)
 * Make sure all tests are passing
 * Add the rule to [flat.js](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/lib/flat.js)
