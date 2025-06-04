@@ -1,0 +1,11 @@
+# Add files here to ignore them from prettier formatting
+
+**/package-lock.json
+
+**/*.js
+**/*.?js
+**/*.ts
+**/*.?ts
+**/*.md
+
+test-project/cypress/

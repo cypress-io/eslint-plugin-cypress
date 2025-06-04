@@ -48,8 +48,11 @@ jobs:
           name: Show ESLint version
           command: npx eslint --version
       - run:
-          name: Lint code
+          name: Lint code with ESLint
           command: npm run lint
+      - run:
+          name: Lint code with Prettier
+          command: npm run format:check
 
   test-v9:
     executor: docker-executor
