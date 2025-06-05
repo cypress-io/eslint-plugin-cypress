@@ -3,6 +3,7 @@
 💼 This rule is enabled in the ✅ `recommended` config.
 
 <!-- end auto-generated rule header -->
+
 Cypress tests [that return a promise will error](https://docs.cypress.io/guides/references/error-messages.html#Cypress-detected-that-you-returned-a-promise-from-a-command-while-also-invoking-one-or-more-cy-commands-in-that-promise) and cannot run successfully.
 An `async` function returns a promise under the hood, so a test using an `async` function will also error.
 
@@ -14,7 +15,7 @@ Examples of **incorrect** code for this rule:
 
 ```js
 describe('my feature', () => {
-  it('my test case', async ()  => {
+  it('my test case', async () => {
     await cy.get('.myClass')
     // other operations
   })
@@ -23,10 +24,8 @@ describe('my feature', () => {
 
 ```js
 describe('my feature', () => {
-  it('my test case', async ()  => {
-    cy
-    .get('.myClass')
-    .click()
+  it('my test case', async () => {
+    cy.get('.myClass').click()
 
     await someAsyncFunction()
   })
@@ -37,7 +36,7 @@ Examples of **correct** code for this rule:
 
 ```js
 describe('my feature', () => {
-  it('my test case', ()  => {
+  it('my test case', () => {
     cy.get('.myClass')
     // other operations
   })

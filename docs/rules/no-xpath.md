@@ -15,7 +15,7 @@ cy.xpath('//div[@class=\"container\"]').click()
 Examples of **correct** code for this rule:
 
 ```js
-cy.get('[data-cy="container"]').click();
+cy.get('[data-cy="container"]').click()
 ```
 
 ## Further Reading
