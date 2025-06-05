@@ -11,7 +11,9 @@ Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v9`. Lower versio
 ```sh
 npm install eslint eslint-plugin-cypress --save-dev
 ```
+
 or
+
 ```sh
 yarn add eslint eslint-plugin-cypress --dev
 ```
@@ -36,15 +38,16 @@ import pluginCypress from 'eslint-plugin-cypress/flat' # deprecated
 
 There are two specific configurations available:
 
-| Configuration         | Content                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Configuration         | Content                                                                                                                                                                                                                                                     |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `configs.globals`     | defines globals `cy`, `Cypress`, `expect`, `assert` and `chai` used in Cypress test specs as well as `globals.browser` and `globals.mocha` from [globals](https://www.npmjs.com/package/globals). There are no default rules enabled in this configuration. |
-| `configs.recommended` | enables [recommended Rules](#rules). It includes also `configs.global` (see above).                                                                                                                                                                                                                                                                                                                                                                                               |
+| `configs.recommended` | enables [recommended Rules](#rules). It includes also `configs.global` (see above).                                                                                                                                                                         |
 
 ## Rules
 
 These rules enforce some of the [best practices recommended for using Cypress](https://on.cypress.io/best-practices).
 
+<!-- prettier-ignore-start -->
 <!-- begin auto-generated rules list -->
 
 💼 Configurations enabled in.\
@@ -66,6 +69,7 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 | [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | disallow actions within chains                             | ✅  |
 
 <!-- end auto-generated rules list -->
+<!-- prettier-ignore-end -->
 
 ## Usage examples
 
@@ -74,6 +78,7 @@ In the following sections, different examples of possible configuration file con
 ### Cypress
 
 All rules are available by importing from `eslint-plugin-cypress` and can be individually activated.
+
 - [cypress/unsafe-to-chain-command](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/docs/rules/unsafe-to-chain-command.md) is activated and set to `error`
 
 ```js
@@ -81,18 +86,19 @@ import pluginCypress from 'eslint-plugin-cypress'
 export default [
   {
     plugins: {
-      cypress: pluginCypress
+      cypress: pluginCypress,
     },
     rules: {
-      'cypress/unsafe-to-chain-command': 'error'
-    }
-  }
+      'cypress/unsafe-to-chain-command': 'error',
+    },
+  },
 ]
 ```
 
 ### Cypress recommended
 
 The `eslint-plugin-cypress` [recommended rules](#rules) `configs.recommended` are activated, except for
+
 - [cypress/no-unnecessary-waiting](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/docs/rules/no-unnecessary-waiting.md) which is set to `off`
 
 ```js
@@ -101,9 +107,9 @@ export default [
   pluginCypress.configs.recommended,
   {
     rules: {
-      'cypress/no-unnecessary-waiting': 'off'
-    }
-  }
+      'cypress/no-unnecessary-waiting': 'off',
+    },
+  },
 ]
 ```
 
@@ -113,9 +119,7 @@ The `configs.globals` are activated.
 
 ```js
 import pluginCypress from 'eslint-plugin-cypress'
-export default [
-  pluginCypress.configs.globals
-]
+export default [pluginCypress.configs.globals]
 ```
 
 ## Disable rules
@@ -174,6 +178,7 @@ During test spec development, [Mocha exclusive tests](https://mochajs.org/#exclu
 [eslint-plugin-mocha@^11](https://www.npmjs.com/package/eslint-plugin-mocha) is added to the example [Cypress recommended](#cypress-recommended). This version of the plugin supports only flat file configurations with the option `configs.recommended`.
 
 The settings for individual `mocha` rules from the `configs.recommended` option are changed.
+
 - [mocha/no-exclusive-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-exclusive-tests.md) and [mocha/no-pending-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-pending-tests.md) are set to `error` instead of `warn`
 - [mocha/no-mocha-arrows](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-mocha-arrows.md) is set to `off` instead of `error`
 
@@ -192,9 +197,9 @@ export default [
       'mocha/no-exclusive-tests': 'error',
       'mocha/no-pending-tests': 'error',
       'mocha/no-mocha-arrows': 'off',
-      'cypress/no-unnecessary-waiting': 'off'
-    }
-  }
+      'cypress/no-unnecessary-waiting': 'off',
+    },
+  },
 ]
 ```
 
@@ -220,7 +225,7 @@ export default [
     rules: {
       'cypress/no-unnecessary-waiting': 'off',
     },
-  }
+  },
 ]
 ```
 

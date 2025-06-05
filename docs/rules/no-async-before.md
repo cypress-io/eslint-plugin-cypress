@@ -1,6 +1,7 @@
 # Disallow using `async`/`await` in Cypress `before` methods (`cypress/no-async-before`)
 
 <!-- end auto-generated rule header -->
+
 Cypress commands that return a promise may cause side effects in `before`/`beforeEach` hooks, possibly causing unexpected behavior.
 
 ## Rule Details
@@ -11,7 +12,7 @@ Examples of **incorrect** code for this rule:
 
 ```js
 describe('my feature', () => {
-  before('my test case', async ()  => {
+  before('my test case', async () => {
     await cy.get('.myClass')
     // other operations
   })
@@ -20,10 +21,8 @@ describe('my feature', () => {
 
 ```js
 describe('my feature', () => {
-  before('my test case', async ()  => {
-    cy
-    .get('.myClass')
-    .click()
+  before('my test case', async () => {
+    cy.get('.myClass').click()
 
     await someAsyncFunction()
   })
@@ -34,7 +33,7 @@ Examples of **correct** code for this rule:
 
 ```js
 describe('my feature', () => {
-  before('my test case', ()  => {
+  before('my test case', () => {
     cy.get('.myClass')
     // other operations
   })
