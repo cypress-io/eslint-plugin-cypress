@@ -3,7 +3,7 @@ export default [
   pluginCypress.configs.recommended,
   {
     rules: {
-      'cypress/no-unnecessary-waiting': 'off'
-    }
-  }
+      'cypress/no-unnecessary-waiting': 'off',
+    },
+  },
 ]
