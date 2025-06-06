@@ -9,7 +9,12 @@ export default [
   eslintPlugin.configs['flat/recommended'],
   mochaPlugin.configs.recommended,
   stylistic.configs.recommended,
-  { ignores: ['test-project/'] },
+  {
+    ignores: [
+      'test-project/**/*',
+      '!test-project/**/eslint*',
+    ],
+  },
   {
     languageOptions: {
       globals: globals.node,
