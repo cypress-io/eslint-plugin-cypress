@@ -46,5 +46,5 @@ If there are genuine use-cases for using `async/await` in your `before` hooks th
 
 ## Further Reading
 
-- [Mixing Async and Sync code](https://on.cypress.io/guides/core-concepts/introduction-to-cypress#Mixing-Async-and-Sync-code)
-- [Commands Are Asynchronous](https://on.cypress.io/guides/core-concepts/introduction-to-cypress.html#Commands-Are-Asynchronous)
+- [Mixing Async and Sync code](https://on.cypress.io/app/core-concepts/introduction-to-cypress#Mixing-Async-and-Sync-code)
+- [Commands Are Asynchronous](https://on.cypress.io/app/core-concepts/introduction-to-cypress.html#Commands-Are-Asynchronous)

@@ -4,7 +4,7 @@
 
 <!-- end auto-generated rule header -->
 
-Cypress tests [that return a promise will error](https://docs.cypress.io/guides/references/error-messages.html#Cypress-detected-that-you-returned-a-promise-from-a-command-while-also-invoking-one-or-more-cy-commands-in-that-promise) and cannot run successfully.
+Cypress tests [that return a promise will error](https://docs.cypress.io/app/references/error-messages.html#Cypress-detected-that-you-returned-a-promise-from-a-command-while-also-invoking-one-or-more-cy-commands-in-that-promise) and cannot run successfully.
 An `async` function returns a promise under the hood, so a test using an `async` function will also error.
 
 ## Rule Details
@@ -49,5 +49,5 @@ If there are genuine use-cases for using `async/await` in your test cases then y
 
 ## Further Reading
 
-- [Mixing Async and Sync code](https://on.cypress.io/guides/core-concepts/introduction-to-cypress#Mixing-Async-and-Sync-code)
-- [Commands Are Asynchronous](https://on.cypress.io/guides/core-concepts/introduction-to-cypress.html#Commands-Are-Asynchronous)
+- [Mixing Async and Sync code](https://on.cypress.io/app/core-concepts/introduction-to-cypress#Mixing-Async-and-Sync-code)
+- [Commands Are Asynchronous](https://on.cypress.io/app/core-concepts/introduction-to-cypress.html#Commands-Are-Asynchronous)
