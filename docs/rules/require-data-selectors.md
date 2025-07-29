@@ -27,4 +27,4 @@ cy.get('[data-QA=submit]')
 
 ## Further Reading
 
-See [the Cypress Best Practices guide](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements).
+See [the Cypress Best Practices guide](https://docs.cypress.io/app/core-concepts/best-practices.html#Selecting-Elements).

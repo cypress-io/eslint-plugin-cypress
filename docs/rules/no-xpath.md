@@ -22,4 +22,4 @@ cy.get('[data-cy="container"]').click()
 
 Both `@cypress/xpath` and `cypress-xpath` are deprecated.
 
-See [the Cypress Best Practices guide](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements).
+See [the Cypress Best Practices guide](https://docs.cypress.io/app/core-concepts/best-practices.html#Selecting-Elements).

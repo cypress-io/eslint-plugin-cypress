@@ -4,7 +4,7 @@
 
 Using `force: true` on inputs appears to be confusing rather than helpful.
 It usually silences the actual problem instead of providing a way to overcome it.
-See [Cypress Core Concepts](https://docs.cypress.io/guides/core-concepts/interacting-with-elements.html#Forcing).
+See [Cypress Core Concepts](https://docs.cypress.io/app/core-concepts/interacting-with-elements.html#Forcing).
 
 If enabling this rule, it's recommended to set the severity to `warn`.
 
