@@ -18,12 +18,6 @@ npx cypress open
 - Select "Scaffold example specs"
 - Close all Cypress windows
 
-Test that scaffolded specs run:
-
-```shell
-npm test
-```
-
 Remove Cypress from `package.json`:
 
 ```shell
