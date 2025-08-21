@@ -43,12 +43,20 @@ context('Misc', () => {
     if (Cypress.platform === 'win32') {
       cy.exec(`print ${Cypress.config('configFile')}`)
         .its('stderr').should('be.empty')
-    } else {
+    }
+    else {
       cy.exec(`cat ${Cypress.config('configFile')}`)
         .its('stderr').should('be.empty')
 
-      cy.exec('pwd')
-        .its('code').should('eq', 0)
+      cy.log(`Cypress version ${Cypress.version}`)
+      if (Cypress.version.split('.').map(Number)[0] < 15) {
+        cy.exec('pwd')
+          .its('code').should('eq', 0)
+      }
+      else {
+        cy.exec('pwd')
+          .its('exitCode').should('eq', 0)
+      }
     }
   })
 
