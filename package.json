@@ -34,14 +34,14 @@
     "globals": "^16.2.0"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^4.4.0",
-    "eslint": "^9.27.0",
-    "eslint-plugin-eslint-plugin": "^6.4.0",
+    "@stylistic/eslint-plugin": "^5.3.1",
+    "eslint": "^9.35.0",
+    "eslint-plugin-eslint-plugin": "^6.5.0",
     "eslint-plugin-mocha": "^11.1.0",
     "husky": "^9.1.7",
-    "prettier": "^3.5.3",
-    "semantic-release": "24.2.5",
-    "vitest": "^3.1.4"
+    "prettier": "^3.6.2",
+    "semantic-release": "24.2.7",
+    "vitest": "^3.2.4"
   },
   "scripts": {
     "lint": "eslint",
