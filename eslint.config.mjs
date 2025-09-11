@@ -6,7 +6,7 @@ import stylistic from '@stylistic/eslint-plugin'
 
 export default [
   pluginJs.configs.recommended,
-  eslintPlugin.configs['flat/recommended'],
+  eslintPlugin.configs.recommended,
   mochaPlugin.configs.recommended,
   stylistic.configs.recommended,
   {
