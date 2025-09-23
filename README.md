@@ -75,6 +75,8 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 
 In the following sections, different examples of possible configuration file contents are given, together with some brief explanations. Adapt these examples according to your needs.
 
+The examples use the `defineConfig()` helper, introduced with ESLint [9.22.0](https://eslint.org/blog/2025/03/eslint-v9.22.0-released/). Refer to the blog article [Evolving flat config with extends](https://eslint.org/blog/2025/03/flat-config-extends-define-config-global-ignores/) for background information. If you are using ESLint `<9.22.0`, import `defineConfig` from [@eslint/config-helpers](https://www.npmjs.com/package/@eslint/config-helpers) instead of from `eslint/config`.
+
 ### Cypress
 
 All rules are available by importing from `eslint-plugin-cypress` and can be individually activated.
@@ -82,8 +84,9 @@ All rules are available by importing from `eslint-plugin-cypress` and can be ind
 - [cypress/unsafe-to-chain-command](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/docs/rules/unsafe-to-chain-command.md) is activated and set to `error`
 
 ```js
+import { defineConfig } from 'eslint/config'
 import pluginCypress from 'eslint-plugin-cypress'
-export default [
+export default defineConfig([
   {
     plugins: {
       cypress: pluginCypress,
@@ -92,7 +95,7 @@ export default [
       'cypress/unsafe-to-chain-command': 'error',
     },
   },
-]
+])
 ```
 
 ### Cypress recommended
@@ -102,15 +105,19 @@ The `eslint-plugin-cypress` [recommended rules](#rules) `configs.recommended` ar
 - [cypress/no-unnecessary-waiting](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/docs/rules/no-unnecessary-waiting.md) which is set to `off`
 
 ```js
+import { defineConfig } from 'eslint/config'
 import pluginCypress from 'eslint-plugin-cypress'
-export default [
-  pluginCypress.configs.recommended,
+export default defineConfig([
   {
+    files: ['cypress/**/*.js'],
+    extends: [
+      pluginCypress.configs.recommended,
+    ],
     rules: {
       'cypress/no-unnecessary-waiting': 'off',
     },
   },
-]
+])
 ```
 
 ### Cypress globals
@@ -118,8 +125,16 @@ export default [
 The `configs.globals` are activated.
 
 ```js
+import { defineConfig } from 'eslint/config'
 import pluginCypress from 'eslint-plugin-cypress'
-export default [pluginCypress.configs.globals]
+export default defineConfig([
+  {
+    files: ['cypress/**/*.js'],
+    extends: [
+      pluginCypress.configs.globals,
+    ],
+  },
+])
 ```
 
 ## Disable rules
@@ -187,12 +202,16 @@ npm install eslint-plugin-mocha@^11 --save-dev
 ```
 
 ```js
+import { defineConfig } from 'eslint/config'
 import pluginMocha from 'eslint-plugin-mocha'
 import pluginCypress from 'eslint-plugin-cypress'
-export default [
-  pluginMocha.configs.recommended,
-  pluginCypress.configs.recommended,
+export default defineConfig([
   {
+    files: ['cypress/**/*.js'],
+    extends: [
+      pluginMocha.configs.recommended,
+      pluginCypress.configs.recommended,
+    ],
     rules: {
       'mocha/no-exclusive-tests': 'error',
       'mocha/no-pending-tests': 'error',
@@ -200,7 +219,7 @@ export default [
       'cypress/no-unnecessary-waiting': 'off',
     },
   },
-]
+])
 ```
 
 ### Cypress and Chai recommended
@@ -216,17 +235,21 @@ npm install eslint-plugin-chai-friendly@^1.0.1 --save-dev
 ```
 
 ```js
+import { defineConfig } from 'eslint/config'
 import pluginCypress from 'eslint-plugin-cypress'
 import pluginChaiFriendly from 'eslint-plugin-chai-friendly'
-export default [
-  pluginCypress.configs.recommended,
-  pluginChaiFriendly.configs.recommendedFlat,
+export default defineConfig([
   {
+    files: ['cypress/**/*.js'],
+    extends: [
+      pluginCypress.configs.recommended,
+      pluginChaiFriendly.configs.recommendedFlat,
+    ],
     rules: {
       'cypress/no-unnecessary-waiting': 'off',
     },
   },
-]
+])
 ```
 
 ## Contributing

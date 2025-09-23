@@ -1,24 +1,22 @@
+import { defineConfig, globalIgnores } from 'eslint/config'
 import globals from 'globals'
 import pluginJs from '@eslint/js'
 import eslintPlugin from 'eslint-plugin-eslint-plugin'
 import mochaPlugin from 'eslint-plugin-mocha'
 import stylistic from '@stylistic/eslint-plugin'
 
-export default [
-  pluginJs.configs.recommended,
-  eslintPlugin.configs.recommended,
-  mochaPlugin.configs.recommended,
-  stylistic.configs.recommended,
+export default defineConfig([
+
+  globalIgnores(['test-project/**/*', '!test-project/**/eslint*']),
+
   {
-    ignores: [
-      'test-project/**/*',
-      '!test-project/**/eslint*',
+    files: ['**/*.{,m}js'],
+    extends: [
+      pluginJs.configs.recommended,
+      eslintPlugin.configs.recommended,
+      mochaPlugin.configs.recommended,
+      stylistic.configs.recommended,
     ],
-  },
-  {
-    languageOptions: {
-      globals: globals.node,
-    },
     rules: {
       'no-redeclare': 'off',
       '@stylistic/arrow-parens': ['error', 'always'],
@@ -34,5 +32,8 @@ export default [
       'mocha/no-mocha-arrows': 'off',
       'mocha/no-setup-in-describe': 'off',
     },
+    languageOptions: {
+      globals: globals.node,
+    },
   },
-]
+])

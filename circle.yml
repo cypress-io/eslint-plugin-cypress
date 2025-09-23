@@ -17,13 +17,12 @@ workflows:
           matrix:
             parameters:
               eslint-version: ['9']
-              config-file: [
-                  # configurations correspond to examples in README
-                  'default',
-                  'default-deprecated', # using deprecated /flat
-                  'recommended',
-                  'globals',
-                ]
+              config-file:
+                # configurations correspond to examples in README
+                - 'globals'
+                - 'one-rule-deprecated' # using deprecated /flat
+                - 'one-rule'
+                - 'recommended'
           requires:
             - build-test-project
       - release:
