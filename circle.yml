@@ -26,6 +26,7 @@ workflows:
           requires:
             - build-test-project
       - release:
+          context: org-npm-credentials
           requires:
             - lint
             - test-v9
