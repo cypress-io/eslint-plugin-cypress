@@ -1,6 +1,8 @@
-# Disallow actions within chains (`cypress/unsafe-to-chain-command`)
+# cypress/unsafe-to-chain-command
 
 💼 This rule is enabled in the ✅ `recommended` config.
+
+📝 Disallow actions within chains.
 
 <!-- end auto-generated rule header -->
 

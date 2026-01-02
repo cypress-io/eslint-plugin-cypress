@@ -1,4 +1,6 @@
-# Disallow chain of `cy.get()` calls (`cypress/no-chained-get`)
+# cypress/no-chained-get
+
+📝 Disallow chain of `cy.get()` calls.
 
 <!-- end auto-generated rule header -->
 

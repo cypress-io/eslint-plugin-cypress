@@ -43,8 +43,12 @@ To add a new rule:
 
 This plugin uses the ESLint [eslint-doc-generator](https://www.npmjs.com/package/eslint-doc-generator) to generate consistent documentation.
 
-- Install with `npm install eslint-doc-generator -g`
+- Install with `npm install eslint-doc-generator@latest -g`
 - Run `eslint-doc-generator` in the root directory of the plugin
+
+Note that [eslint-doc-generator](https://www.npmjs.com/package/eslint-doc-generator) has some unresolved issues running under
+Microsoft Windows (see issue[#265](https://github.com/cypress-io/eslint-plugin-cypress/issues/265)).
+Do not attempt to run under Windows until these issues are resolved.
 
 ## Merging pull requests
 

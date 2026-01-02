@@ -1,6 +1,8 @@
-# Disallow assigning return values of `cy` calls (`cypress/no-assigning-return-values`)
+# cypress/no-assigning-return-values
 
 💼 This rule is enabled in the ✅ `recommended` config.
+
+📝 Disallow assigning return values of `cy` calls.
 
 <!-- end auto-generated rule header -->
 

@@ -1,4 +1,6 @@
-# Disallow using `cy.xpath()` calls (`cypress/no-xpath`)
+# cypress/no-xpath
+
+📝 Disallow using `cy.xpath()` calls.
 
 <!-- end auto-generated rule header -->
 

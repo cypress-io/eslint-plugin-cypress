@@ -1,4 +1,6 @@
-# Disallow using `force: true` with action commands (`cypress/no-force`)
+# cypress/no-force
+
+📝 Disallow using `force: true` with action commands.
 
 <!-- end auto-generated rule header -->
 

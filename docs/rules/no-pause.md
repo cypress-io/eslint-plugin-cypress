@@ -1,4 +1,6 @@
-# Disallow using `cy.pause()` calls (`cypress/no-pause`)
+# cypress/no-pause
+
+📝 Disallow using `cy.pause()` calls.
 
 <!-- end auto-generated rule header -->
 

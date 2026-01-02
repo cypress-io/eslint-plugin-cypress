@@ -1,4 +1,6 @@
-# Disallow using `async`/`await` in Cypress `before` methods (`cypress/no-async-before`)
+# cypress/no-async-before
+
+📝 Disallow using `async`/`await` in Cypress `before` methods.
 
 <!-- end auto-generated rule header -->
 
