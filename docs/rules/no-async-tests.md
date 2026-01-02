@@ -1,8 +1,8 @@
 # cypress/no-async-tests
 
-💼 This rule is enabled in the ✅ `recommended` config.
-
 📝 Disallow using `async`/`await` in Cypress test cases.
+
+💼 This rule is enabled in the ✅ `recommended` config.
 
 <!-- end auto-generated rule header -->
 
