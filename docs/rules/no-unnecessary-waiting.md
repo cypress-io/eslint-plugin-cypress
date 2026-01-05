@@ -1,4 +1,6 @@
-# Disallow waiting for arbitrary time periods (`cypress/no-unnecessary-waiting`)
+# cypress/no-unnecessary-waiting
+
+📝 Disallow waiting for arbitrary time periods.
 
 💼 This rule is enabled in the ✅ `recommended` config.
 

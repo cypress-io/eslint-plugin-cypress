@@ -1,4 +1,6 @@
-# Disallow using `cy.debug()` calls (`cypress/no-debug`)
+# cypress/no-debug
+
+📝 Disallow using `cy.debug()` calls.
 
 <!-- end auto-generated rule header -->
 
