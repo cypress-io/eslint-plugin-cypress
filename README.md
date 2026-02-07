@@ -6,7 +6,7 @@ Note: If you installed ESLint globally then you must also install `eslint-plugin
 
 ## Installation
 
-Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v9`. Lower versions are no longer supported.
+Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v9` or `v10`. Lower versions are no longer supported.
 
 ```sh
 npm install eslint eslint-plugin-cypress --save-dev
@@ -20,7 +20,7 @@ yarn add eslint eslint-plugin-cypress --dev
 
 ## Usage
 
-ESLint `v9` uses a [Flat config file](https://eslint.org/docs/latest/use/configure/configuration-files) format with filename `eslint.config.*js` by default. This plugin no longer supports the use of a deprecated [eslintrc-type](https://eslint.org/docs/latest/use/configure/configuration-files-deprecated) config file from previous ESLint versions.
+ESLint `v9` and `v10` use a [Flat config file](https://eslint.org/docs/latest/use/configure/configuration-files) format with filename `eslint.config.*js` by default. This plugin no longer supports the use of a deprecated [eslintrc-type](https://eslint.org/docs/latest/use/configure/configuration-files-deprecated) config file from previous ESLint versions.
 
 To set up a configuration, add a file `eslint.config.mjs` to the root directory of your Cypress project and include the following instructions to import the available configurations using:
 
