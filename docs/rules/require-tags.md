@@ -1,30 +1,38 @@
-# require tags (`require-tags`)
+# cypress/require-tags
+
+📝 Require tests to declare tags in the options argument.
+
+<!-- end auto-generated rule header -->
 
 Enforces the usage of tags on each test so you can filter tests with [@cypress/grep](https://www.npmjs.com/package/@cypress/grep#filter-with-tags).
 
 ## Rule Details
 
-This rule ensures every `it()` and `it.skip()` call includes a `tags` option (non-empty array) as the second argument, enabling tag-based test filtering.
+This rule ensures every `it()` call includes a `tags` option (non-empty array) as the second argument, enabling tag-based test filtering. It also applies to its alias `specify()` and for `.skip` as well as `.only`.
 
 Examples of **incorrect** code for this rule:
 
 ```js
-it('works as an array', () => {
+it('test', () => {
   expect(true).to.be.true
 })
 ```
+
+```js
+it('test', { tags: []} , () => {
+  expect(true).to.be.true
+})
+```
+
+
 
 Examples of **correct** code for this rule:
 
 ```js
-it('works as an array', { tags: ['config', 'some-other-tag'] }, () => {
+it('test', { tags: ['config', 'some-other-tag'] }, () => {
   expect(true).to.be.true
 })
 ```
-
-## When Not To Use It
-
-Turn off this rule if you are not using @cypress/grep or tag-based test filtering.
 
 ## Further Reading
 

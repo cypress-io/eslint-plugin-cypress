@@ -66,6 +66,7 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 | [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | disallow waiting for arbitrary time periods                | ✅  |
 | [no-xpath](docs/rules/no-xpath.md)                                       | disallow using `cy.xpath()` calls                          |    |
 | [require-data-selectors](docs/rules/require-data-selectors.md)           | require `data-*` attribute selectors                       |    |
+| [require-tags](docs/rules/require-tags.md)                               | require tests to declare tags in the options argument      |    |
 | [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | disallow actions within chains                             | ✅  |
 
 <!-- end auto-generated rules list -->
