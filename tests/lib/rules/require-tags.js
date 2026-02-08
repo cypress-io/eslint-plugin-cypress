@@ -13,7 +13,7 @@ ruleTester.run('require-tags', rule, {
 
   invalid: [
     {
-      code: 'it(\'works as an array\', () => { expect(true).to.be.true })',
+      code: 'it(\'test\', () => { expect(true).to.be.true })',
       errors: [{ messageId: 'missingTags' }],
     },
     {
