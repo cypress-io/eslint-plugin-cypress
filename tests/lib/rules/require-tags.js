@@ -9,10 +9,16 @@ ruleTester.run('require-tags', rule, {
     { code: 'it(\'test\', { tags: [\'smoke\'] }, () => { cy.get(\'button\').click(); })' },
     { code: 'it(\'test\', { tags: [\'config\', \'some-other-tag\'] }, () => { expect(true).to.be.true })' },
     { code: 'specify(\'test\', { tags: [\'smoke\'] }, () => { cy.get(\'button\').click(); })' },
+    { code: 'context(\'suite\', { tags: [\'smoke\'] }, () => {})' },
+    { code: 'describe(\'suite\', { tags: [\'smoke\'] }, () => {})' },
     { code: 'it.only(\'test\', { tags: [\'smoke\'] }, () => {})' },
     { code: 'it.skip(\'test\', { tags: [\'smoke\'] }, () => {})' },
     { code: 'specify.only(\'test\', { tags: [\'smoke\'] }, () => {})' },
     { code: 'specify.skip(\'test\', { tags: [\'smoke\'] }, () => {})' },
+    { code: 'describe.only(\'suite\', { tags: [\'smoke\'] }, () => {})' },
+    { code: 'describe.skip(\'suite\', { tags: [\'smoke\'] }, () => {})' },
+    { code: 'context.only(\'suite\', { tags: [\'smoke\'] }, () => {})' },
+    { code: 'context.skip(\'suite\', { tags: [\'smoke\'] }, () => {})' },
   ],
 
   invalid: [
@@ -42,6 +48,38 @@ ruleTester.run('require-tags', rule, {
     },
     {
       code: 'specify.skip(\'test\', () => {})',
+      errors: [{ messageId: 'missingTags' }],
+    },
+    {
+      code: 'describe(\'suite\', () => {})',
+      errors: [{ messageId: 'missingTags' }],
+    },
+    {
+      code: 'describe(\'suite\', { tags: [] }, () => {})',
+      errors: [{ messageId: 'emptyTags' }],
+    },
+    {
+      code: 'context(\'suite\', () => {})',
+      errors: [{ messageId: 'missingTags' }],
+    },
+    {
+      code: 'context(\'suite\', { tags: [] }, () => {})',
+      errors: [{ messageId: 'emptyTags' }],
+    },
+    {
+      code: 'describe.only(\'suite\', () => {})',
+      errors: [{ messageId: 'missingTags' }],
+    },
+    {
+      code: 'describe.skip(\'suite\', () => {})',
+      errors: [{ messageId: 'missingTags' }],
+    },
+    {
+      code: 'context.only(\'suite\', () => {})',
+      errors: [{ messageId: 'missingTags' }],
+    },
+    {
+      code: 'context.skip(\'suite\', () => {})',
       errors: [{ messageId: 'missingTags' }],
     },
   ],
