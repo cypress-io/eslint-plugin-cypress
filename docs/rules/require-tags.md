@@ -8,7 +8,7 @@ Enforces the usage of tags on each test so you can filter tests with [@cypress/g
 
 ## Rule Details
 
-This rule ensures every `it()` call includes a `tags` option (non-empty array) as the second argument, enabling tag-based test filtering. It also applies to its alias `specify()` and for `.skip` as well as `.only`.
+This rule ensures every test or suite call includes a `tags` option (non-empty array) as the second argument, enabling tag-based test filtering. It applies to `it()`, `specify()`, `context()`, and `describe()`, including their `.only` and `.skip` variants.
 
 Examples of **incorrect** code for this rule:
 
@@ -19,9 +19,13 @@ it('test', () => {
 ```
 
 ```js
-it('test', { tags: []} , () => {
+it('test', { tags: [] }, () => {
   expect(true).to.be.true
 })
+```
+
+```js
+describe('suite', () => {})
 ```
 
 
@@ -34,6 +38,9 @@ it('test', { tags: ['config', 'some-other-tag'] }, () => {
 })
 ```
 
+```js
+describe('suite', { tags: ['smoke'] }, () => {})
+```
 ## Further Reading
 
 - [@cypress/grep - Filter with tags](https://www.npmjs.com/package/@cypress/grep#filter-with-tags)
