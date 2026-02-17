@@ -35,7 +35,7 @@ To add a new rule:
 - Run `npm run format`
 - Run `npm test` to run [Vitest](https://vitest.dev/)
 - Make sure all tests are passing
-- Add the rule to [flat.js](https://github.com/cypress-io/eslint-plugin-cypress/blob/master/lib/flat.js)
+- Add the rule to [index.js](./lib/index.js)
 - Create a git commit with a commit message similar to: `feat: add rule <description>` (see [commit message conventions](https://github.com/semantic-release/semantic-release#commit-message-format))
 - Create a PR from your branch
 

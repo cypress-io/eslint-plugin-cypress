@@ -3,7 +3,7 @@ version: 2.1
 executors:
   docker-executor:
     docker:
-      - image: cimg/node:24.13.0
+      - image: cimg/node:24.13.1
     resource_class: medium
 
 workflows:
@@ -23,7 +23,6 @@ workflows:
               config-file:
                 # configurations correspond to examples in README
                 - 'globals'
-                - 'one-rule-deprecated' # using deprecated /flat
                 - 'one-rule'
                 - 'recommended'
           requires:
@@ -122,7 +121,7 @@ jobs:
         type: string
       config-file:
         description: Configuration file
-        default: 'default'
+        default: 'recommended'
         type: string
     executor: docker-executor
     working_directory: ./test-project
