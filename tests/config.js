@@ -2,7 +2,7 @@
 'use strict'
 
 const globals = require('globals')
-const config = require('../lib/flat.js')
+const config = require('../lib/index.js')
 
 describe('globals languageOptions', () => {
   const languageOptions = config.configs.globals.languageOptions
