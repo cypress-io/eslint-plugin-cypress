@@ -11,6 +11,7 @@ ruleTester.run('require-data-selectors', rule, {
   valid: [
     { code: 'cy.get(\'[data-cy=submit]\').click()' },
     { code: 'cy.get(\'[data-QA=submit]\')' },
+    { code: 'cy.should("exist").get(\'[data-cy=submit]\').click()' },
     { code: 'cy.clock(5000)' },
     { code: 'cy.scrollTo(0, 10)' },
     { code: 'cy.tick(500)' },
@@ -23,6 +24,7 @@ ruleTester.run('require-data-selectors', rule, {
 
   invalid: [
     { code: 'cy.get(\'[daedta-cy=submit]\').click()', errors },
+    { code: 'cy.should("exist").get(\'[daedta-cy=submit]\').click()', errors },
     { code: 'cy.get(\'[d-cy=submit]\')', errors },
     { code: 'cy.get(".btn-large").click()', errors },
     { code: 'cy.get(".btn-.large").click()', errors },

@@ -23,7 +23,15 @@ ruleTester.run('no-xpath', rule, {
       errors: [{ messageId: 'unexpected' }],
     },
     {
+      code: 'cy.get(".selector").xpath(\'//div[@class="container"]/p[1]\').click()',
+      errors: [{ messageId: 'unexpected' }],
+    },
+    {
       code: 'cy.xpath(\'//p[1]\').should(\'exist\')',
+      errors: [{ messageId: 'unexpected' }],
+    },
+    {
+      code: 'cy.get(".selector").xpath(\'//p[1]\').should(\'exist\')',
       errors: [{ messageId: 'unexpected' }],
     },
   ],
