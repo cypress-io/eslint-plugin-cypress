@@ -25,16 +25,26 @@ it('test', { tags: [] }, () => {
 ```
 
 ```js
-describe('suite', () => {})
+it('test', { tags: '' }, () => {
+  expect(true).to.be.true
+})
 ```
 
-
+```js
+describe('suite', () => {})
+```
 
 Examples of **correct** code for this rule:
 
 ```js
 it('test', { tags: ['config', 'some-other-tag'] }, () => {
   expect(true).to.be.true
+})
+```
+
+```js
+it('test', { tags: 'config' }, () => {
+  expect(false).to.be.false
 })
 ```
 

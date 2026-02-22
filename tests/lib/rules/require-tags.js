@@ -6,19 +6,19 @@ const rule = require('../../../lib/rules/require-tags'),
 const ruleTester = new RuleTester()
 ruleTester.run('require-tags', rule, {
   valid: [
-    { code: 'it(\'test\', { tags: [\'smoke\'] }, () => { cy.get(\'button\').click(); })' },
-    { code: 'it(\'test\', { tags: [\'config\', \'some-other-tag\'] }, () => { expect(true).to.be.true })' },
-    { code: 'specify(\'test\', { tags: [\'smoke\'] }, () => { cy.get(\'button\').click(); })' },
-    { code: 'context(\'suite\', { tags: [\'smoke\'] }, () => {})' },
-    { code: 'describe(\'suite\', { tags: [\'smoke\'] }, () => {})' },
-    { code: 'it.only(\'test\', { tags: [\'smoke\'] }, () => {})' },
-    { code: 'it.skip(\'test\', { tags: [\'smoke\'] }, () => {})' },
-    { code: 'specify.only(\'test\', { tags: [\'smoke\'] }, () => {})' },
-    { code: 'specify.skip(\'test\', { tags: [\'smoke\'] }, () => {})' },
-    { code: 'describe.only(\'suite\', { tags: [\'smoke\'] }, () => {})' },
-    { code: 'describe.skip(\'suite\', { tags: [\'smoke\'] }, () => {})' },
-    { code: 'context.only(\'suite\', { tags: [\'smoke\'] }, () => {})' },
-    { code: 'context.skip(\'suite\', { tags: [\'smoke\'] }, () => {})' },
+    { code: 'it(\'should login successfully\', { tags: \'@smoke\' }, () => { cy.get(\'button\').click(); })' },
+    { code: 'it(\'should handle errors\', { tags: [\'@smoke\', \'@critical\'] }, () => { expect(true).to.be.true })' },
+    { code: 'specify(\'test\', { tags: [\'@smoke\'] }, () => { cy.get(\'button\').click(); })' },
+    { code: 'context(\'suite\', { tags: [\'@smoke\'] }, () => {})' },
+    { code: 'describe(\'User Management\', { tags: \'@user\' }, () => { it(\'should create user\', { tags: \'@user\' }, () => {}); })' },
+    { code: 'it.only(\'test\', { tags: [\'@smoke\'] }, () => {})' },
+    { code: 'it.skip(\'test\', { tags: [\'@smoke\'] }, () => {})' },
+    { code: 'specify.only(\'test\', { tags: [\'@smoke\'] }, () => {})' },
+    { code: 'specify.skip(\'test\', { tags: [\'@smoke\'] }, () => {})' },
+    { code: 'describe.only(\'suite\', { tags: [\'@smoke\'] }, () => {})' },
+    { code: 'describe.skip(\'suite\', { tags: [\'@smoke\'] }, () => {})' },
+    { code: 'context.only(\'suite\', { tags: [\'@smoke\'] }, () => {})' },
+    { code: 'context.skip(\'suite\', { tags: [\'@smoke\'] }, () => {})' },
   ],
 
   invalid: [
@@ -28,6 +28,14 @@ ruleTester.run('require-tags', rule, {
     },
     {
       code: 'it(\'test\', { tags: [] }, () => { cy.get(\'button\').click(); })',
+      errors: [{ messageId: 'emptyTags' }],
+    },
+    {
+      code: 'it(\'test\', { tags: \'\' }, () => { cy.get(\'button\').click(); })',
+      errors: [{ messageId: 'emptyTags' }],
+    },
+    {
+      code: 'it(\'test\', { tags: [\'\'] }, () => { cy.get(\'button\').click(); })',
       errors: [{ messageId: 'emptyTags' }],
     },
     {
