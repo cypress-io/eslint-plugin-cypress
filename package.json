@@ -2,10 +2,9 @@
   "name": "eslint-plugin-cypress",
   "version": "0.0.0-development",
   "description": "An ESLint plugin for projects using Cypress",
-  "main": "./lib/flat.js",
+  "main": "./lib/index.js",
   "exports": {
-    ".": "./lib/flat.js",
-    "./flat": "./lib/flat.js"
+    ".": "./lib/index.js"
   },
   "files": [
     "lib",
@@ -14,6 +13,7 @@
   ],
   "author": "Cypress-io",
   "license": "MIT",
+  "type": "commonjs",
   "keywords": [
     "eslint",
     "eslintplugin",
@@ -31,19 +31,19 @@
     "eslint": ">=9"
   },
   "dependencies": {
-    "globals": "^16.5.0"
+    "globals": "^17.3.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.8.0",
-    "eslint": "^9.39.2",
-    "eslint-plugin-eslint-plugin": "^7.3.0",
+    "eslint": "^10.0.0",
+    "eslint-plugin-eslint-plugin": "^7.3.1",
     "eslint-plugin-mocha": "^11.2.0",
     "husky": "^9.1.7",
     "prettier": "^3.8.1",
     "semantic-release": "^25.0.3",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.54.0",
+    "typescript-eslint": "^8.56.0",
     "vitest": "^4.0.18"
   },
   "scripts": {
