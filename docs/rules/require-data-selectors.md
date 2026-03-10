@@ -21,6 +21,13 @@ cy.get('.btn-.large').click()
 
 const CLASS_SELECTOR = ".my-class"; 
 cy.get(CLASS_SELECTOR)
+
+const TYPE = 'submit'
+const SUBMIT_TEMPLATE = `.${TYPE}`
+cy.get(SUBMIT_TEMPLATE)
+
+const MY_SUBMIT_TEMPLATE = SUBMIT_TEMPLATE;
+cy.get(MY_SUBMIT_TEMPLATE)
 ```
 
 Examples of **correct** code for this rule:
@@ -29,11 +36,16 @@ Examples of **correct** code for this rule:
 cy.get('[data-cy=submit]').click()
 cy.get('[data-QA=submit]')
 cy.get(`[data-QA=submit]`)
-```
 
-```js
 const ASSESSMENT_SUBMIT = "[data-cy=assessment-submit]"
 cy.get(ASSESSMENT_SUBMIT).click()
+
+const TYPE = 'submit'
+const SUBMIT_TEMPLATE = `[data-QA=${TYPE}]`
+cy.get(SUBMIT_TEMPLATE)
+
+const MY_SUBMIT_TEMPLATE = SUBMIT_TEMPLATE;
+cy.get(MY_SUBMIT_TEMPLATE)
 ```
 
 ## Further Reading
