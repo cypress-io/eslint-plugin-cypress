@@ -21,6 +21,9 @@ ruleTester.run('require-data-selectors', rule, {
     { code: 'const ALIAS_TEMPLATE = `@my-alias`; cy.get(ALIAS_TEMPLATE)' },
     { code: 'const TEMPLATE = `[data-cy=${1}]`; cy.get(TEMPLATE)' },
     { code: 'const ALIAS_TEMPLATE = `@my-alias`; const REASSIGNED = ALIAS_TEMPLATE; cy.get(REASSIGNED)' },
+    { code: 'cy.get(condition ? "[data-cy=submit]" : "@my-alias")' },
+    { code: 'const ALIAS_TEMPLATE = `@my-alias`; cy.get(condition ? "[data-cy=submit]" : ALIAS_TEMPLATE)' },
+    { code: 'const ALIAS_TEMPLATE = condition ? "[data-cy=submit]" : "@my-alias"; cy.get(ALIAS_TEMPLATE)' },
   ],
 
   invalid: [
@@ -34,5 +37,8 @@ ruleTester.run('require-data-selectors', rule, {
     { code: 'const GOOD = "[data-cy=good]"; const BAD = ".bad"; cy.get(GOOD); cy.get(BAD)', errors },
     { code: 'const TEMPLATE = `[daedta-cy=${1}]`; cy.get(TEMPLATE)', errors },
     { code: 'const BAD = ".bad"; const REASSIGNED = BAD; cy.get(REASSIGNED)', errors },
+    { code: 'cy.get(condition ? ".bad" : "@my-alias")', errors },
+    { code: 'const BAD_SELECTOR = ".my-class"; cy.get(condition ? BAD_SELECTOR : "@my-alias")', errors },
+    { code: 'const BAD_SELECTOR = condition ? BAD_SELECTOR : "@my-alias"; cy.get(BAD_SELECTOR)', errors },
   ],
 })
