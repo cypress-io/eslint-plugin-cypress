@@ -1,13 +1,14 @@
 'use strict'
 
 const rule = require('../../../lib/rules/unsafe-to-chain-command')
+const tsParser = require('typescript-eslint').parser
 const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester()
 
 const errors = [{ messageId: 'unexpected' }]
 
-ruleTester.run('action-ends-chain', rule, {
+const tests = {
   valid: [
     {
       code: 'cy.get("new-todo").type("todo A{enter}"); cy.get("new-todo").type("todo B{enter}"); cy.get("new-todo").should("have.class", "active");',
@@ -31,4 +32,48 @@ ruleTester.run('action-ends-chain', rule, {
       errors,
     },
   ],
+}
+
+const typedTests = {
+  valid: [
+    ...tests.valid,
+    {
+      code: `
+        /// <reference types="cypress" />
+        function getTodo() {
+          return cy.get("new-todo");
+        }
+        getTodo().type("todo A{enter}"); 
+        getTodo().type("todo B{enter}");
+      `,
+    },
+  ],
+
+  invalid: [
+    ...tests.invalid,
+    {
+      code: `
+        /// <reference types="cypress" />
+        function getTodo() {
+          return cy.get("new-todo");
+        }        
+        getTodo().type("todo A{enter}").type("todo B{enter}");
+      `, errors,
+    },
+  ],
+}
+
+ruleTester.run('action-ends-chain', rule, tests)
+
+const typedRuleTester = new RuleTester({
+  languageOptions: {
+    parser: tsParser,
+    parserOptions: {
+      projectService: {
+        allowDefaultProject: ['*.ts'],
+      },
+    },
+  },
 })
+
+typedRuleTester.run('action-ends-chain', rule, typedTests)
