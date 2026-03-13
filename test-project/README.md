@@ -32,7 +32,7 @@ To test the project locally:
 
 ```shell
 cd test-project
-npm install eslint@latest eslint-plugin-cypress@latest cypress@latest -D
+npm install eslint@latest eslint-plugin-cypress@latest typescript-eslint@latest cypress@latest -D
 npx cypress run
 npx eslint
 ```
