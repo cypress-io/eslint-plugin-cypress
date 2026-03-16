@@ -47,7 +47,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm ci
+          command: CYPRESS_INSTALL_BINARY=0 npm ci
       - run:
           name: Show ESLint version
           command: npx eslint --version
@@ -64,7 +64,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm ci
+          command: CYPRESS_INSTALL_BINARY=0 npm ci
       - run:
           name: Install ESLint 9
           command: npm install eslint@9
@@ -81,7 +81,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm ci
+          command: CYPRESS_INSTALL_BINARY=0 npm ci
       - run:
           name: Install ESLint 10
           command: npm install eslint@10
@@ -98,7 +98,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm ci
+          command: CYPRESS_INSTALL_BINARY=0 npm ci
       - run:
           name: Build tarball
           command: npm pack
@@ -159,7 +159,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm ci
+          command: CYPRESS_INSTALL_BINARY=0 npm ci
       - run:
           name: Run semantic release
           command: npm run semantic-release
