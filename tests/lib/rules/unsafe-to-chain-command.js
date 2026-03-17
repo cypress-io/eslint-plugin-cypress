@@ -38,6 +38,7 @@ const typedTests = {
   valid: [
     ...tests.valid,
     {
+      filename: 'valid.ts',
       code: `
         /// <reference types="cypress" />
         function getTodo() {
@@ -52,6 +53,7 @@ const typedTests = {
   invalid: [
     ...tests.invalid,
     {
+      filename: 'invalid.ts',
       code: `
         /// <reference types="cypress" />
         function getTodo() {
