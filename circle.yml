@@ -124,8 +124,8 @@ jobs:
         description: Configuration file
         default: 'recommended'
         type: string
-      typescript-eslint-version:
-        description: Version of typescript-eslint to use
+      typescript-eslint-parser-version:
+        description: Version of @typescript-eslint/parser to use
         default: 'latest'
         type: string
     executor: docker-executor
@@ -142,7 +142,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            npm install eslint@<< parameters.eslint-version >> typescript-eslint@<< parameters.typescript-eslint-version >> ./eslint-plugin-cypress-$PLUGIN_VERSION.tgz -D
+            npm install eslint@<< parameters.eslint-version >> @typescript-eslint/parser@<< parameters.typescript-eslint-parser-version >> ./eslint-plugin-cypress-$PLUGIN_VERSION.tgz -D
       - run:
           name: Display ESLint version
           command: |

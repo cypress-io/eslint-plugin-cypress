@@ -143,10 +143,10 @@ export default defineConfig([
 
 You can activate typed linting for increased accuracy, if you want. This is purely optional and all rules continue to work without it. It uses a TypeScript parser to parse your entire project, instead of only the file being linted, which gives the plugin more information to work with. Be aware of the [performance penalty](https://typescript-eslint.io/getting-started/typed-linting/#performance) that this brings with it.
 
-First, install the `typescript-eslint` npm package:
+First, install the `@typescript-eslint/parser` npm package:
 
 ```sh
-npm install typescript-eslint --save-dev
+npm install @typescript-eslint/parser --save-dev
 ```
 
 If you already have a TypeScript codebase, you can skip the next step. If not, you need a `tsconfig.json`. The following minimal `tsconfig.json` does not compile or check your code and includes all .js files.
