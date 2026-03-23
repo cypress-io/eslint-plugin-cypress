@@ -1,8 +1,8 @@
 'use strict'
 
 const rule = require('../../../lib/rules/unsafe-to-chain-command')
-const tsParser = require('typescript-eslint').parser
-const RuleTester = require('eslint').RuleTester
+const tsParser = require('@typescript-eslint/parser')
+const { RuleTester } = require('@typescript-eslint/rule-tester')
 
 const ruleTester = new RuleTester()
 
@@ -38,7 +38,6 @@ const typedTests = {
   valid: [
     ...tests.valid,
     {
-      filename: 'valid.ts',
       code: `
         /// <reference types="cypress" />
         function getTodo() {
@@ -53,7 +52,6 @@ const typedTests = {
   invalid: [
     ...tests.invalid,
     {
-      filename: 'invalid.ts',
       code: `
         /// <reference types="cypress" />
         function getTodo() {
