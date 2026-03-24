@@ -10,6 +10,10 @@ Require `cy.get` to use only selectors that target `data-*` attributes.
 
 ## Rule Details
 
+This rule checks the first parameter of each `cy.get`. It supports template literals, variable (re-)assignments and conditional expressions. For conditionals, all branches must conform to this rule.
+
+Cypress aliases (as defined by `cy.as`) are always allowed.
+
 Examples of **incorrect** code for this rule:
 
 ```js
@@ -18,6 +22,7 @@ cy.get('[daedta-cy=submit]').click()
 cy.get('[d-cy=submit]')
 cy.get('.btn-large').click()
 cy.get('.btn-.large').click()
+cy.get(condition ? "[data-cy=submit]" : ".btn-large")
 
 const CLASS_SELECTOR = ".my-class"; 
 cy.get(CLASS_SELECTOR)
@@ -36,6 +41,7 @@ Examples of **correct** code for this rule:
 cy.get('[data-cy=submit]').click()
 cy.get('[data-QA=submit]')
 cy.get(`[data-QA=submit]`)
+cy.get(condition ? "[data-cy=submit]" : "[data-QA=submit]")
 
 const ASSESSMENT_SUBMIT = "[data-cy=assessment-submit]"
 cy.get(ASSESSMENT_SUBMIT).click()
