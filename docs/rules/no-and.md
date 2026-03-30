@@ -1,4 +1,4 @@
-# cypress/no-add
+# cypress/no-and
 
 📝 Disallow the use of `.and()`.
 

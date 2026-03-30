@@ -8,7 +8,7 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-const rule = require('../../../lib/rules/no-add'),
+const rule = require('../../../lib/rules/no-and'),
   RuleTester = require('eslint').RuleTester
 
 // ------------------------------------------------------------------------------
@@ -18,7 +18,7 @@ const rule = require('../../../lib/rules/no-add'),
 const ruleTester = new RuleTester()
 const errors = [{ messageId: 'unexpected' }]
 
-ruleTester.run('no-add', rule, {
+ruleTester.run('no-and', rule, {
   valid: [
     { code: 'cy.get(\'foo\').should(\'be.visible\')' },
     { code: 'cy.get(\'foo\').should(\'be.visible\').should(\'have.text\', \'bar\')' },
