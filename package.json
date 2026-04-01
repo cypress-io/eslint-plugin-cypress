@@ -41,7 +41,6 @@
     "eslint-plugin-mocha": "^11.2.0",
     "husky": "^9.1.7",
     "prettier": "^3.8.1",
-    "semantic-release": "^25.0.3",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1",
     "vitest": "^4.0.18"
@@ -51,7 +50,6 @@
     "lint-fix": "eslint --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "semantic-release": "semantic-release",
     "test": "vitest run",
     "prepare": "husky"
   }
