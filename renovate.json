@@ -15,6 +15,10 @@
   "labels": ["type: dependencies", "renovate"],
   "packageRules": [
     {
+      "matchDepTypes": ["peerDependencies"],
+      "enabled": false
+    },
+    {
       "matchPackageNames": ["/eslint/"],
       "groupName": "eslint"
     }
