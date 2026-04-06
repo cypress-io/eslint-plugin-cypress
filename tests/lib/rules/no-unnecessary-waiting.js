@@ -26,6 +26,18 @@ ruleTester.run('no-unnecessary-waiting', rule, {
     { code: 'function customWait (ms) { cy.wait(ms) }' },
     { code: 'const customWait = (ms) => { cy.wait(ms) }' },
 
+    // Destructured parameters without numeric defaults
+    { code: 'function customWait ({ ms }) { cy.wait(ms) }' },
+    { code: 'function customWait ({ ms = "@someRequest" }) { cy.wait(ms) }' },
+    { code: 'function customWait ([ms]) { cy.wait(ms) }' },
+    { code: 'function customWait ([ms = "@someRequest"]) { cy.wait(ms) }' },
+    { code: 'function customWait ({ opts: { ms = "@someRequest" } }) { cy.wait(ms) }' },
+
+    // Other definition types that should not be flagged
+    { code: 'function f() {} cy.wait(f)' },
+    { code: 'class C {} cy.wait(C)' },
+    { code: 'try {} catch (e) { cy.wait(e) }' },
+
     { code: 'import BAR_BAZ from "bar-baz"; cy.wait(BAR_BAZ)' },
     { code: 'import { FOO_BAR } from "foo-bar"; cy.wait(FOO_BAR)' },
     { code: 'import * as wildcard from "wildcard"; cy.wait(wildcard.value)' },
@@ -43,5 +55,10 @@ ruleTester.run('no-unnecessary-waiting', rule, {
     { code: 'cy.get(".some-element").wait(10)', errors },
     { code: 'cy.get(".some-element").contains("foo").wait(10)', errors },
     { code: 'const customWait = (ms = 1) => { cy.get(".some-element").wait(ms) }', errors },
+
+    // Destructured parameters with numeric defaults
+    { code: 'function customWait ({ ms = 1 }) { cy.wait(ms) }', errors },
+    { code: 'function customWait ([ms = 1]) { cy.wait(ms) }', errors },
+    { code: 'function customWait ({ opts: { ms = 1 } }) { cy.wait(ms) }', errors },
   ],
 })
