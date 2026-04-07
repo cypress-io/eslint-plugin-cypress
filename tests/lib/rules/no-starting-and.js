@@ -1,5 +1,5 @@
 /**
- * @fileoverview disallow the use of .and()
+ * @fileoverview enforce .should() over .and() for starting assertion chains
  * @author Todd Kemp
  */
 'use strict'
@@ -8,7 +8,7 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-const rule = require('../../../lib/rules/no-and'),
+const rule = require('../../../lib/rules/no-starting-and'),
   RuleTester = require('eslint').RuleTester
 
 // ------------------------------------------------------------------------------
@@ -18,7 +18,7 @@ const rule = require('../../../lib/rules/no-and'),
 const ruleTester = new RuleTester()
 const errors = [{ messageId: 'unexpected' }]
 
-ruleTester.run('no-and', rule, {
+ruleTester.run('no-starting-and', rule, {
   valid: [
     { code: 'cy.get(\'elem\').should(\'have.text\', \'blah\')' },
     { code: 'cy.get(\'foo\').should(\'be.visible\')' },
