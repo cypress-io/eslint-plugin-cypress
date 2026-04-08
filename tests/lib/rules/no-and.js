@@ -1,19 +1,7 @@
-/**
- * @fileoverview enforce .should() over .and() for starting assertion chains
- * @author Todd Kemp
- */
 'use strict'
 
-// ------------------------------------------------------------------------------
-// Requirements
-// ------------------------------------------------------------------------------
-
-const rule = require('../../../lib/rules/no-starting-and'),
+const rule = require('../../../lib/rules/no-and'),
   RuleTester = require('eslint').RuleTester
-
-// ------------------------------------------------------------------------------
-// Tests
-// ------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester()
 const errors = [{ messageId: 'unexpected' }]
