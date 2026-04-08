@@ -1,4 +1,4 @@
-# cypress/no-starting-and
+# cypress/no-and
 
 📝 Enforce `.should()` over `.and()` for starting assertion chains.
 

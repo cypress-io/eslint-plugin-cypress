@@ -4,9 +4,14 @@ const rule = require('../../../lib/rules/no-and'),
   RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester()
-const errors = [{ messageId: 'unexpected' }]
+const errors = [
+  {
+    message:
+      'Use .should() here; .and() is only allowed after .should(), .and(), or .contains().',
+  },
+]
 
-ruleTester.run('no-starting-and', rule, {
+ruleTester.run('no-and', rule, {
   valid: [
     { code: 'cy.get(\'elem\').should(\'have.text\', \'blah\')' },
     { code: 'cy.get(\'foo\').should(\'be.visible\')' },
