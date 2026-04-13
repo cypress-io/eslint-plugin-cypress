@@ -162,4 +162,4 @@ jobs:
           command: CYPRESS_INSTALL_BINARY=0 npm ci
       - run:
           name: Run semantic release
-          command: npm run semantic-release
+          command: npx semantic-release@25.0.3
