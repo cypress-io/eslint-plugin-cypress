@@ -31,7 +31,7 @@
     "eslint": ">=9"
   },
   "dependencies": {
-    "globals": "^17.4.0"
+    "globals": "^17.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
