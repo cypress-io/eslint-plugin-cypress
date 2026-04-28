@@ -43,7 +43,7 @@
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@typescript-eslint/rule-tester": "^8.59.1",
-    "cypress": "^15.14.0",
+    "cypress": "^15.14.1",
     "eslint": "^10.2.1",
     "eslint-plugin-eslint-plugin": "^7.3.2",
     "eslint-plugin-mocha": "^11.2.0",
