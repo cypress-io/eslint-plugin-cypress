@@ -8,6 +8,11 @@
   },
   "prConcurrentLimit": 10,
   "prHourlyLimit": 2,
+  "minimumReleaseAge": "7 days",
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "minimumReleaseAge": "0 days"
+  },
   "rangeStrategy": "bump",
   "lockFileMaintenance": {
     "enabled": true
@@ -21,6 +26,10 @@
     {
       "matchPackageNames": ["/eslint/"],
       "groupName": "eslint"
+    },
+    {
+      "matchPackageNames": ["cypress"],
+      "minimumReleaseAge": "0 days"
     }
   ]
 }
