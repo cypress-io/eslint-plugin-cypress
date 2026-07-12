@@ -5,5 +5,8 @@
   "scripts": {
     "lint": "eslint",
     "test": "cypress run"
+  },
+  "allowScripts": {
+    "cypress": true
   }
 }
