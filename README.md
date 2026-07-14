@@ -53,22 +53,24 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 
 💼 Configurations enabled in.\
 ✅ Set in the `recommended` configuration.\
+🔧 Automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).\
 ❌ Deprecated.
 
-| Name                                                                     | Description                                                | 💼 | ❌  |
-| :----------------------------------------------------------------------- | :--------------------------------------------------------- | :- | :- |
-| [assertion-before-screenshot](docs/rules/assertion-before-screenshot.md) | require screenshots to be preceded by an assertion         |    |    |
-| [no-assigning-return-values](docs/rules/no-assigning-return-values.md)   | disallow assigning return values of `cy` calls             | ✅  |    |
-| [no-async-before](docs/rules/no-async-before.md)                         | disallow using `async`/`await` in Cypress `before` methods |    |    |
-| [no-async-tests](docs/rules/no-async-tests.md)                           | disallow using `async`/`await` in Cypress test cases       | ✅  |    |
-| [no-chained-get](docs/rules/no-chained-get.md)                           | disallow chain of `cy.get()` calls                         |    |    |
-| [no-debug](docs/rules/no-debug.md)                                       | disallow using `cy.debug()` calls                          |    |    |
-| [no-force](docs/rules/no-force.md)                                       | disallow using `force: true` with action commands          |    |    |
-| [no-pause](docs/rules/no-pause.md)                                       | disallow using `cy.pause()` calls                          |    |    |
-| [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | disallow waiting for arbitrary time periods                | ✅  |    |
-| [no-xpath](docs/rules/no-xpath.md)                                       | disallow using `cy.xpath()` calls                          |    | ❌  |
-| [require-data-selectors](docs/rules/require-data-selectors.md)           | require `data-*` attribute selectors                       |    |    |
-| [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | disallow actions within chains                             | ✅  |    |
+| Name                                                                     | Description                                                     | 💼 | 🔧 | ❌  |
+| :----------------------------------------------------------------------- | :-------------------------------------------------------------- | :- | :- | :- |
+| [assertion-before-screenshot](docs/rules/assertion-before-screenshot.md) | require screenshots to be preceded by an assertion              |    |    |    |
+| [no-and](docs/rules/no-and.md)                                           | enforce `.should()` over `.and()` for starting assertion chains |    | 🔧 |    |
+| [no-assigning-return-values](docs/rules/no-assigning-return-values.md)   | disallow assigning return values of `cy` calls                  | ✅  |    |    |
+| [no-async-before](docs/rules/no-async-before.md)                         | disallow using `async`/`await` in Cypress `before` methods      |    |    |    |
+| [no-async-tests](docs/rules/no-async-tests.md)                           | disallow using `async`/`await` in Cypress test cases            | ✅  |    |    |
+| [no-chained-get](docs/rules/no-chained-get.md)                           | disallow chain of `cy.get()` calls                              |    |    |    |
+| [no-debug](docs/rules/no-debug.md)                                       | disallow using `cy.debug()` calls                               |    |    |    |
+| [no-force](docs/rules/no-force.md)                                       | disallow using `force: true` with action commands               |    |    |    |
+| [no-pause](docs/rules/no-pause.md)                                       | disallow using `cy.pause()` calls                               |    |    |    |
+| [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | disallow waiting for arbitrary time periods                     | ✅  |    |    |
+| [no-xpath](docs/rules/no-xpath.md)                                       | disallow using `cy.xpath()` calls                               |    |    | ❌  |
+| [require-data-selectors](docs/rules/require-data-selectors.md)           | require `data-*` attribute selectors                            |    |    |    |
+| [unsafe-to-chain-command](docs/rules/unsafe-to-chain-command.md)         | disallow actions within chains                                  | ✅  |    |    |
 
 <!-- end auto-generated rules list -->
 <!-- prettier-ignore-end -->
