@@ -60,5 +60,8 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "prepare": "husky"
+  },
+  "allowScripts": {
+    "cypress": true
   }
 }
