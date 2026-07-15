@@ -30,6 +30,11 @@
     {
       "matchPackageNames": ["cypress"],
       "minimumReleaseAge": "0 days"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["cimg/node"],
+      "allowedVersions": "<25"
     }
   ]
 }
