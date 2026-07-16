@@ -35,6 +35,10 @@
       "matchDatasources": ["docker"],
       "matchPackageNames": ["cimg/node"],
       "allowedVersions": "<25"
+    },
+    {
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7"
     }
   ]
 }
