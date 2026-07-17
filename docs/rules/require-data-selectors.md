@@ -22,16 +22,16 @@ cy.get('[daedta-cy=submit]').click()
 cy.get('[d-cy=submit]')
 cy.get('.btn-large').click()
 cy.get('.btn-.large').click()
-cy.get(condition ? "[data-cy=submit]" : ".btn-large")
+cy.get(condition ? '[data-cy=submit]' : '.btn-large')
 
-const CLASS_SELECTOR = ".my-class"; 
+const CLASS_SELECTOR = '.my-class'
 cy.get(CLASS_SELECTOR)
 
 const TYPE = 'submit'
 const SUBMIT_TEMPLATE = `.${TYPE}`
 cy.get(SUBMIT_TEMPLATE)
 
-const MY_SUBMIT_TEMPLATE = SUBMIT_TEMPLATE;
+const MY_SUBMIT_TEMPLATE = SUBMIT_TEMPLATE
 cy.get(MY_SUBMIT_TEMPLATE)
 ```
 
@@ -41,16 +41,16 @@ Examples of **correct** code for this rule:
 cy.get('[data-cy=submit]').click()
 cy.get('[data-QA=submit]')
 cy.get(`[data-QA=submit]`)
-cy.get(condition ? "[data-cy=submit]" : "[data-QA=submit]")
+cy.get(condition ? '[data-cy=submit]' : '[data-QA=submit]')
 
-const ASSESSMENT_SUBMIT = "[data-cy=assessment-submit]"
+const ASSESSMENT_SUBMIT = '[data-cy=assessment-submit]'
 cy.get(ASSESSMENT_SUBMIT).click()
 
 const TYPE = 'submit'
 const SUBMIT_TEMPLATE = `[data-QA=${TYPE}]`
 cy.get(SUBMIT_TEMPLATE)
 
-const MY_SUBMIT_TEMPLATE = SUBMIT_TEMPLATE;
+const MY_SUBMIT_TEMPLATE = SUBMIT_TEMPLATE
 cy.get(MY_SUBMIT_TEMPLATE)
 ```
 

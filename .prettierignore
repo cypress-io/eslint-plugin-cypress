@@ -6,6 +6,5 @@
 **/*.?js
 **/*.ts
 **/*.?ts
-**/*.md
 
 test-project/cypress/
