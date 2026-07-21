@@ -3,6 +3,7 @@ import { defineConfig } from 'vitest/config'
 export default defineConfig({
   test: {
     include: ['**/tests/**/*.[jt]s?(x)'],
+    slowTestThreshold: 600,
     globals: true
   },
 })
