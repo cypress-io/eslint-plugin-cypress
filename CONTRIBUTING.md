@@ -29,7 +29,7 @@ To add a new rule:
   - Add a `meta.messages` property (see [MessageIds](https://eslint.org/docs/latest/extend/custom-rules#messageids))
   - Select the appropriate `meta.type` property using `problem`, `suggestion`, or `layout`
 - Complete the new rule by adding content to the three files previously created
-- Run `eslint-doc-generator` to generate automated documentation sections (see [Document generation](#document-generation) below)
+- Run `npx eslint-doc-generator` to generate automated documentation sections (see [Document generation](#document-generation) below)
 - Review documentation changes
 - Run `npm run lint`
 - Run `npm run format`
@@ -41,14 +41,17 @@ To add a new rule:
 
 ## Document generation
 
-This plugin uses the ESLint [eslint-doc-generator](https://www.npmjs.com/package/eslint-doc-generator) to generate consistent documentation.
+This plugin uses the [eslint-doc-generator](https://www.npmjs.com/package/eslint-doc-generator) package to generate consistent documentation.
 
-- Install with `npm install eslint-doc-generator@latest -g`
-- Run `eslint-doc-generator` in the root directory of the plugin
+- Run `npx eslint-doc-generator` in the root directory of the plugin
 
-Note that [eslint-doc-generator](https://www.npmjs.com/package/eslint-doc-generator) has some unresolved issues running under
-Microsoft Windows (see issue[#265](https://github.com/cypress-io/eslint-plugin-cypress/issues/265)).
-Do not attempt to run under Windows until these issues are resolved.
+Previous compatibility issues with Windows are resolved, and
+[eslint-doc-generator](https://www.npmjs.com/package/eslint-doc-generator)
+is now installed together with other dependencies through `npm ci`.
+If you previously had [eslint-doc-generator](https://www.npmjs.com/package/eslint-doc-generator) installed globally,
+to work with this repo, you can now uninstall it:
+
+- Run `npm uninstall eslint-doc-generator -g` (only if previously installed)
 
 ## Merging pull requests
 
