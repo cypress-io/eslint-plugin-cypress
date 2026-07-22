@@ -26,7 +26,10 @@ Examples of **correct** code for this rule:
 cy.get('elem').should('have.text', 'blah')
 cy.get('.err').should('be.empty').and('be.hidden')
 cy.contains('Login').and('be.visible')
-cy.get('foo').should('be.visible').and('have.text', 'bar').and('have.class', 'active')
+cy.get('foo')
+  .should('be.visible')
+  .and('have.text', 'bar')
+  .and('have.class', 'active')
 ```
 
 ## When Not To Use It

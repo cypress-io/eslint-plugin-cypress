@@ -18,6 +18,9 @@
     "enabled": true
   },
   "labels": ["type: dependencies", "renovate"],
+  "circleci": {
+    "managerFilePatterns": ["circle.yml"]
+  },
   "packageRules": [
     {
       "matchDepTypes": ["peerDependencies"],
