@@ -114,9 +114,7 @@ import pluginCypress from 'eslint-plugin-cypress'
 export default defineConfig([
   {
     files: ['cypress/**/*.js'],
-    extends: [
-      pluginCypress.configs.recommended,
-    ],
+    extends: [pluginCypress.configs.recommended],
     rules: {
       'cypress/no-unnecessary-waiting': 'off',
     },
@@ -134,9 +132,7 @@ import pluginCypress from 'eslint-plugin-cypress'
 export default defineConfig([
   {
     files: ['cypress/**/*.js'],
-    extends: [
-      pluginCypress.configs.globals,
-    ],
+    extends: [pluginCypress.configs.globals],
   },
 ])
 ```
@@ -160,7 +156,7 @@ If you already have a TypeScript codebase, you can skip the next step. If not, y
     "allowJs": true,
     "checkJs": false,
     "noEmit": true
-  },
+  }
 }
 ```
 
@@ -177,7 +173,7 @@ export default defineConfig([
         projectService: true,
       },
     },
-  }
+  },
 ])
 ```
 

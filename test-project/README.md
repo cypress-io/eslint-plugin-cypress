@@ -11,7 +11,6 @@ npm install cypress@latest --no-package-lock
 npx cypress open --e2e --browser electron
 ```
 
-
 - Select "Continue" in "Configuration files"
 - Select "Continue" for "What's New in Cypress" if displayed
 - Select "Scaffold example specs"
