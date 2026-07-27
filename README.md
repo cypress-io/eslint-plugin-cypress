@@ -67,6 +67,7 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 | [no-debug](docs/rules/no-debug.md)                                       | disallow using `cy.debug()` calls                               |    |    |    |
 | [no-force](docs/rules/no-force.md)                                       | disallow using `force: true` with action commands               |    |    |    |
 | [no-pause](docs/rules/no-pause.md)                                       | disallow using `cy.pause()` calls                               |    |    |    |
+| [no-unnecessary-assertions](docs/rules/no-unnecessary-assertions.md)     | disallow assertions on a Cypress chainable that can never fail  |    | 🔧 |    |
 | [no-unnecessary-waiting](docs/rules/no-unnecessary-waiting.md)           | disallow waiting for arbitrary time periods                     | ✅  |    |    |
 | [no-xpath](docs/rules/no-xpath.md)                                       | disallow using `cy.xpath()` calls                               |    |    | ❌  |
 | [require-data-selectors](docs/rules/require-data-selectors.md)           | require `data-*` attribute selectors                            |    |    |    |
