@@ -10,13 +10,13 @@ const errors = [{ messageId: 'unexpected' }]
 
 const tests = {
   valid: [
-    {
-      code: 'cy.get("new-todo").type("todo A{enter}"); cy.get("new-todo").type("todo B{enter}"); cy.get("new-todo").should("have.class", "active");',
-    },
-    { code: 'cy.focused().should("be.visible");' },
-    { code: 'cy.submitBtn().click();' },
-  ],
-
+  {
+    code: 'cy.get("new-todo").type("todo A{enter}"); cy.get("new-todo").type("todo B{enter}"); cy.get("new-todo").should("have.class", "active");',
+  },
+  { code: 'cy.focused().should("be.visible");' },
+  { code: 'cy.submitBtn().click();' },
+  { code: 'cy.get("li").each(($li, index, $lis) => { return "something else" }).then(($lis) => { expect($lis).to.have.length(3) });' },
+],
   invalid: [
     { code: 'cy.get("new-todo").type("todo A{enter}").should("have.class", "active");', errors },
     { code: 'cy.get("new-todo").type("todo A{enter}").type("todo B{enter}");', errors },
