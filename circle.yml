@@ -3,7 +3,7 @@ version: 2.1
 executors:
   docker-executor:
     docker:
-      - image: cimg/node:24.13.1
+      - image: cimg/node:24.18.0
     resource_class: medium
 
 workflows:
