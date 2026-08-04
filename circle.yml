@@ -58,6 +58,10 @@ jobs:
           name: Lint code with Prettier
           command: npm run format:check
 
+      - run:
+          name: Lint code with eslint-doc-generator
+          command: npx eslint-doc-generator --check
+
   test-v9:
     executor: docker-executor
     steps:
