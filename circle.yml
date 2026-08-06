@@ -10,7 +10,6 @@ workflows:
   main:
     jobs:
       - lint
-      - test-v9
       - test-v10
 
       - build-test-project
@@ -18,7 +17,6 @@ workflows:
           matrix:
             parameters:
               eslint-version:
-                - '9'
                 - '10'
               config-file:
                 # configurations correspond to examples in README
@@ -32,7 +30,6 @@ workflows:
           context: org-npm-credentials
           requires:
             - lint
-            - test-v9
             - test-v10
             - test-test-project
           filters:
@@ -61,23 +58,6 @@ jobs:
       - run:
           name: Lint code with eslint-doc-generator
           command: npx eslint-doc-generator --check
-
-  test-v9:
-    executor: docker-executor
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: CYPRESS_INSTALL_BINARY=0 npm ci
-      - run:
-          name: Install ESLint 9
-          command: npm install eslint@9
-      - run:
-          name: Show ESLint version
-          command: npx eslint --version
-      - run:
-          name: Test ESLint 9
-          command: npm test
 
   test-v10:
     executor: docker-executor

@@ -29,7 +29,7 @@
   "homepage": "https://github.com/cypress-io/eslint-plugin-cypress#readme",
   "peerDependencies": {
     "@typescript-eslint/parser": ">=8",
-    "eslint": ">=9"
+    "eslint": ">=10"
   },
   "peerDependenciesMeta": {
     "@typescript-eslint/parser": {
@@ -37,21 +37,21 @@
     }
   },
   "dependencies": {
-    "globals": "^17.8.0"
+    "globals": "^17.9.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/rule-tester": "^8.65.0",
+    "@typescript-eslint/rule-tester": "^8.66.0",
     "cypress": "^15.20.0",
-    "eslint": "^10.7.0",
+    "eslint": "^10.8.0",
     "eslint-doc-generator": "^3.7.0",
-    "eslint-plugin-eslint-plugin": "^7.5.0",
-    "eslint-plugin-mocha": "^11.3.0",
+    "eslint-plugin-eslint-plugin": "^7.6.1",
+    "eslint-plugin-mocha": "^12.0.2",
     "husky": "^9.1.7",
     "prettier": "^3.9.6",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.65.0",
+    "typescript-eslint": "^8.66.0",
     "vitest": "^4.1.10"
   },
   "scripts": {
