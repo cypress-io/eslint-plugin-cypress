@@ -31,7 +31,7 @@ export default defineConfig([
       'eslint-plugin/meta-property-ordering': 'error',
       'eslint-plugin/test-case-property-ordering': 'error',
       'mocha/no-mocha-arrows': 'off',
-      'mocha/no-setup-in-describe': 'off',
+      'mocha/no-setup-in-suite': 'off',
     },
     languageOptions: {
       globals: globals.node,
