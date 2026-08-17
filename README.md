@@ -101,7 +101,7 @@ export default defineConfig([
 
 ### Cypress recommended
 
-The `eslint-plugin-cypress` [recommended rules](#rules) `configs.recommended` are activated, except for
+In the below example, the `eslint-plugin-cypress` [recommended rules](#rules) `configs.recommended` are activated, except for
 
 - [cypress/no-unnecessary-waiting](./docs/rules/no-unnecessary-waiting.md) which is set to `off`
 
@@ -219,17 +219,13 @@ it('waits for a second', () => {
 
 ## Mocha and Chai
 
-Cypress is built on top of [Mocha](https://on.cypress.io/app/references/bundled-libraries#Mocha) and [Chai](https://on.cypress.io/app/references/bundled-libraries#Chai). See the following sections for information on using ESLint plugins [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) and [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly) together with `eslint-plugin-cypress`.
+Cypress is built on top of [Mocha](https://on.cypress.io/app/references/bundled-libraries#Mocha) and [Chai](https://on.cypress.io/app/references/bundled-libraries#Chai).
 
-## Mocha `.only` and `.skip`
-
-During test spec development, [Mocha exclusive tests](https://mochajs.org/#exclusive-tests) `.only` or [Mocha inclusive tests](https://mochajs.org/#inclusive-tests) `.skip` may be used to control which tests are executed, as described in the Cypress documentation [Excluding and Including Tests](https://on.cypress.io/app/core-concepts/writing-and-organizing-tests#Excluding-and-Including-Tests). To apply corresponding rules, you can install and use [eslint-plugin-mocha@^11](https://www.npmjs.com/package/eslint-plugin-mocha) plugin version or above. The rule [mocha/no-exclusive-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-exclusive-tests.md) detects the use of `.only` and the [mocha/no-pending-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-pending-tests.md) rule detects the use of `.skip`.
+See the following sections for information on using ESLint plugins [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) and [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly) together with `eslint-plugin-cypress`.
 
 ### Cypress and Mocha recommended
 
-[eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) is added to the example [Cypress recommended](#cypress-recommended).
-
-The settings for individual `mocha` rules from the `configs.recommended` option are changed.
+In the below example, [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) is added in addition to [Cypress recommended](#cypress-recommended) and the following settings for individual `mocha` rules from the `configs.recommended` option are changed:
 
 - [mocha/no-exclusive-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-exclusive-tests.md)
   and [mocha/no-pending-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-pending-tests.md)
@@ -268,9 +264,7 @@ export default defineConfig([
 
 Using an assertion such as `expect(value).to.be.true` can fail the ESLint rule `no-unused-expressions` even though it's not an error in this case. To fix this, you can install and use [eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly).
 
-[eslint-plugin-chai-friendly](https://www.npmjs.com/package/eslint-plugin-chai-friendly) is combined with the Cypress plugin `eslint-plugin-cypress`.
-
-The recommended rules for both plugins are used: `pluginCypress.configs.recommended` and `pluginChaiFriendly.configs.recommendedFlat`:
+In the below example, the recommended rules for both plugins are used: `pluginCypress.configs.recommended` and `pluginChaiFriendly.configs.recommendedFlat`:
 
 ```shell
 npm install eslint-plugin-chai-friendly --save-dev
@@ -287,9 +281,6 @@ export default defineConfig([
       pluginCypress.configs.recommended,
       pluginChaiFriendly.configs.recommendedFlat,
     ],
-    rules: {
-      'cypress/no-unnecessary-waiting': 'off',
-    },
   },
 ])
 ```
