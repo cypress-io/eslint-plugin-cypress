@@ -1,3 +1,4 @@
 # Cypress ESLint Plugin - Flat Config
 
-Please refer to the [README](./README.md) document which describes how to use `eslint-plugin-cypress` with an ESLint (default) [flat configuration](https://eslint.org/docs/latest/use/configure/configuration-files).
+Please refer to the [README](./README.md) document which describes how to use `eslint-plugin-cypress` with an ESLint [flat configuration](https://eslint.org/docs/latest/use/configure/configuration-files).
+In ESLint v10, this is the only supported configuration.

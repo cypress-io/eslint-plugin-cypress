@@ -6,7 +6,7 @@ Note: If you installed ESLint globally then you must also install `eslint-plugin
 
 ## Installation
 
-Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v9` or `v10`. Lower versions are no longer supported.
+Prerequisites: [ESLint](https://www.npmjs.com/package/eslint) `v10`. Lower versions are no longer supported.
 
 ```sh
 npm install eslint eslint-plugin-cypress --save-dev
@@ -22,7 +22,6 @@ yarn add eslint eslint-plugin-cypress --dev
 
 ESLint as of `v10` and this plugin no longer support the use of the deprecated [eslintrc-type](https://eslint.org/docs/v9.x/use/configure/configuration-files-deprecated) config file format.
 You must use a [Flat config file](https://eslint.org/docs/latest/use/configure/configuration-files) format.
-This is the default in ESLint `v9`, and in ESLint `v10` it is the only config format available.
 
 To set up a configuration, add a file `eslint.config.mjs` to the root directory of your Cypress project and include the following instructions to import the available configurations using:
 
@@ -79,8 +78,6 @@ These rules enforce some of the [best practices recommended for using Cypress](h
 ## Usage examples
 
 In the following sections, different examples of possible configuration file contents are given, together with some brief explanations. Adapt these examples according to your needs.
-
-The examples use the `defineConfig()` helper, introduced with ESLint [9.22.0](https://eslint.org/blog/2025/03/eslint-v9.22.0-released/). Refer to the blog article [Evolving flat config with extends](https://eslint.org/blog/2025/03/flat-config-extends-define-config-global-ignores/) for background information. If you are using ESLint `<9.22.0`, import `defineConfig` from [@eslint/config-helpers](https://www.npmjs.com/package/@eslint/config-helpers) instead of from `eslint/config`.
 
 ### Cypress
 
@@ -231,15 +228,19 @@ During test spec development, [Mocha exclusive tests](https://mochajs.org/#exclu
 
 ### Cypress and Mocha recommended
 
-[eslint-plugin-mocha@^11](https://www.npmjs.com/package/eslint-plugin-mocha) is added to the example [Cypress recommended](#cypress-recommended).
+[eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) is added to the example [Cypress recommended](#cypress-recommended).
 
 The settings for individual `mocha` rules from the `configs.recommended` option are changed.
 
-- [mocha/no-exclusive-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-exclusive-tests.md) and [mocha/no-pending-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-pending-tests.md) are set to `error` instead of `warn`
-- [mocha/no-mocha-arrows](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-mocha-arrows.md) is set to `off` instead of `error`
+- [mocha/no-exclusive-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-exclusive-tests.md)
+  and [mocha/no-pending-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-pending-tests.md)
+  are set to `error` instead of `warn`
+- [mocha/no-mocha-arrows](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/docs/rules/no-mocha-arrows.md)
+  and [mocha/no-async-in-sync-tests](https://github.com/lo1tuma/eslint-plugin-mocha/blob/main/documentation/rules/no-async-in-sync-tests.md)
+  are set to `off` instead of `error`
 
 ```shell
-npm install eslint-plugin-mocha@^11 --save-dev
+npm install eslint-plugin-mocha --save-dev
 ```
 
 ```js
@@ -254,6 +255,7 @@ export default defineConfig([
       pluginCypress.configs.recommended,
     ],
     rules: {
+      'mocha/no-async-in-sync-tests': 'off', // for Cypress compatibility
       'mocha/no-exclusive-tests': 'error',
       'mocha/no-pending-tests': 'error',
       'mocha/no-mocha-arrows': 'off',
@@ -272,7 +274,7 @@ Using an assertion such as `expect(value).to.be.true` can fail the ESLint rule `
 The recommended rules for both plugins are used: `pluginCypress.configs.recommended` and `pluginChaiFriendly.configs.recommendedFlat`:
 
 ```shell
-npm install eslint-plugin-chai-friendly@^1.0.1 --save-dev
+npm install eslint-plugin-chai-friendly --save-dev
 ```
 
 ```js
