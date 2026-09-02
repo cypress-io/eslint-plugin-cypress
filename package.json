@@ -45,7 +45,7 @@
     "@typescript-eslint/rule-tester": "^8.68.0",
     "cypress": "^16.0.0",
     "eslint": "^10.9.1",
-    "eslint-doc-generator": "^3.7.0",
+    "eslint-doc-generator": "^3.7.1",
     "eslint-plugin-eslint-plugin": "^7.6.2",
     "eslint-plugin-mocha": "^12.0.2",
     "husky": "^9.1.7",
