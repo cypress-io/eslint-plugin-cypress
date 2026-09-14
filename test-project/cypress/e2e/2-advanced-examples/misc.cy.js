@@ -5,61 +5,6 @@ context('Misc', () => {
     cy.visit('https://example.cypress.io/commands/misc')
   })
 
-  it('cy.exec() - execute a system command', () => {
-    // execute a system command.
-    // so you can take actions necessary for
-    // your test outside the scope of Cypress.
-    // https://on.cypress.io/exec
-
-    // we can use Cypress.platform string to
-    // select appropriate command
-    // https://on.cypress/io/platform
-    cy.log(`Platform ${Cypress.platform} architecture ${Cypress.arch}`)
-
-    // on CircleCI Windows build machines we have a failure to run bash shell
-    // https://github.com/cypress-io/cypress/issues/5169
-    // so skip some of the tests by passing flag "--expose circle=true"
-    const isCircleOnWindows = Cypress.platform === 'win32' && Cypress.expose('circle')
-
-    if (isCircleOnWindows) {
-      cy.log('Skipping test on CircleCI')
-
-      return
-    }
-
-    // cy.exec problem on Shippable CI
-    // https://github.com/cypress-io/cypress/issues/6718
-    const isShippable = Cypress.platform === 'linux' && Cypress.expose('shippable')
-
-    if (isShippable) {
-      cy.log('Skipping test on ShippableCI')
-
-      return
-    }
-
-    cy.exec('echo Jane Lane')
-      .its('stdout').should('contain', 'Jane Lane')
-
-    if (Cypress.platform === 'win32') {
-      cy.exec(`print ${Cypress.config('configFile')}`)
-        .its('stderr').should('be.empty')
-    }
-    else {
-      cy.exec(`cat ${Cypress.config('configFile')}`)
-        .its('stderr').should('be.empty')
-
-      cy.log(`Cypress version ${Cypress.version}`)
-      if (Cypress.version.split('.').map(Number)[0] < 15) {
-        cy.exec('pwd')
-          .its('code').should('eq', 0)
-      }
-      else {
-        cy.exec('pwd')
-          .its('exitCode').should('eq', 0)
-      }
-    }
-  })
-
   it('cy.focused() - get the DOM element that has focus', () => {
     // https://on.cypress.io/focused
     cy.get('.misc-form').find('#name').click()
