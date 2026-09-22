@@ -35,6 +35,10 @@
       "minimumReleaseAge": "0 days"
     },
     {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "minimumReleaseAge": null
+    },
+    {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["cimg/node"],
       "allowedVersions": "<25"
