@@ -74,8 +74,8 @@ jobs:
           if-no-files-found: error
           retention-days: 1
 
-  test-test-project:
-    name: test-test-project (eslint ${{ matrix.eslint-version }}, ${{ matrix.config-file }})
+  test-project:
+    name: test-project (eslint ${{ matrix.eslint-version }}, ${{ matrix.config-file }})
     needs: build-test-project
     runs-on: ubuntu-24.04
     strategy:
@@ -121,7 +121,7 @@ jobs:
     needs:
       - lint
       - test-v10
-      - test-test-project
+      - test-project
     runs-on: ubuntu-24.04
     permissions:
       contents: write # create GitHub releases and tags
