@@ -73,7 +73,7 @@ This information is for Cypress.io Members or Collaborators who merge pull reque
    BREAKING CHANGE: requires minimum Node.js 20 to run
    ```
 
-1. New versions of this module will be released automatically by the CI pipeline when any PR with a triggering commit message is merged to the `master` branch: see the `release` job of [circle.yml](circle.yml).
+1. New versions of this module will be released automatically by the CI pipeline when any PR with a triggering commit message is merged to the `master` branch: see the `release` job of [.github/workflows/main.yml](.github/workflows/main.yml).
    This will create a new [GitHub release](https://github.com/cypress-io/eslint-plugin-cypress/releases) and publish it to [eslint-plugin-cypress](https://www.npmjs.com/package/eslint-plugin-cypress) on the [npm registry](https://docs.npmjs.com/about-the-public-npm-registry).
 1. The module's CI is configured to use the [default Angular release rules](https://github.com/semantic-release/commit-analyzer/blob/master/lib/default-release-rules.js).
    This means that only `feat:`, `fix:` and `perf:` trigger a new release.
