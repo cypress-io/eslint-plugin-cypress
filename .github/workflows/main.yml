@@ -1,0 +1,144 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # Never cancel a run on master, so that a release is not interrupted
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+env:
+  CYPRESS_INSTALL_BINARY: 0
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.22.2
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Show ESLint version
+        run: npx eslint --version
+      - name: Lint code with ESLint
+        run: npm run lint
+      - name: Lint code with Prettier
+        run: npm run format:check
+      - name: Lint code with eslint-doc-generator
+        run: npx eslint-doc-generator --check
+
+  test-v10:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.22.2
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install ESLint 10
+        run: npm install eslint@10
+      - name: Show ESLint version
+        run: npx eslint --version
+      - name: Test ESLint 10
+        run: npm test
+
+  build-test-project:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.22.2
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build tarball
+        run: npm pack
+      - uses: actions/upload-artifact@v7
+        with:
+          name: plugin-tarball
+          path: eslint-plugin-cypress-*.tgz
+          if-no-files-found: error
+          retention-days: 1
+
+  test-test-project:
+    name: test-test-project (eslint ${{ matrix.eslint-version }}, ${{ matrix.config-file }})
+    needs: build-test-project
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        eslint-version:
+          - '10'
+        # configurations correspond to examples in README
+        config-file:
+          - globals
+          - one-rule
+          - recommended
+          - typed
+        typescript-eslint-parser-version:
+          - latest
+    defaults:
+      run:
+        working-directory: test-project
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.22.2
+      - uses: actions/download-artifact@v8
+        with:
+          name: plugin-tarball
+          path: test-project
+      - name: Install dependencies
+        run: |
+          npm install \
+            eslint@${{ matrix.eslint-version }} \
+            @typescript-eslint/parser@${{ matrix.typescript-eslint-parser-version }} \
+            ./eslint-plugin-cypress-*.tgz -D
+      - name: Display ESLint version
+        run: npx eslint --version
+      - name: Lint with example configuration
+        run: |
+          echo "Testing a ${{ matrix.config-file }} configuration"
+          npx eslint --config ./eslint-configs/eslint.${{ matrix.config-file }}.mjs .
+
+  release:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs:
+      - lint
+      - test-v10
+      - test-test-project
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write # create GitHub releases and tags
+      issues: write # comment on released issues
+      pull-requests: write # comment on released pull requests
+      id-token: write # npm trusted publishing (OIDC)
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # semantic-release needs the full history and tags
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.22.2
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run semantic release
+        run: npx semantic-release@25.0.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -20,9 +20,6 @@
     "enabled": true
   },
   "labels": ["type: dependencies", "renovate"],
-  "circleci": {
-    "managerFilePatterns": ["circle.yml"]
-  },
   "packageRules": [
     {
       "matchDepTypes": ["peerDependencies"],
@@ -41,8 +38,8 @@
       "minimumReleaseAge": null
     },
     {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["cimg/node"],
+      "matchManagers": ["github-actions"],
+      "matchDepNames": ["node"],
       "allowedVersions": "<25"
     },
     {
