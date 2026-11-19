@@ -21,6 +21,10 @@ ruleTester.run('no-assigning-return-values', rule, {
     { code: 'const state = cy.state();' },
     { code: 'cy.get("foo");' },
     { code: 'cy.contains("foo").click();' },
+    { code: 'const foo = cond ? 1 : 2;' },
+    { code: 'const foo = cond ? bar() : baz();' },
+    { code: 'const stub = cond ? cy.stub() : cy.stub();' },
+    { code: 'const spy = cond ? cy.spy() : bar();' },
   ],
 
   invalid: [
@@ -33,5 +37,9 @@ ruleTester.run('no-assigning-return-values', rule, {
     { code: 'let a = cy.wait("@something")', errors },
 
     { code: 'let a = cy.contains("foo").click()', errors },
+    { code: 'const a = cond ? cy.get("foo") : cy.get("bar")', errors },
+    { code: 'const a = cond ? cy.get("foo") : bar()', errors },
+    { code: 'const a = bar() ? cy.contains("foo") : cy.window()', errors },
+    { code: 'const a = cond ? (other ? cy.get("foo") : bar()) : baz()', errors },
   ],
 })

@@ -6,8 +6,14 @@
 
 <!-- end auto-generated rule header -->
 
-Cypress tests [that return a promise will error](https://docs.cypress.io/app/references/error-messages.html#Cypress-detected-that-you-returned-a-promise-from-a-command-while-also-invoking-one-or-more-cy-commands-in-that-promise) and cannot run successfully.
-An `async` function returns a promise under the hood, so a test using an `async` function will also error.
+Cypress commands are queued and run asynchronously after the test function returns.
+An `async` test function returns a promise, so Cypress considers the test finished as soon as that promise resolves, without waiting for the queued `cy` commands.
+Depending on the test code, this has one of the following effects:
+
+- the test passes even though a later `cy` command or assertion fails (see [cypress-io/cypress#4742](https://github.com/cypress-io/cypress/issues/4742)), so real failures go unnoticed
+- Cypress [errors because the test returned a promise while also invoking `cy` commands](https://docs.cypress.io/app/references/error-messages.html#Cypress-detected-that-you-returned-a-promise-from-a-command-while-also-invoking-one-or-more-cy-commands-in-that-promise)
+
+Avoid `async` test functions to keep test results reliable.
 
 ## Rule Details
 

@@ -1,7 +1,9 @@
 {
   "configMigration": true,
-  "dependencyDashboard": true,
-  "extends": ["config:recommended"],
+  "dependencyDashboard": {
+    "enabled": true
+  },
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
   "automerge": true,
   "major": {
     "automerge": false
@@ -18,9 +20,6 @@
     "enabled": true
   },
   "labels": ["type: dependencies", "renovate"],
-  "circleci": {
-    "managerFilePatterns": ["circle.yml"]
-  },
   "packageRules": [
     {
       "matchDepTypes": ["peerDependencies"],
@@ -35,9 +34,8 @@
       "minimumReleaseAge": "0 days"
     },
     {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["cimg/node"],
-      "allowedVersions": "<25"
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "minimumReleaseAge": null
     },
     {
       "matchPackageNames": ["typescript"],

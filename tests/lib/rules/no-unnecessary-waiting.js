@@ -42,6 +42,12 @@ ruleTester.run('no-unnecessary-waiting', rule, {
     { code: 'import { FOO_BAR } from "foo-bar"; cy.wait(FOO_BAR)' },
     { code: 'import * as wildcard from "wildcard"; cy.wait(wildcard.value)' },
     { code: 'import { NAME as OTHER_NAME } from "rename"; cy.wait(OTHER_NAME)' },
+
+    // Globals: the value is unknown, so don't fail (and don't crash)
+    { code: 'cy.wait(WAIT_MS)' },
+    { code: 'cy.wait(WAIT_MS)', languageOptions: { globals: { WAIT_MS: 'readonly' } } },
+    { code: '/* global WAIT_MS */ cy.wait(WAIT_MS)' },
+    { code: 'function customWait () { cy.wait(WAIT_MS) }' },
   ],
 
   invalid: [
