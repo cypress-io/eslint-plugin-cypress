@@ -1,0 +1,173 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # Never cancel a run on master, so that a release is not interrupted
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+env:
+  CYPRESS_INSTALL_BINARY: 0
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check actions are pinned to full-length commit SHAs
+        run: |
+          unpinned=$(grep -rnE '^\s*(-\s*)?uses:' .github/workflows \
+            | grep -vE 'uses:\s*\./' \
+            | grep -vE 'uses:\s*\S+@[0-9a-f]{40}(\s|$)' || true)
+          if [ -n "$unpinned" ]; then
+            echo "::error::Actions and reusable workflows must be pinned to a full-length commit SHA:"
+            echo "$unpinned"
+            exit 1
+          fi
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Show ESLint version
+        run: npx eslint --version
+      - name: Lint code with ESLint
+        run: npm run lint
+      - name: Lint code with Prettier
+        run: npm run format:check
+      - name: Lint code with eslint-doc-generator
+        run: npx eslint-doc-generator --check
+
+  test-v10:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install ESLint 10
+        run: npm install eslint@10
+      - name: Show ESLint version
+        run: npx eslint --version
+      - name: Test ESLint 10
+        run: npm test
+
+  build-test-project:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build tarball
+        run: npm pack
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: plugin-tarball
+          path: eslint-plugin-cypress-*.tgz
+          if-no-files-found: error
+          retention-days: 1
+
+  test-project:
+    name: test-project (eslint ${{ matrix.eslint-version }}, ${{ matrix.config-file }})
+    needs: build-test-project
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        eslint-version:
+          - '10'
+        # configurations correspond to examples in README
+        config-file:
+          - globals
+          - one-rule
+          - recommended
+          - typed
+        typescript-eslint-parser-version:
+          - latest
+    defaults:
+      run:
+        working-directory: test-project
+    env:
+      ESLINT_VERSION: ${{ matrix.eslint-version }}
+      CONFIG_FILE: ${{ matrix.config-file }}
+      TYPESCRIPT_ESLINT_PARSER_VERSION: ${{ matrix.typescript-eslint-parser-version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: plugin-tarball
+          path: test-project
+      - name: Install dependencies
+        run: |
+          npm install \
+            "eslint@$ESLINT_VERSION" \
+            "@typescript-eslint/parser@$TYPESCRIPT_ESLINT_PARSER_VERSION" \
+            ./eslint-plugin-cypress-*.tgz -D
+      - name: Display ESLint version
+        run: npx eslint --version
+      - name: Lint with example configuration
+        run: |
+          echo "Testing a $CONFIG_FILE configuration"
+          npx eslint --config "./eslint-configs/eslint.$CONFIG_FILE.mjs" .
+
+  release:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs:
+      - lint
+      - test-v10
+      - test-project
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write # create GitHub releases and tags
+      issues: write # comment on released issues
+      pull-requests: write # comment on released pull requests
+      id-token: write # npm trusted publishing (OIDC)
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # semantic-release needs the full history and tags
+          # semantic-release authenticates its own git pushes with GITHUB_TOKEN
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run semantic release
+        run: npx semantic-release@25.0.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

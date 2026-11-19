@@ -24,7 +24,7 @@ npm uninstall cypress --no-package-lock
 
 ## Tests
 
-Tests are run via [circle.yml](../circle.yml).
+Tests are run via the GitHub Actions workflow [.github/workflows/main.yml](../.github/workflows/main.yml).
 
 To test the project locally:
 
@@ -36,5 +36,5 @@ npx eslint --config eslint-configs/eslint.recommended.mjs
 ```
 
 Do not commit the changes from installing the above dependencies.
-The CircleCI pipeline dynamically installs the latest `eslint*` dependencies.
-Cypress is not needed for the CircleCI tests.
+The CI workflow dynamically installs the latest `eslint*` dependencies.
+Cypress is not needed for the CI tests.
