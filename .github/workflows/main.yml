@@ -21,11 +21,24 @@ env:
 jobs:
   lint:
     runs-on: ubuntu-24.04
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: 24.22.2
+          persist-credentials: false
+      - name: Check actions are pinned to full-length commit SHAs
+        run: |
+          unpinned=$(grep -rnE '^\s*(-\s*)?uses:' .github/workflows \
+            | grep -vE 'uses:\s*\./' \
+            | grep -vE 'uses:\s*\S+@[0-9a-f]{40}(\s|$)' || true)
+          if [ -n "$unpinned" ]; then
+            echo "::error::Actions and reusable workflows must be pinned to a full-length commit SHA:"
+            echo "$unpinned"
+            exit 1
+          fi
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
           cache: npm
       - name: Install dependencies
         run: npm ci
@@ -40,11 +53,14 @@ jobs:
 
   test-v10:
     runs-on: ubuntu-24.04
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: 24.22.2
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
           cache: npm
       - name: Install dependencies
         run: npm ci
@@ -57,17 +73,20 @@ jobs:
 
   build-test-project:
     runs-on: ubuntu-24.04
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: 24.22.2
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
           cache: npm
       - name: Install dependencies
         run: npm ci
       - name: Build tarball
         run: npm pack
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: plugin-tarball
           path: eslint-plugin-cypress-*.tgz
@@ -78,6 +97,7 @@ jobs:
     name: test-project (eslint ${{ matrix.eslint-version }}, ${{ matrix.config-file }})
     needs: build-test-project
     runs-on: ubuntu-24.04
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
@@ -94,27 +114,33 @@ jobs:
     defaults:
       run:
         working-directory: test-project
+    env:
+      ESLINT_VERSION: ${{ matrix.eslint-version }}
+      CONFIG_FILE: ${{ matrix.config-file }}
+      TYPESCRIPT_ESLINT_PARSER_VERSION: ${{ matrix.typescript-eslint-parser-version }}
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: 24.22.2
-      - uses: actions/download-artifact@v8
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: plugin-tarball
           path: test-project
       - name: Install dependencies
         run: |
           npm install \
-            eslint@${{ matrix.eslint-version }} \
-            @typescript-eslint/parser@${{ matrix.typescript-eslint-parser-version }} \
+            "eslint@$ESLINT_VERSION" \
+            "@typescript-eslint/parser@$TYPESCRIPT_ESLINT_PARSER_VERSION" \
             ./eslint-plugin-cypress-*.tgz -D
       - name: Display ESLint version
         run: npx eslint --version
       - name: Lint with example configuration
         run: |
-          echo "Testing a ${{ matrix.config-file }} configuration"
-          npx eslint --config ./eslint-configs/eslint.${{ matrix.config-file }}.mjs .
+          echo "Testing a $CONFIG_FILE configuration"
+          npx eslint --config "./eslint-configs/eslint.$CONFIG_FILE.mjs" .
 
   release:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
@@ -123,18 +149,21 @@ jobs:
       - test-v10
       - test-project
     runs-on: ubuntu-24.04
+    timeout-minutes: 15
     permissions:
       contents: write # create GitHub releases and tags
       issues: write # comment on released issues
       pull-requests: write # comment on released pull requests
       id-token: write # npm trusted publishing (OIDC)
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0 # semantic-release needs the full history and tags
-      - uses: actions/setup-node@v7
+          # semantic-release authenticates its own git pushes with GITHUB_TOKEN
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: 24.22.2
+          node-version-file: .node-version
           cache: npm
       - name: Install dependencies
         run: npm ci

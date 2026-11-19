@@ -3,7 +3,7 @@
   "dependencyDashboard": {
     "enabled": true
   },
-  "extends": ["config:recommended"],
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
   "automerge": true,
   "major": {
     "automerge": false
@@ -36,11 +36,6 @@
     {
       "matchUpdateTypes": ["lockFileMaintenance"],
       "minimumReleaseAge": null
-    },
-    {
-      "matchManagers": ["github-actions"],
-      "matchDepNames": ["node"],
-      "allowedVersions": "<25"
     },
     {
       "matchPackageNames": ["typescript"],

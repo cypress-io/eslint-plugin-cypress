@@ -5,5 +5,5 @@ on:
       - created
 jobs:
   closed-issue-comment:
-    uses: cypress-io/cypress/.github/workflows/triage_handle_new_comments.yml@develop
+    uses: cypress-io/cypress/.github/workflows/triage_handle_new_comments.yml@e3aa40395e85ed039c706c0397bf0296b248f984 # develop
     secrets: inherit
