@@ -1,7 +1,10 @@
 'use strict'
 
+const plugin = require('../../../lib/index')
 const rule = require('../../../lib/rules/no-unnecessary-assertions')
 const RuleTester = require('eslint').RuleTester
+
+const pluginGlobals = { globals: plugin.configs.globals.languageOptions.globals }
 
 const ruleTester = new RuleTester()
 
@@ -41,7 +44,60 @@ ruleTester.run('no-unnecessary-assertions', rule, {
       'expect(cy.get(\'.badge\')).to.be.an(/object/)',
       'expect(cy.get(\'.badge\')).to.be.an(\'object\').and.to.exist',
       'expect(cy.get(\'.badge\')).to.be.an(\'object\').not.to.be.null',
+      // Queries that need a subject throw when called on `cy`. That is a
+      // different mistake, which `.should('exist')` would only hide.
+      'expect(cy.find(\'.badge\')).to.exist',
+      'expect(cy.first()).to.exist',
+      'expect(cy.children(\'.row\').first()).to.be.ok',
+      'expect(cy.shadow().find(\'.badge\')).to.exist',
+      // Only Chai's own expect is recognized.
+      'const { expect } = require(\'custom\'); expect(cy.get(\'.badge\')).to.exist',
+      'const { assert: expect } = require(\'chai\'); expect(cy.get(\'.badge\')).to.exist',
+      'const { expect = custom } = require(\'chai\'); expect(cy.get(\'.badge\')).to.exist',
+      'let { expect } = require(\'chai\'); expect = custom; expect(cy.get(\'.badge\')).to.exist',
+      'function check(require) { const { expect } = require(\'chai\'); expect(cy.get(\'.badge\')).to.exist }',
+      'import { assert as expect } from \'chai\'; expect(cy.get(\'.badge\')).to.exist',
+      'import { \'assert\' as expect } from \'chai\'; expect(cy.get(\'.badge\')).to.exist',
+      'import chai from \'custom\'; chai.expect(cy.get(\'.badge\')).to.exist',
+      'import { chai } from \'chai\'; chai.expect(cy.get(\'.badge\')).to.exist',
+      'const chai = require(\'custom\'); chai.expect(cy.get(\'.badge\')).to.exist',
+      'const chai = custom; chai.expect(cy.get(\'.badge\')).to.exist',
+      'function check(chai) { chai.expect(cy.get(\'.badge\')).to.exist }',
+      'chai = custom; chai.expect(cy.get(\'.badge\')).to.exist',
+      'chai?.expect(cy.get(\'.badge\')).to.exist',
+      'chai[\'expect\'](cy.get(\'.badge\')).to.exist',
+      'custom.expect(cy.get(\'.badge\')).to.exist',
+      'chai.assert(cy.get(\'.badge\')).to.exist',
+      // `chai` is trusted only while every use of it is a method call. Any
+      // other use could replace its expect.
+      'chai.expect = custom; chai.expect(cy.get(\'.badge\')).to.exist',
+      'chai[\'expect\'] = custom; chai.expect(cy.get(\'.badge\')).to.exist',
+      'chai[`expect`] = custom; chai.expect(cy.get(\'.badge\')).to.exist',
+      'chai[key] = custom; chai.expect(cy.get(\'.badge\')).to.exist',
+      'delete chai.expect; chai.expect(cy.get(\'.badge\')).to.exist',
+      '({ expect: chai.expect } = custom); chai.expect(cy.get(\'.badge\')).to.exist',
+      '[chai.expect] = custom; chai.expect(cy.get(\'.badge\')).to.exist',
+      'Object.assign(chai, { expect: custom }); chai.expect(cy.get(\'.badge\')).to.exist',
+      'const alias = chai; chai.expect(cy.get(\'.badge\')).to.exist',
+      'chai.expect(cy.get(\'.badge\')).to.exist; function replace() { chai.expect = custom }',
+      'import chai from \'chai\'; chai.expect = custom; chai.expect(cy.get(\'.badge\')).to.exist',
+      'import * as chai from \'chai\'; Object.assign(chai, custom); chai.expect(cy.get(\'.badge\')).to.exist',
+      'const chai = require(\'chai\'); chai.expect = custom; chai.expect(cy.get(\'.badge\')).to.exist',
+      'const chai = require(\'chai\'); ({ expect: chai.expect } = custom); chai.expect(cy.get(\'.badge\')).to.exist',
     ].map((code) => ({ code })),
+    // With the plugin's globals, a reassigned `cy` is still not Cypress.
+    {
+      code: 'cy = client; expect(cy.get(\'.x\')).to.exist',
+      languageOptions: pluginGlobals,
+    },
+    {
+      code: 'chai = custom; chai.expect(cy.get(\'.x\')).to.exist',
+      languageOptions: pluginGlobals,
+    },
+    {
+      code: 'chai.expect = custom; chai.expect(cy.get(\'.x\')).to.exist',
+      languageOptions: pluginGlobals,
+    },
     // The idiomatic form: assert through the command chain, which retries and
     // resolves the element.
     { code: 'cy.get(\'.badge\').should(\'exist\')' },
@@ -81,9 +137,68 @@ ruleTester.run('no-unnecessary-assertions', rule, {
   ],
 
   invalid: [
+    // The plugin's own globals configuration.
     {
-      code: 'import { expect } from \'chai\'; expect(cy.get(\'.badge\')).to.exist',
-      output: 'import { expect } from \'chai\'; cy.get(\'.badge\').should(\'exist\')',
+      code: 'expect(cy.get(\'.x\')).to.exist',
+      output: 'cy.get(\'.x\').should(\'exist\')',
+      languageOptions: pluginGlobals,
+      errors,
+    },
+    {
+      code: 'chai.expect(cy.get(\'.x\')).to.exist',
+      output: 'cy.get(\'.x\').should(\'exist\')',
+      languageOptions: pluginGlobals,
+      errors,
+    },
+    // Every way of reaching Chai's expect. The fix rewrites the assertion only:
+    // an import or require that it leaves unused is not removed.
+    ...[
+      'import { expect } from \'chai\'; expect(cy.get(\'.badge\')).to.exist',
+      'import { \'expect\' as expect } from \'chai\'; expect(cy.get(\'.badge\')).to.exist',
+      'import chai, { assert, expect } from \'chai\'; expect(cy.get(\'.badge\')).to.exist',
+      'const { expect } = require(\'chai\'); expect(cy.get(\'.badge\')).to.exist',
+      'const { \'expect\': expect } = require(\'chai\'); expect(cy.get(\'.badge\')).to.exist',
+      'const { assert, expect } = require(\'chai\'); expect(cy.get(\'.badge\')).to.exist',
+      'import chai from \'chai\'; chai.expect(cy.get(\'.badge\')).to.exist',
+      'import * as chai from \'chai\'; chai.expect(cy.get(\'.badge\')).to.exist',
+      'const chai = require(\'chai\'); chai.expect(cy.get(\'.badge\')).to.exist',
+      'chai.expect(cy.get(\'.badge\')).to.exist',
+      '/* global chai */ chai.expect(cy.get(\'.badge\')).to.exist',
+      // Direct calls to other Chai methods keep `chai.expect` recognized.
+      'chai.use(plugin); chai.expect(cy.get(\'.badge\')).to.exist',
+      'import chai from \'chai\'; chai.should(); chai.expect(cy.get(\'.badge\')).to.exist',
+    ].map((code) => ({
+      code,
+      output: code.replace(/(chai\.)?expect\(cy.*/, 'cy.get(\'.badge\').should(\'exist\')'),
+      errors,
+    })),
+    // Each report fixes its own assertion and nothing else.
+    {
+      code: 'import { expect } from \'chai\'\nexpect(cy.get(\'.a\')).to.exist\n// eslint-disable-next-line rule-to-test/no-unnecessary-assertions\nexpect(cy.get(\'.b\')).to.be.ok\n',
+      output: 'import { expect } from \'chai\'\ncy.get(\'.a\').should(\'exist\')\n// eslint-disable-next-line rule-to-test/no-unnecessary-assertions\nexpect(cy.get(\'.b\')).to.be.ok\n',
+      errors,
+    },
+    // Nested assertions are separate fixes. ESLint applies the outer one first.
+    {
+      code: 'import { expect } from \'chai\'; expect(cy.get(\'.a\').filter(() => { expect(cy.get(\'.b\')).to.exist })).to.exist',
+      output: 'import { expect } from \'chai\'; cy.get(\'.a\').filter(() => { expect(cy.get(\'.b\')).to.exist }).should(\'exist\')',
+      errors: [...errors, ...errors],
+    },
+    // A selector in a template literal without expressions is as static as a
+    // string literal.
+    {
+      code: 'expect(cy.get(`.badge`)).to.exist',
+      output: 'cy.get(`.badge`).should(\'exist\')',
+      errors,
+    },
+    ...[
+      'expect(cy.get(`@value`)).to.exist',
+      'expect(cy.get(`.${name}`)).to.exist',
+      'expect(cy.get(tag`.badge`)).to.exist',
+    ].map((code) => ({ code, output: null, errors })),
+    {
+      code: 'expect(cy.root().find(\'.badge\')).to.exist',
+      output: 'cy.root().find(\'.badge\').should(\'exist\')',
       errors,
     },
     {
@@ -190,6 +305,9 @@ const typescriptRuleTester = new RuleTester({
 typescriptRuleTester.run('no-unnecessary-assertions (TypeScript)', rule, {
   valid: [
     'import type { expect } from \'chai\'; expect(cy.get(\'.badge\')).to.exist',
+    // Import-equals declarations are not supported, and must not crash.
+    'import chai = require(\'chai\'); chai.expect(cy.get(\'.badge\')).to.exist',
+    'import expect = require(\'chai\'); expect(cy.get(\'.badge\')).to.exist',
     'function check(cy: CustomClient) { expect(cy.get(\'.badge\')).to.exist }',
     'expect((cy.get(\'.badge\') as Cypress.Chainable)).to.have.property(\'missing\').and.to.exist',
   ],
