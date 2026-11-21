@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@stylistic/eslint-plugin": "^5.10.0",
+    "@stylistic/eslint-plugin": "^6.0.0",
     "@typescript-eslint/rule-tester": "^8.72.2",
     "cypress": "^16.3.0",
     "eslint": "^10.15.0",
