@@ -21,8 +21,9 @@ export default defineConfig([
     rules: {
       'no-redeclare': 'off',
       '@stylistic/arrow-parens': ['error', 'always'],
-      '@stylistic/indent': ['error', 2],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
+      '@stylistic/indent': ['error', 2],
+      '@stylistic/list-style': 'off',
       '@stylistic/quotes': ['error', 'single'],
       '@stylistic/semi': ['error', 'never'],
       'eslint-plugin/require-meta-docs-url':
