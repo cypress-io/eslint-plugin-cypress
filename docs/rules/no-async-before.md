@@ -31,6 +31,14 @@ describe('my feature', () => {
 })
 ```
 
+```js
+describe('my feature', () => {
+  beforeEach(async () => {
+    await cy.visit('/')
+  })
+})
+```
+
 Examples of **correct** code for this rule:
 
 ```js
